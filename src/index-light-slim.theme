@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Pocillo-Slim-Light
+Comment=The Pocillo GTK Theme, based on Flat-Plat, Slim Light Titlebar variant
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Pocillo-Slim-Light
+MetacityTheme=Pocillo-Slim-Light
+IconTheme=Pocillo
+CursorTheme=Pocillo
+CursorSize=24
