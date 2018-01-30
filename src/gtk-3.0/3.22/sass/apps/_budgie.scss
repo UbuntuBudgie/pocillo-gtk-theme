@@ -76,6 +76,20 @@ button.budgie-menu-launcher {
   color: $inverse_fg_color;
 }
 
+// budgie specific popover widgets
+.budgie-popover {
+  border-style: none;
+  border-width: 1px;
+  border-color: $border-color;
+  border-radius: 1px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.28);
+  background-color: $bg_color;
+
+  .container { padding: 2px; }
+
+  border { border: none; }
+}
+
 // User Menu
 popover.background.user-menu {
   padding: 8px;

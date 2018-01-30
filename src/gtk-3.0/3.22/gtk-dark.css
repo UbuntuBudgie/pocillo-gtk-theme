@@ -4803,6 +4803,23 @@ button.budgie-menu-launcher {
   color: #FFFFFF;
 }
 
+.budgie-popover {
+  border-style: none;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.26);
+  border-radius: 1px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.28);
+  background-color: #2d303b;
+}
+
+.budgie-popover .container {
+  padding: 2px;
+}
+
+.budgie-popover border {
+  border: none;
+}
+
 popover.background.user-menu {
   padding: 8px;
 }
