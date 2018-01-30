@@ -528,8 +528,8 @@ widget > box.workspace-switcher {
       }
 
       button.workspace-icon-button {
-        min-width: 24;
-        min-height: 24;
+        min-width: 24px;
+        min-height: 24px;
         padding: 4px;
         border-radius: 2px;
 
@@ -565,8 +565,8 @@ widget > box.workspace-switcher {
   // 'plus' button
   button.image-button.workspace-add-button { // expanded?
     @extend %button_basic;
-    min-width: 24;
-    min-height: 24;
+    min-width: 24px;
+    min-height: 24px;
     padding: 4px;
     border-radius: 0;
     color: $inverse_fg_color;

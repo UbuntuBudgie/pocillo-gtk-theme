@@ -94,3 +94,9 @@ Here's an example to change the _accent color_:
 - [Material Design Guidelines](https://www.material.io/guidelines/)
 - [Personal CSS Guidelines](https://github.com/nana-4/materia-theme/wiki/CSS-Guidelines)
 - [The GTK+ Inspector](https://blog.gtk.org/2017/04/05/the-gtk-inspector/)
+
+#### Notes
+
+Fork from https://github.com/pop-os/gtk-theme
+
+Last merge commit 30/01/18 - Make headerbars slightly larger 

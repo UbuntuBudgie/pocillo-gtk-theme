@@ -5244,8 +5244,8 @@ widget > box.workspace-switcher > box.workspace-layout widget.workspace-item.cur
 }
 
 widget > box.workspace-switcher > box.workspace-layout widget.workspace-item button.workspace-icon-button {
-  min-width: 24;
-  min-height: 24;
+  min-width: 24px;
+  min-height: 24px;
   padding: 4px;
   border-radius: 2px;
 }
@@ -5280,8 +5280,8 @@ widget > box.workspace-switcher > box.workspace-layout widget.workspace-item.cur
 }
 
 widget > box.workspace-switcher button.image-button.workspace-add-button {
-  min-width: 24;
-  min-height: 24;
+  min-width: 24px;
+  min-height: 24px;
   padding: 4px;
   border-radius: 0;
   color: #FFFFFF;
