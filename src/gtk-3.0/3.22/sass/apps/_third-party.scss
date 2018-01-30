@@ -104,7 +104,7 @@ window.background:not(.csd) {
   > menu > menu { border: none; }
 
   button label {
-    color: rgba($fg_color, 1.0);
+//    color: rgba($fg_color, 1.0);   // This is overriding all labels including the panel
   }
 }
 

@@ -131,8 +131,8 @@ flowbox rubberband,
 .content-view rubberband,
 .content-view .rubberband,
 treeview.view rubberband {
-  border: 1px solid #deeaf9;
-  background-color: rgba(222, 234, 249, 0.3);
+  border: 1px solid #5294e2;
+  background-color: rgba(82, 148, 226, 0.3);
 }
 
 flowbox flowboxchild {
@@ -1929,7 +1929,7 @@ scrolledwindow viewport.frame {
 }
 
 overshoot.top {
-  background-image: -gtk-gradient(radial, center top, 0, center top, 0.75, to(rgba(222, 234, 249, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, center top, 0, center top, 0.75, to(rgba(82, 148, 226, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: center top;
   background-color: transparent;
@@ -1938,7 +1938,7 @@ overshoot.top {
 }
 
 overshoot.bottom {
-  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.75, to(rgba(222, 234, 249, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.75, to(rgba(82, 148, 226, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: center bottom;
   background-color: transparent;
@@ -1947,7 +1947,7 @@ overshoot.bottom {
 }
 
 overshoot.left {
-  background-image: -gtk-gradient(radial, left center, 0, left center, 0.75, to(rgba(222, 234, 249, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, left center, 0, left center, 0.75, to(rgba(82, 148, 226, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: left center;
   background-color: transparent;
@@ -1956,7 +1956,7 @@ overshoot.left {
 }
 
 overshoot.right {
-  background-image: -gtk-gradient(radial, right center, 0, right center, 0.75, to(rgba(222, 234, 249, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, right center, 0, right center, 0.75, to(rgba(82, 148, 226, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: right center;
   background-color: transparent;
@@ -4191,10 +4191,6 @@ window.background:not(.csd) > menu > menu {
   border: none;
 }
 
-window.background:not(.csd) button label {
-  color: #15161c;
-}
-
 window.background:not(.csd) > widget > menubar {
   color: rgba(21, 22, 28, 0.54);
 }
@@ -4563,7 +4559,7 @@ MatePanelAppletFrameDBus {
 
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: #deeaf9;
+  color: #5294e2;
 }
 
 PanelApplet.wnck-applet .wnck-pager:hover {
@@ -4804,6 +4800,7 @@ na-tray-applet {
 
 button.budgie-menu-launcher {
   padding: 0 2px;
+  color: #FFFFFF;
 }
 
 popover.background.user-menu {
@@ -4826,6 +4823,7 @@ popover.background.user-menu row {
 
 button.raven-trigger {
   padding: 0 4px;
+  color: #FFFFFF;
 }
 
 popover.background.places-menu {
