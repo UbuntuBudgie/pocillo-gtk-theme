@@ -99,7 +99,7 @@ install:
 	      main.rc \
 	      xfce-notify.rc \
 	      panel.rc \
-	      menubar-toolbar/menubar-toolbar-dark.rc \
+	      menubar-toolbar \
 	      $$themedir/gtk-2.0; \
 	    if [ "$$color" != '-dark' ]; then \
 	      cp -ur \
