@@ -157,9 +157,21 @@ popover.background.places-menu {
 
   button {
     border-radius: 0;
-
+    color: $inverse_fg_color;
     @extend %button_selected.flat;
   }
+
+  & .horizontal.titlebar { //budgie-pixel-saver applet
+          background-color: transparent;
+          border: none;
+          min-height: 0px;
+          color: $inverse_fg_color;
+          box-shadow: none;
+          
+          & .image-button.titlebutton.close {
+            background-color: transparent;
+          }
+      }
 
   // transparent-mode
   &.transparent {

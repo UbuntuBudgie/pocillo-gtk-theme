@@ -4872,6 +4872,19 @@ popover.background.places-menu row {
 
 .budgie-panel button {
   border-radius: 0;
+  color: #FFFFFF;
+}
+
+.budgie-panel .horizontal.titlebar {
+  background-color: transparent;
+  border: none;
+  min-height: 0px;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+.budgie-panel .horizontal.titlebar .image-button.titlebutton.close {
+  background-color: transparent;
 }
 
 .budgie-panel.transparent {
