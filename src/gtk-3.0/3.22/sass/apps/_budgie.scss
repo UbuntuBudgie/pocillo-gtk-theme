@@ -316,14 +316,14 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
     @extend %button_selected.flat;
 
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $warning_bg_color 0%,
+                                  $purple_400 0%,
                                   transparent 0%)
                                   0 0 0 / 0 0 0px;
     border-radius: 0;
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $warning_bg_color 100%,
+                                    $purple_400 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;

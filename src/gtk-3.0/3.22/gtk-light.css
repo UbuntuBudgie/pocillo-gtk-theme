@@ -5043,12 +5043,12 @@ frame.raven-frame > border {
 }
 
 .raven stackswitcher.linked > button {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #ffce51 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #c450d8 0%, transparent 0%) 0 0 0/0 0 0px;
   border-radius: 0;
 }
 
 .raven stackswitcher.linked > button:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #ffce51 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #c450d8 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
 
