@@ -1,0 +1,3 @@
+src/gtk-3.0/*/*.css
+src/gnome-shell/*/*.css
+src/gnome-shell/*/*/*/*.css

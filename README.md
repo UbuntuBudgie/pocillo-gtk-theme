@@ -28,37 +28,45 @@ GTK+3.22.x
  - Gtk+-2.0             >= 2.24.30
  - gtk2-engines-pixbuf  >= 2.24.30
  - gtk2-engines-murrine >= 0.98.1
- 
+
 # Supported Desktop Environments
 ----
- 
+
   - Budgie Desktop >= 10.4
-  
+
 # Installation
 ----
 
 Install the following packages using your package management system:
 
  inkscape, optipng, gtk2-engines-pixbuf, gtk2-engines-murrine, git, libsass0, sassc
- 
+
 Remove previous versions first:
 
     sudo rm -rf /usr/share/themes/Pocillo*
- 
+
     git clone https://github.com/ubuntubudgie/pocillo-gtk-theme
     cd pocillo-gtk-theme
     make
     sudo make install
-    
+
 # Development
 
- For GTK+3 changes, edit the .scss files and compile:
- 
+ After cloning run a full make to generate all CSS files:
+
+ make all
+
+ For editing GTK+3, edit the .scss files and compile:
+
     make gtk3
-    
+
  Install:
- 
+
     sudo make install
+
+ Alternatively - if just editing GTK+3 you can compile, install and apply the theme by running
+
+ ./apply
 
 # Special Thanks to
 ----
