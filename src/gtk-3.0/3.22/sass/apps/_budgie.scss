@@ -428,7 +428,7 @@ calendar.raven-calendar {
   background-color: rgba($black, $middle_opacity);
   color: $inverse_fg_color;
 
-  label { min-height: $large_size; }
+  label { min-height: $medium_size; }
 
   button.image-button {
     padding: $standard_padding;
