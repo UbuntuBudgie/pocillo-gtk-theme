@@ -19,7 +19,7 @@ assets: recolor
 	cd ./src/gtk-2.0/ && find . -type f -name *.png -exec rm -v '{}' + > /dev/null
 	cd ./src/gtk-3.0/gtk-common/ && ./render-assets.sh > /dev/null
 	cd ./src/gtk-2.0/ && ./render-assets.sh > /dev/null
-#	cd ./src/gtk-2.0/ && ./render-assets-dark.sh > /dev/null
+	cd ./src/gtk-2.0/ && ./render-assets-dark.sh > /dev/null
 
 clean:
 	-rm -rf ./src/gtk-2.0/assets/*.png
@@ -47,7 +47,7 @@ install:
 	  for size in $(SIZE_VARIANTS); do \
 	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
 	    install -d $$themedir; \
-	    cp -ur COPYING $$themedir; \
+#	    cp -ur COPYING $$themedir; \
 	    cp -ur src/index$$color$$size.theme $$themedir/index.theme; \
 	  done; \
 	done
