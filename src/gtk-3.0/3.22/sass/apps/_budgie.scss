@@ -4,7 +4,7 @@
 /******************
  * Budgie Desktop *
  ******************/
- 
+
 @function gtkopacity($c, $a) {
   @return scale-color($c, $alpha: percentage(-1 + $a));
 }
@@ -30,7 +30,7 @@
     background: none;
     box-shadow: none;
   }
-  
+
   scrollbar,
   entry.search { background-color: transparent; }
 
@@ -166,7 +166,7 @@ popover.background.places-menu {
   background-color: if($variant == 'light',
                                    $brown_700,
                                    lighten($brown_800, 5%));
-  color: $white;
+  color: $inverse_fg_color;
   font-weight: 500;
 
   button {
@@ -181,7 +181,7 @@ popover.background.places-menu {
           min-height: 0px;
           color: $inverse_fg_color;
           box-shadow: none;
-          
+
           & .image-button.titlebutton.close {
             background-color: transparent;
           }
@@ -438,12 +438,39 @@ calendar.raven-calendar {
 }
 
 // Notifications
-.budgie-notification-window { background-color: transparent; }
+.budgie-notification-window {
+  background-color: transparent;
+
+  border-radius: 2px;
+  color: $inverse_fg_color;
+
+  button.image-button {
+    color: $inverse_fg_color;
+    @extend %button_selected.flat;
+  }
+
+  > box {
+    background-color: if($variant == 'light',
+								   $brown_700,
+								   lighten($brown_800, 5%));
+	color: $inverse_fg_color;
+    > grid {
+      background-color: if($variant == 'light',
+								   $brown_700,
+								   lighten($brown_800, 5%));
+	  color: $inverse_fg_color;
+      }
+   }
+ }
 
 .budgie-notification {
-  .notification-title { font-size: 120%; }
+  .notification-title {
+	  font-size: 120%;
+  }
 
-  .notification-body { @extend .dim-label; }
+  .notification-body {
+    @extend .dim-label;
+  }
 }
 
 // On Screen Display in Budgie
