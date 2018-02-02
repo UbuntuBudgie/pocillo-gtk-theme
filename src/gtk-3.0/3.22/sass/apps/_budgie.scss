@@ -454,11 +454,13 @@ calendar.raven-calendar {
 								   $brown_700,
 								   lighten($brown_800, 5%));
 	color: $inverse_fg_color;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.28);
     > grid {
       background-color: if($variant == 'light',
 								   $brown_700,
 								   lighten($brown_800, 5%));
 	  color: $inverse_fg_color;
+
       }
    }
  }
