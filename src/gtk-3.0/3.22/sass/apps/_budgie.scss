@@ -444,9 +444,9 @@ calendar.raven-calendar {
   border-radius: 2px;
   color: $inverse_fg_color;
 
-  button.image-button {
-    color: $inverse_fg_color;
-    @extend %button_selected.flat;
+  button {
+      color: $inverse_fg_color;
+      @extend %button_selected.flat;
   }
 
   > box {
