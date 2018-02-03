@@ -71,7 +71,7 @@ $fill_color:      gtkalpha(currentColor, $lower_opacity);
 $semi_fill_color: gtkalpha(currentColor, $lower_opacity / 2);
 $row_fill_color:  gtkalpha(currentColor, 0.05);
 
-$modal_button_color: if($variant == 'light', $orange_300, $orange_600);
+$modal_button_color: if($variant == 'light', $red_500, $red_600);
 
 // Misc colors
 $primary_color:         $blue_500; //if($variant == 'light', $blue_500, $blue_600);
