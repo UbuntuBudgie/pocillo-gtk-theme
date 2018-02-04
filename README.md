@@ -7,8 +7,8 @@ The theme exists with light, darker and dark styling together with
 slim styled or standard title-bars.
 
 The theme has been developed primarily for the Budgie Desktop.
-Forked from Pop GTK Theme which itself is forked from Materia,
-it inherits GNOME and XFCE styling elements.
+
+Forked from [Pop GTK theme](https://github.com/pop-os/gtk-theme) which itself is forked from [Materia GTK theme](https://github.com/nana-4/materia-theme), it inherits GNOME and XFCE styling elements.
 
 Contributions are welcome for all desktop environments
 
@@ -38,11 +38,13 @@ GTK+3.22.x
 
 Install the following packages using your package management system:
 
- inkscape, optipng, gtk2-engines-pixbuf, gtk2-engines-murrine, git, libsass0, sassc
+    inkscape, optipng, gtk2-engines-pixbuf, gtk2-engines-murrine, git, libsass0, sassc
 
 Remove previous versions first:
 
     sudo rm -rf /usr/share/themes/Pocillo*
+
+Download and install Pocillo theme:
 
     git clone https://github.com/ubuntubudgie/pocillo-gtk-theme
     cd pocillo-gtk-theme
@@ -66,10 +68,10 @@ Remove previous versions first:
 
  Alternatively - if just editing GTK+3 you can compile, install and apply the theme by running
 
- ./apply
+    ./apply
 
 
 ## Special Thanks to
 
-- nana-4, the developer of Materia
-- System76 for the pop-gtk-theme
+- [nana-4](https://github.com/nana-4), the developer of [Materia GTK theme]()
+- [System76](https://system76.com) for the [Pop GTK theme](https://github.com/pop-os/gtk-theme)
