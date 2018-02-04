@@ -56,7 +56,7 @@ Download and install Pocillo theme:
 
  After cloning run a full make to generate all CSS files:
 
- make all
+    make all
 
  For editing GTK+3, edit the .scss files and compile:
 
