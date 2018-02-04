@@ -1,8 +1,6 @@
 # Pocillo GTK Theme
-----
 
-
-GTK+3.22 based theme that has Material design elements and styled
+GTK+3.22 based theme that has Material Design elements and styled
 using the Arc colour palette.
 
 The theme exists with light, darker and dark styling together with
@@ -14,13 +12,14 @@ it inherits GNOME and XFCE styling elements.
 
 Contributions are welcome for all desktop environments
 
-# Public License
 
-GPL-2+
-SVG files are licensed under CC BY-SA 4.0
+## Public License
 
-# Required Components:
-----
+- GPLv2.0 or above
+- SVG files are licensed under CC BY-SA 4.0
+
+
+## Required Components:
 
 GTK+3.22.x
 
@@ -29,13 +28,13 @@ GTK+3.22.x
  - gtk2-engines-pixbuf  >= 2.24.30
  - gtk2-engines-murrine >= 0.98.1
 
-# Supported Desktop Environments
-----
+
+## Supported Desktop Environments
 
   - Budgie Desktop >= 10.4
 
-# Installation
-----
+
+## Installation
 
 Install the following packages using your package management system:
 
@@ -50,7 +49,8 @@ Remove previous versions first:
     make
     sudo make install
 
-# Development
+
+## Development
 
  After cloning run a full make to generate all CSS files:
 
@@ -68,7 +68,8 @@ Remove previous versions first:
 
  ./apply
 
-# Special Thanks to
-----
 
-Nan-4, the developer of Materia and Pop OS for the pop-gtk-theme
+## Special Thanks to
+
+- nana-4, the developer of Materia
+- System76 for the pop-gtk-theme
