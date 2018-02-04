@@ -8,8 +8,6 @@ slim styled or standard title-bars.
 
 The theme has been developed primarily for the Budgie Desktop.
 
-Forked from [Pop GTK theme](https://github.com/pop-os/gtk-theme) which itself is forked from [Materia GTK theme](https://github.com/nana-4/materia-theme), it inherits GNOME and XFCE styling elements.
-
 Contributions are welcome for all desktop environments
 
 
@@ -72,6 +70,8 @@ Download and install Pocillo theme:
 
 
 ## Special Thanks to
+
+Pocillo has been created from [Pop GTK theme](https://github.com/pop-os/gtk-theme) which itself is developed from [Materia GTK theme](https://github.com/nana-4/materia-theme); it inherits GNOME and XFCE styling elements from those projects.
 
 - [nana-4](https://github.com/nana-4), the developer of [Materia GTK theme]()
 - [System76](https://system76.com) for the [Pop GTK theme](https://github.com/pop-os/gtk-theme)
