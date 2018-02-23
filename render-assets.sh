@@ -16,39 +16,25 @@ gtk3() (
   ./render-assets.sh
 )
 
-gtk2_light() (
+gtk2() (
   cd src/gtk-2.0
   rm assets/*.png
   ./render-assets.sh
 )
 
-gtk2_dark() (
-  cd src/gtk-2.0
-  rm assets-dark/*.png
-  ./render-assets-dark.sh
-)
-
 case "${1}" in
   "")
     gtk3
-    gtk2_light
-    gtk2_dark
+    gtk2
     ;;
   gtk3)
     gtk3
     ;;
   gtk2)
-    gtk2_light
-    gtk2_dark
-    ;;
-  gtk2-light)
-    gtk2_light
-    ;;
-  gtk2-dark)
-    gtk2_dark
+    gtk2
     ;;
   *)
     echo "Unknown argument: '${1}'"
-    echo "Use 'gtk3', 'gtk2', 'gtk2-light' or 'gtk2-dark' as an argument."
+    echo "Use 'gtk3', or 'gtk2' as an argument."
     ;;
 esac

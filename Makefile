@@ -19,7 +19,6 @@ assets: recolor
 	cd ./src/gtk-2.0/ && find . -type f -name *.png -exec rm -v '{}' + > /dev/null
 	cd ./src/gtk-3.0/gtk-common/ && ./render-assets.sh > /dev/null
 	cd ./src/gtk-2.0/ && ./render-assets.sh > /dev/null
-	cd ./src/gtk-2.0/ && ./render-assets-dark.sh > /dev/null
 
 clean:
 	-rm -rf ./src/gtk-2.0/assets/*.png
