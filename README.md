@@ -36,7 +36,7 @@ GTK+3.22.x
 
 Install the following packages using your package management system:
 
-    inkscape, optipng, gtk2-engines-pixbuf, gtk2-engines-murrine, git, libsass0, sassc
+    sudo apt install inkscape optipng gtk2-engines-pixbuf gtk2-engines-murrine git libsass0 sassc make libglib2.0-dev-bin libxml2-utils
 
 Remove previous versions first:
 
