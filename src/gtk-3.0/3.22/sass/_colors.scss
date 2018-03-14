@@ -11,6 +11,10 @@
   @return mix($c, $grey_900, 50%);
 }
 
+@function gtkopacity($c, $a) {
+  @return scale-color($c, $alpha: percentage(-1 + $a));
+}
+
 // Foreground colors
 $dark_fg_color:   rgba($brown_700, 0.85);
 $light_fg_color:  rgba($white, 0.85);

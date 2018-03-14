@@ -5,10 +5,6 @@
  * Budgie Desktop *
  ******************/
 
-@function gtkopacity($c, $a) {
-  @return scale-color($c, $alpha: percentage(-1 + $a));
-}
-
 // Container for both the "panel" area and the shadow. Wise to keep
 // this transparent..
 .budgie-container { background-color: transparent; }
