@@ -305,12 +305,13 @@ na-tray-applet widget box widget {
         color: $inverse_fg_color;
         border-style: none;
         border-bottom: 1px solid $dark_fg_color;
-        border-radius: 1px;
+        box-shadow: none;
+        //border-radius: 1px;
   }
 
   & notebook {
         color: $inverse_fg_color;
-        background-color: gtkopacity($dark_fg_color, 0.8);
+        background-color: gtkopacity($dark_fg_color, 0.25);
   }
 
   /*& button {
