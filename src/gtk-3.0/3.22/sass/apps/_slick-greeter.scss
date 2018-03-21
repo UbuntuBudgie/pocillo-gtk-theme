@@ -68,14 +68,16 @@
 .lightdm button:focus,
 .lightdm entry:focus {
     border-color: gtkalpha (white, 0.9);
-    border-width: 1px;
-    border-style: solid;
-
+    border-width: 0px;
+    border-style: none;
+    background-color: gtkopacity(black, 0.15);
+    
     color: white;
 }
 
 .lightdm entry:selected {
     background-color: gtkalpha (white, 0.2);
+    border-bottom: 0px transparent;
 }
 
 @keyframes dashentry_spinner {
