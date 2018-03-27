@@ -1,7 +1,7 @@
 /***************************
  * Pocillo!_GTK+ Version 3.0.2 *
  ***************************/
- 
+
 // Base-sizes
 $mini_size: if($compact == 'false',4px, 2px);
 $tiny_size: if($compact == 'false', 12px, 10px);
@@ -9,7 +9,7 @@ $small_size: if($compact == 'false', 16px, 14px);
 $medium_size: if($compact == 'false', 24px, 20px);
 $large_size: if($compact == 'false', 32px, 28px);
 
-// Widgets - Define widget sizes here, and 
+// Widgets - Define widget sizes here, and
 // define custom sizes as derivative of these
 $border_size: 1px;
 $button_size: $medium_size;
@@ -20,7 +20,7 @@ $sidebar_placeholder_size: 4px;
 $separator_size: 1px;
 $headerbar-size: 40px;
 $headerbar_button_size: if($compact == 'false', 8px, 6px);
-$close_button_size: if($compact == 'false', 4px, 4px);
+$close_button_size: $small_size;
 $bar_size: 4px;
 $menuitem_size: $small_size;
 $shortcut_key_size: $medium_size;
@@ -57,7 +57,7 @@ $middle_opacity: 0.6;
 $lower_opacity: 0.3;
 
 
-// Everything below here is an old variable. 
+// Everything below here is an old variable.
 // They shouldn't be used for new development.
 
 /*
