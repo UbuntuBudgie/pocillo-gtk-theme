@@ -6,6 +6,7 @@ BASE_DIR=/usr/share/themes
 REPODIR=$(CURDIR)
 SRCDIR=$(REPODIR)/src
 GNOMEVER=3.26
+OLDESTGTK=3.22
 
 all: sass assets
 
@@ -120,6 +121,7 @@ install:
 	  for size in $(SIZE_VARIANTS); do \
 	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
 	    install -d $$themedir/gtk-common; \
+	    ln -s $$themedir/gtk-$(OLDESTGTK)/ $$themedir/gtk-3.0; \
 	    cd $(SRCDIR)/gtk-3.0/gtk-common; \
 	    cp -ur \
 	      assets \
