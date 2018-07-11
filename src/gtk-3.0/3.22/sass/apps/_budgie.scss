@@ -256,8 +256,8 @@ popover.background.places-menu {
 %underscores {
   @each $pos, $b_pos, $b_wid in (top,    center calc(1px),        2 0 0 0 / 2px 0 0 0),
                                 (bottom, center calc(100% - 1px), 0 0 2 0 / 0 0 2px 0),
-                                (left,   calc(1px) center,        0 2 0 0 / 0 2px 0 0),
-                                (right,  calc(100% - 1px) center, 0 0 0 2 / 0 0 0 2px) {
+                                (left,   calc(1px) center,        0 0 0 2 / 0 0 0 2px),
+                                (right,  calc(100% - 1px) center, 0 2 0 0 / 0 2px 0 0) {
     .#{$pos} & {
       & {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
