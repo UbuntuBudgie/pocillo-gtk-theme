@@ -8,7 +8,7 @@ button {
     min-height: $button_size;
     min-width: $button_size;
     padding: $tiny_padding $small_padding;
-    //margin-bottom: 
+    //margin-bottom: 2px;
     border-radius: $pocillo_radius;
     font-weight: 500;
 
@@ -20,17 +20,17 @@ button {
 
     &:disabled { @include button(disabled); }
 
-    &:checked { 
+    &:checked {
       @include button(checked);
       /*
-      &:backdrop { 
+      &:backdrop {
         background-color: lighten(desaturate($accent_color, 35%), 15%);
-        color: 
+        color:
       }*/
     }
 
     &:checked:disabled { @include button(checked-disabled); }
-    
+
 
     @at-root %flat_button, &.flat {
       @at-root %simple_flat_button, & {
@@ -335,9 +335,10 @@ modelbutton.flat arrow {
   &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 }
 
-button.color {
+button.color, .colorbutton {
   min-height: $button_size;
   min-width: $button_size;
   padding: $tiny_padding;
+  margin-bottom: 1px;
 }
 
