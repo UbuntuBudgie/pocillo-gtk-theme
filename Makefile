@@ -10,8 +10,8 @@ OLDESTGTK=3.22
 
 all: sass assets
 
-install-gnome-shell:
-	cp -v /usr/share/themes/Pocillo/gnome-shell/pocillo.css /usr/share/gnome-shell/theme
+#install-gnome-shell:
+#	cp -v /usr/share/themes/Pocillo/gnome-shell/pocillo.css /usr/share/gnome-shell/theme
 
 assets: recolor
 	@echo "** Generating the Assets..."
@@ -26,7 +26,7 @@ clean:
 	-rm -rf ./src/gtk-2.0/assets-dark/*.png
 	-rm -rf ./src/gtk-3.0/gtk-common/assets/*.png
 	-rm -rf ./src/gtk-3.0/**/*.css
-	-rm -rf ./src/gnome-shell/**/*.css
+	#-rm -rf ./src/gnome-shell/**/*.css
 
 uninstall:
 	-rm -rf $(DESTDIR)/usr/share/themes/Pocillo
@@ -52,42 +52,7 @@ install:
 	  done; \
 	done
 
-	# Install GNOME Shell Theme
-	for color in $(COLOR_VARIANTS); do \
-	  for size in $(SIZE_VARIANTS); do \
-	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
-	    install -d $$themedir/gnome-shell; \
-	    cd $(SRCDIR)/gnome-shell/$(GNOMEVER); \
-	    cp -ur \
-	      *.svg \
-	      $$themedir/gnome-shell; \
-	    cp -urL \
-	      extensions \
-	      pad-osd.css \
-	      $$themedir/gnome-shell; \
-	    if [ "$$color" != '-dark' ]; then \
-	      cp -urL \
-	        assets \
-	        $$themedir/gnome-shell; \
-	    else \
-	      cp -urL \
-	        assets-dark \
-	        $$themedir/gnome-shell/assets; \
-	    fi; \
-	    cp -ur \
-	      gnome-shell$$color$$size.css \
-	      $$themedir/gnome-shell/gnome-shell.css; \
-	    cp -ur \
-	      gnome-shell$$color$$size.css \
-	      $$themedir/gnome-shell/pocillo.css; \
-	    glib-compile-resources \
-	      --sourcedir=$$themedir/gnome-shell \
-	      --target=$$themedir/gnome-shell/gnome-shell-thememe.gresource \
-	      gnome-shell-theme.gresource.xml; \
-	  done; \
-	done
-
-	# Install GTK2 Theme \
+	# Install GTK2 Theme
 	for color in $(COLOR_VARIANTS); do \
 	  for size in $(SIZE_VARIANTS); do \
 	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
@@ -116,7 +81,7 @@ install:
 	  done; \
 	done
 
-	# Install GTK3 Theme \
+	# Install GTK3 Theme
 	for color in $(COLOR_VARIANTS); do \
 	  for size in $(SIZE_VARIANTS); do \
 	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
@@ -126,7 +91,7 @@ install:
 	    cp -ur \
 	      assets \
 	      $$themedir/gtk-common; \
-	    for version in '3.22'; do \
+	    for version in '$(OLDESTGTK)'; do \
 	      install -d $$themedir/gtk-$$version; \
 	      cd $(SRCDIR)/gtk-3.0/$$version; \
 	      cp -ur \
@@ -156,53 +121,6 @@ install:
 		done; \
 	done
 
-	# Install Metacity Theme
-	for color in $(COLOR_VARIANTS); do \
-	  for size in $(SIZE_VARIANTS); do \
-	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
-	    install -d $$themedir/metacity-1; \
-	    cd $(SRCDIR)/metacity-1; \
-	    cp -ur \
-	      *.svg \
-	      $$themedir/metacity-1; \
-	    if [ "$$color" != '-light' ]; then \
-	      cp -ur \
-	        metacity-theme-2.xml \
-	        metacity-theme-3.xml \
-	        $$themedir/metacity-1; \
-	    else \
-	      cp -ur \
-	        metacity-theme-2$$color.xml \
-	        $$themedir/metacity-1/metacity-theme-2.xml; \
-	      cp -ur \
-	        metacity-theme-3$$color.xml \
-	        $$themedir/metacity-1/metacity-theme-3.xml; \
-	    fi; \
-	  done; \
-	done
-
-	# Install Xfwm Theme
-	for color in $(COLOR_VARIANTS); do \
-	  for size in $(SIZE_VARIANTS); do \
-	    export themedir=$(DESTDIR)$(BASE_DIR)/Pocillo$$color$$size; \
-	    install -d $$themedir/xfwm4; \
-	    cd $(SRCDIR)/xfwm4; \
-	    cp -ur \
-	      *.svg \
-	      themerc \
-	      $$themedir/xfwm4; \
-	    if [ "$$color" != 'light' ]; then \
-	      cp -ur \
-	        assets \
-	        $$themedir/xfwm4; \
-	    else \
-	      cp -urT \
-	        assets$$color \
-	        $$themedir/xfwm4/assets; \
-	    fi; \
-	  done; \
-	done
-
 	@echo
 	@echo Done.
 
@@ -218,7 +136,7 @@ recolor:
 	cd ./src/gtk-3.0/gtk-common/ && ./recolor-assets.sh > /dev/null
 #	cd ./src/gtk-2.0/ && ./recolor-assets.sh > /dev/null
 
-sass: gtk2 gtk3 gnome-shell
+sass: gtk2 gtk3
 	@echo "** Generating the CSS..."
 
 
@@ -232,24 +150,24 @@ gtk3:
 
 	for color in $(COLOR_VARIANTS); do \
 	  for size in $(SIZE_VARIANTS); do \
-	    for version in '3.22'; do \
+	    for version in '$(OLDESTGTK)'; do \
 	      sassc $(SASSC_OPT) src/gtk-3.0/$$version/gtk$$color$$size.{scss,css}; \
 	    done; \
 	  done; \
 	done
 
-gnome-shell:
-	@echo "** Generating GNOME Shell..."
+#gnome-shell:
+#	@echo "** Generating GNOME Shell..."
 
-	for color in $(COLOR_VARIANTS); do \
-	  for size in $(SIZE_VARIANTS); do \
-	    # Skip gnome-shell 3.20 and 3.22 \
-	    for version in '3.24' '3.26'; do \
-	      sassc $(SASSC_OPT) src/gnome-shell/$$version/gnome-shell$$color$$size.{scss,css}; \
-	      sassc $(SASSC_OPT) src/gnome-shell/$$version/extensions/workspaces-to-dock/workspaces-to-dock.{scss,css}; \
-	      sassc $(SASSC_OPT) src/gnome-shell/$$version/pad-osd.{scss,css}; \
-	    done; \
-	  done; \
-	done
+#	for color in $(COLOR_VARIANTS); do \
+#	  for size in $(SIZE_VARIANTS); do \
+#	    # Skip gnome-shell 3.20 and 3.22 \
+#	    for version in '3.24' '3.26'; do \
+#	      sassc $(SASSC_OPT) src/gnome-shell/$$version/gnome-shell$$color$$size.{scss,css}; \
+#	      sassc $(SASSC_OPT) src/gnome-shell/$$version/extensions/workspaces-to-dock/workspaces-to-dock.{scss,css}; \
+#	      sassc $(SASSC_OPT) src/gnome-shell/$$version/pad-osd.{scss,css}; \
+#	    done; \
+#	  done; \
+#	done
 
-.PHONY: all install uninstall gtk3 gtk2 sass recolor assets-gtk3 assets-gtk2 clean install-gnome-shell gnomeshell
+.PHONY: all install uninstall gtk3 gtk2 sass recolor assets-gtk3 assets-gtk2 clean
