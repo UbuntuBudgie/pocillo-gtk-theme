@@ -72,6 +72,12 @@ button.budgie-menu-launcher {
   color: $inverse_fg_color;
 }
 
+// Raven Trigger
+button.raven-trigger {
+  padding: 0 4px;
+  color: $inverse_fg_color;
+}
+
 // budgie specific popover widgets
 .budgie-popover {
   border-style: none;
@@ -84,75 +90,70 @@ button.budgie-menu-launcher {
   .container { padding: 2px; }
 
   border { border: none; }
-}
 
-// User Menu
-popover.background.user-menu {
-  padding: 8px;
 
-  .content-box { background-color: transparent; }
+  // User Menu
+  & user-menu {
+    padding: 8px;
 
-  separator { margin: 4px 0; }
+    .content-box { background-color: transparent; }
 
-  row {
-    padding: 0;
-    box-shadow: none;
-    background-image: none;
-  }
-}
+    separator { margin: 4px 0; }
 
-// Raven Trigger
-button.raven-trigger {
-  padding: 0 4px;
-  color: $inverse_fg_color;
-}
-
-// Places Menu
-popover.background.places-menu {
-  padding: 8px;
-
-  .message-bar {
-    // margin-bottom: 4px;
-  }
-
-  .name-button.text-button {
-    // padding: 4px 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-
-    image {
-      &:dir(ltr) { margin-right: 8px - 5px; }
-      &:dir(rtl) { margin-left: 8px - 5px; }
+    row {
+      padding: 0;
+      box-shadow: none;
+      background-image: none;
     }
   }
 
-  .unmount-button {
-    // padding: ($medium_size - 24px) / 2;
-  }
+  // Places Menu
+  & places-menu {
+    padding: 0px;
 
-  .places-section-header > image {
-    &:dir(ltr) { margin: 0 8px - 10px 0 8px - 3px; }
-    &:dir(rtl) { margin: 0 8px - 3px 0 8px - 10px; }
-  }
-
-  .places-list {
-    margin-top: 4px;
-    padding-top: 4px;
-    border-top: 1px solid $border_color;
-    background-color: transparent;
-  }
-
-  row {
-    padding: 0;
-    box-shadow: none;
-    background-image: none;
-  }
-
-  .unlock-area {
-    entry {
+    .message-bar {
+      // margin-bottom: 4px;
     }
 
-    button {
+    .name-button.text-button {
+      // padding: 4px 8px;
+      padding-left: 8px;
+      padding-right: 8px;
+
+      image {
+        &:dir(ltr) { margin-right: 8px - 5px; }
+        &:dir(rtl) { margin-left: 8px - 5px; }
+      }
+    }
+
+    .unmount-button {
+      // padding: ($medium_size - 24px) / 2;
+    }
+
+    .places-section-header > image {
+      &:dir(ltr) { margin: 0 8px - 10px 0 8px - 3px; }
+      &:dir(rtl) { margin: 0 8px - 3px 0 8px - 10px; }
+    }
+
+    .places-list {
+      margin-top: 0px;
+      padding-top: 0px;
+      border-top: 1px solid $border_color;
+      background-color: transparent;
+    }
+
+    row {
+      padding: 0;
+      box-shadow: none;
+      background-image: none;
+    }
+
+    .unlock-area {
+      entry {
+      }
+
+      button {
+      }
     }
   }
 }
