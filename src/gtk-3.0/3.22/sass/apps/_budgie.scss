@@ -427,6 +427,13 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     stackswitcher button { margin: -$tiny_padding 0; }
   }
 
+  list { // apps/devices list
+    &.apps-list,
+    &.sound-devices {
+      margin: 0 1px; // stop touching the parent L/R edges
+    }
+  }
+
   .powerstrip button {
     margin: $mini_padding 0 $no_padding;
     padding: $standard_padding;
@@ -441,7 +448,39 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
     > button.text-button.radio {
       @extend %raven_switcher_radio_button;
     }
+  }
+  widget.raven-background stack > box > revealer > box.vertical > label {
+    .dim-label { opacity: .54; }
+    font-size: 90%;
+  }
+
 }
+
+box.audio-widget,
+window.sound-popover.background {
+  scale.horizontal.marks-after { // overdrive-mode scale
+    padding-top: 0; // unset default padding
+    padding-bottom: 0;
+
+    trough { // overdrive-mode trough styling
+      background-color: transparent; // unset default trough color
+      @each $_dir, $_opp_end in (ltr, right),
+                                (rtl, left) {
+        &:dir(#{$_dir}) {
+          background-image:
+            linear-gradient(to $_opp_end,
+                            $hint_fg_color  calc(66% - 1px),
+                            $secondary_fg_color calc(66% - 1px),
+                            $secondary_fg_color 100%);
+        }
+      }
+    }
+
+    mark {
+      // hide label for vertically centered troughs
+      label { font-size: 0; }
+    }
+  }
 }
 
 // Calendar
