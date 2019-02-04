@@ -39,6 +39,7 @@
   .toolbar button { @extend %button_basic.flat; }
 }
 
-//.nemo-desktop.nemo-canvas-item {
-//  @extend .nautilus-desktop.nautilus-canvas-item;
-//}
+.nemo-desktop.nemo-canvas-item:not(:selected) {
+  //@extend .nautilus-desktop.nautilus-canvas-item;
+  background-color: transparent;
+}
