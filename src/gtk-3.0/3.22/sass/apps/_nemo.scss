@@ -32,11 +32,19 @@
     .view:not(:selected) { background-color: transparent; }
   }
 
+  scrolledwindow widget.entry {
+    border: 1px solid $border_color;
+  }
+
   infobar { margin-top: -6px; }
 
   .nemo-inactive-pane .view:not(:selected) { background-color: $alt_base_color; }
 
   .toolbar button { @extend %button_basic.flat; }
+
+  .view .entry {
+    border: 1px solid green;
+  }
 }
 
 .nemo-desktop.nemo-canvas-item:not(:selected) {
