@@ -51,3 +51,7 @@
   //@extend .nautilus-desktop.nautilus-canvas-item;
   background-color: transparent;
 }
+
+.nemo-desktop widget:not(:selected) {
+  background-color: transparent;
+}
