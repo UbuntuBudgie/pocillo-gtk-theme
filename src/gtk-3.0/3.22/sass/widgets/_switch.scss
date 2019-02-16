@@ -32,6 +32,10 @@ switch {
     background-color: $base_color;
   }
 
+  image {
+    color: transparent;
+  }
+
   &:hover slider { box-shadow: $shadow_2; }
 
   &:checked slider {

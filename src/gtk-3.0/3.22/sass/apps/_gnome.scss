@@ -33,6 +33,17 @@ window.csd > box.horizontal {
 
 }
 
+window hdyleaflet .sidebar {
+  margin-left: 1px;
+  margin-right: 1px;
+  background-color: $border_color;
+}
+
+headerbar hdyleaflet .sidebar {
+  background-color: $border_color;
+  border-right-width: 0px;
+}
+
 /****************
  * Eye of GNOME *
  ****************/
