@@ -46,12 +46,3 @@
     border: 1px solid green;
   }
 }
-
-.nemo-desktop.nemo-canvas-item:not(:selected) {
-  //@extend .nautilus-desktop.nautilus-canvas-item;
-  background-color: transparent;
-}
-
-.nemo-desktop widget:not(:selected) {
-  background-color: transparent;
-}
