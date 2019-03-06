@@ -33,15 +33,11 @@ window.csd > box.horizontal {
 
 }
 
-window hdyleaflet .sidebar {
-  margin-left: 1px;
-  margin-right: 1px;
-  background-color: $border_color;
-}
-
-headerbar hdyleaflet .sidebar {
-  background-color: $border_color;
-  border-right-width: 0px;
+headerbar .sidebar {
+  border-right-style: none;
+  border-right-color: transparent;
+  background-color: transparent;
+  margin: 0px;
 }
 
 /****************
