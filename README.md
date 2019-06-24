@@ -36,8 +36,14 @@ GTK+3.22.x
 
 Install the following packages using your package management system:
 
+debian based
+
     sudo apt install inkscape optipng gtk2-engines-pixbuf gtk2-engines-murrine git sassc make libglib2.0-dev-bin libxml2-utils
 
+arch based
+
+    sudo pacman -S inkscape optipng git sassc make libxml2 gtk2 gtk3
+    
 Remove previous versions first:
 
     sudo rm -rf /usr/share/themes/Pocillo*
