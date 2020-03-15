@@ -237,6 +237,20 @@ button.raven-trigger {
 
   .unpinned button.flat.launcher,
   .pinned button.flat.launcher.running { @extend %underscores:checked; }
+
+  menubar { // remove underline of menubar on panel
+    border: none;
+    box-shadow: none;
+
+    > menuitem {
+      color: $inverse_fg_color;
+
+      &.budgie-menubar {
+        border: none;
+        &:hover { background-color: rgba($fg_color, 0.10); }
+      }
+    }
+  }
 }
 
 @each $along_side, $opp_side in (top, bottom),
