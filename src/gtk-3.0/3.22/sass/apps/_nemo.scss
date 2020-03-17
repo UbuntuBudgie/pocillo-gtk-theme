@@ -26,6 +26,17 @@
     }
   }
 
+  .nemo-places-sidebar {
+    &.frame { border-width: 0; }
+
+    .places-treeview {
+      @extend row.activatable;
+
+      -NemoPlacesTreeView-disk-full-bg-color: $panel_bg_color;
+      -NemoPlacesTreeView-disk-full-fg-color: $warning_color;
+    }
+  }
+
   scrolledwindow.frame {
     border-style: none;
 
