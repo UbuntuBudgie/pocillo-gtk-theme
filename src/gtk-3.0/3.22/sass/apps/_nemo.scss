@@ -29,7 +29,11 @@
   scrolledwindow.frame {
     border-style: none;
 
-    .view:not(:selected) { background-color: transparent; }
+    .view:not(:selected) { 
+      background-color: transparent; 
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
   }
 
   scrolledwindow widget.entry {
