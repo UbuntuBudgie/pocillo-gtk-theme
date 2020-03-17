@@ -26,8 +26,8 @@ decoration {
   // server-side decorations as used by mutter
   .ssd & { 
     box-shadow: 0 3px 3px rgba(156, 152, 152, 0.16); 
-    padding-top: 2px;
-    padding-bttom: 6px;
+    padding-top: $image_button_padding;
+    padding-bottom: $image_button_padding;
   } // just doing borders, wm draws actual shadows
 
   .csd.popup & {
