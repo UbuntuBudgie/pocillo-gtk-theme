@@ -280,29 +280,28 @@ window.background.chromium {
     border-color: transparent;
   }
 
-  entry.chromium {
+  /*entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
       border: 1px solid rgba($dark_fg_color, 0.3);
+    }
+  }*/
+
+  entry.chromium {
+    // overrides standard borders
+    border-image: none;
+    border: 1px solid rgba($dark_fg_color, 0.3);
+    background-color: $dark_fg_color;
+    color: if($variant == 'light', $secondary_fg_color, $fg_color);
+
+    &:focus {
+      border-color: $primary_color;
     }
   }
 
   // internal region of toolbar's entry widget
   > textview.view {
-    background-color: rgba($inverse_fg_color, 0.5);
-
-    text {
-      color: if($variant == 'light', $secondary_fg_color, $fg_color);
-      caret-color: if($variant == 'light', $secondary_fg_color, $fg_color);
-      &:focus {
-        color: $fg_color;
-        caret-color: $fg_color;
-      }
-      &:selected,
-      selection {
-        &, &:focus { @extend %selected_items; }
-      }
-    }
+    background-color: transparent;
   }
 
   // spinner colour
