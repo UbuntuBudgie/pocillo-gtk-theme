@@ -313,7 +313,8 @@ na-tray-applet widget box widget {
         color: $inverse_fg_color;
   }
 
-  /*& button {
-        @extend %selected-button;
-  }*/
+  & button, button:hover, button:active {
+        @extend %flat_button;
+        color: $inverse_fg_color;
+  }
 }
