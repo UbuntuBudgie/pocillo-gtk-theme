@@ -172,15 +172,32 @@ button.raven-trigger {
     @extend %button_selected.flat;
   }
 
-  & .horizontal.titlebar { //budgie-pixel-saver applet
+  & .horizontal.pixelsaver { //budgie-pixel-saver applet
           background-color: transparent;
           border: none;
           min-height: 0px;
           color: $inverse_fg_color;
           box-shadow: none;
+          padding: $bar_size;
 
-          & .image-button.titlebutton.close {
-            background-color: transparent;
+          & .close {
+            @extend %circular_button;
+            padding: $mini_padding * 2;
+            min-width: $close_button_size;
+            min-height: $close_button_size;
+
+            background-image: image(mix($destructive_color, $accent_color, 50%));
+            .selection-mode & {
+            }
+          }
+
+          & .image-button {
+            @extend %circular_button;
+            padding: $mini_padding * 2;
+            min-width: $close_button_size;
+            min-height: $close_button_size;
+            .selection-mode & {
+            }
           }
       }
 
