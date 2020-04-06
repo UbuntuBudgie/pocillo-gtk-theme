@@ -13,8 +13,8 @@ Contributions are welcome for all desktop environments
 
 ## Public License
 
-- GPLv2.0 or above
-- SVG files are licensed under CC BY-SA 4.0
+- [GPL-2.0-or-later](https://github.com/UbuntuBudgie/pocillo-gtk-theme/blob/master/LICENSE)
+- SVG files are licensed under [CC-BY-SA-4.0](https://spdx.org/licenses/CC-BY-SA-4.0.html)
 
 
 ## Required Components:
