@@ -79,5 +79,5 @@ Download and install Pocillo theme:
 
 Pocillo has been created from [Pop GTK theme](https://github.com/pop-os/gtk-theme) which itself is developed from [Materia GTK theme](https://github.com/nana-4/materia-theme); it inherits GNOME and XFCE styling elements from those projects.
 
-- [nana-4](https://github.com/nana-4), the developer of [Materia GTK theme]()
+- [nana-4](https://github.com/nana-4), the developer of [Materia GTK theme](https://github.com/nana-4/materia-theme)
 - [System76](https://system76.com) for the [Pop GTK theme](https://github.com/pop-os/gtk-theme)
