@@ -18,6 +18,7 @@ entry {
 
     &:disabled { @include entry(disabled); }
 
+    @at-root %entry_flat,
     &.flat {
       border-top-left-radius: $pocillo_radius;
       border-top-right-radius: $pocillo_radius;
@@ -329,8 +330,8 @@ combobox {
 
   &.linked {
     button:nth-child(2) {
-      &:dir(ltr) { @extend %linked:last-child; }
-      &:dir(rtl) { @extend %linked:first-child; }
+      &:dir(ltr) { @extend %linked_last_child; }
+      &:dir(rtl) { @extend %linked_first_child; }
     }
   }
 
@@ -357,21 +358,21 @@ box.horizontal.linked > entry + button:not(.combo) {
 .linked:not(.vertical) > combobox {
   > box > button.combo { @extend %linked_middle; }
 
-  &:first-child > box > button.combo { @extend %linked:first-child; }
+  &:first-child > box > button.combo { @extend %linked_first_child; }
 
-  &:last-child > box > button.combo { @extend %linked:last-child; }
+  &:last-child > box > button.combo { @extend %linked_last_child; }
 
-  &:only-child > box > button.combo { @extend %linked:only-child; }
+  &:only-child > box > button.combo { @extend %linked_only_child; }
 }
 
 .linked.vertical > combobox {
   > box > button.combo { @extend %linked_vertical_middle; }
 
-  &:first-child > box > button.combo { @extend %linked_vertical:first-child; }
+  &:first-child > box > button.combo { @extend %linked_vertical_first_child; }
 
-  &:last-child > box > button.combo { @extend %linked_vertical:last-child; }
+  &:last-child > box > button.combo { @extend %linked_vertical_last_child; }
 
-  &:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+  &:only-child > box > button.combo { @extend %linked_vertical_only_child; }
 }
 
 %combo_flat {
@@ -412,17 +413,17 @@ headerbar entry {
 
 notebook {
   >  stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    entry:not(.search) { @extend %entry.flat; }
+    entry:not(.search) { @extend %entry_flat; }
 
     spinbutton:not(.vertical) entry { &, &:focus, &:disabled { @extend %spinbutton_entry; }}
 
-    spinbutton:not(.vertical) { @extend %entry.flat; }
+    spinbutton:not(.vertical) { @extend %entry_flat; }
   }
 }
 
-messagedialog entry { @extend %entry.flat; }
+messagedialog entry { @extend %entry_flat; }
 
-colorchooser .popover.osd spinbutton:not(.vertical) { @extend %entry.flat; }
+colorchooser .popover.osd spinbutton:not(.vertical) { @extend %entry_flat; }
 
 popover.emoji-picker entry {
   border-bottom: 1px solid $border_color;

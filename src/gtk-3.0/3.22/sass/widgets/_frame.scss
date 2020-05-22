@@ -12,13 +12,14 @@ frame > border,
   &.flat { border-style: none; }
 }
 
-frame.flat > border { @extend .frame.flat; } // for backporting
+@at-root %frame_flat,
+frame.flat > border { @extend %frame_flat; } // for backporting
 
 actionbar > revealer > box {
   padding: $container_padding;
   border-top: $border_size solid $border_color;
 
-  button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %button_basic.flat; }
+  button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
 }
 
 scrolledwindow {

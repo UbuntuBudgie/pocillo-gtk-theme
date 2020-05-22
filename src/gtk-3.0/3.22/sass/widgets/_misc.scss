@@ -1,6 +1,7 @@
 /*********
  * Links *
  *********/
+@at-root %link,
 *:link {
   &, &:hover, &:active { color: $link_color; }
 
@@ -15,7 +16,7 @@
 
 button:link,
 button:visited {
-  @extend *:link;
+  @extend %link;
 
   > label { text-decoration-line: underline; }
 }
@@ -82,11 +83,11 @@ printdialog {
 .app-notification {
   @extend %osd;
 
-  @extend toolbar.osd;
+  @extend %toolbar_osd;
 
   margin: $small_padding;
 
-  button { @extend %button_basic.flat; }
+  button { @extend %flat_button; }
 
   &.frame,
   border { border-style: none; }
@@ -209,7 +210,8 @@ stackswitcher button.text-button.circular {
 
   @at-root %nobg_selected_items, & {
     color: $inverse_fg_color;
-
+ 
+    @at-root %selected_items_disabled,
     &:disabled { color: $inverse_disabled_fg_color; }
   }
 }

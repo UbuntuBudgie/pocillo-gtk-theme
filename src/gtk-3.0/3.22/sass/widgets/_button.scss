@@ -101,6 +101,7 @@ button {
       color: $inverse_disabled_secondary_fg_color;
     }
 
+    @at-root %button_selected_flat,
     &.flat {
       color: $inverse_secondary_fg_color;
 
@@ -272,18 +273,21 @@ toolbar.inline-toolbar toolbutton {
 %linked {
   @extend %linked_middle;
 
+  @at-root %linked_first_child,
   &:first-child {
     border-top-left-radius: $pocillo_radius;
     border-bottom-left-radius: $pocillo_radius;
     margin-right: 0;
   }
 
+  @at-root %linked_last_child,
   &:last-child {
     border-top-right-radius: $pocillo_radius;
     border-bottom-right-radius: $pocillo_radius;
     margin-left: 0;
   }
 
+  @at-root %linked_only_child,
   &:only-child {
     border-radius: $pocillo_radius;
   }
@@ -297,16 +301,19 @@ toolbar.inline-toolbar toolbutton {
 %linked_vertical {
   @extend %linked_vertical_middle;
 
+  @at-root %linked_vertical_first_child,
   &:first-child {
     border-top-left-radius: $pocillo_radius;
     border-top-right-radius: $pocillo_radius;
   }
 
+  @at-root %linked_vertical_last_child,
   &:last-child {
     border-bottom-left-radius: $pocillo_radius;
     border-bottom-right-radius: $pocillo_radius;
   }
 
+  @at-root %linked_vertical_only_child,
   &:only-child {
     border-radius: $pocillo_radius;
   }

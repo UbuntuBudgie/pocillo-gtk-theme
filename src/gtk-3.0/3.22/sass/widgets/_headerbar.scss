@@ -50,7 +50,7 @@ headerbar {
   .linked:not(.vertical) > entry:not(.flat) { border-radius: $other_radius; }
 
   button:not(.suggested-action):not(.destructive-action) {
-    @extend %button_basic.flat;
+    @extend %flat_button;
 
     &.titlebutton {
       padding: $mini_padding * 2;
@@ -130,7 +130,7 @@ headerbar {
       color: $inverse_secondary_fg_color;
     }
 
-    .subtitle:link { @extend *:link:selected; }
+    .subtitle:link { @extend %link_selected; }
 
     button:not(.suggested-action):not(.destructive-action) {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),

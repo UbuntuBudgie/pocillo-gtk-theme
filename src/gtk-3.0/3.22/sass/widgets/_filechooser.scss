@@ -45,7 +45,7 @@ placessidebar {
 
       @extend %small_button;
 
-      row:selected & { @extend %button_selected.flat; }
+      row:selected & { @extend %button_selected_flat; }
     }
 
     &.sidebar-placeholder-row {

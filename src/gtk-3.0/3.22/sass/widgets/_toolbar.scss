@@ -8,12 +8,13 @@ toolbar {
   
   &:backdrop { background-color: backdrop($bg_color); }
 
-  button { @extend %button_basic.flat; }
+  button { @extend %flat_button; }
 
   // on OSD
   .osd & { background-color: transparent; }
 
   // stand-alone OSD toolbars
+  @at-root %toolbar_osd,
   &.osd {
     transition: $shadow_transition;
     padding: $tiny_padding;

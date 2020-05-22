@@ -76,7 +76,7 @@ treeview.view {
 
   header {
     button {
-      @extend row.activatable;
+      @extend %row_activatable;
 
       padding: $mini_padding $tiny_padding;
       border-style: none solid solid none;

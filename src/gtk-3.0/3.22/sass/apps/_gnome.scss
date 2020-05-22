@@ -116,6 +116,7 @@ window.csd > headerbar.toolbar > toolitem > box.raised > entry {
   // @extend .dim-label;
 }
 
+%at-root %nautilus_desktop_nautilus_canvas_item,
 .nautilus-desktop.nautilus-canvas-item:not(:selected) {
   // background-color: rgba($black, $lower_opacity);
   color: $inverse_fg_color;
@@ -575,7 +576,7 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 }
 
 frame.documents-dropdown {
-  @extend toolbar.osd;
+  @extend %toolbar_osd;
 
   margin: 8px;
 

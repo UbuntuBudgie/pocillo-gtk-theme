@@ -30,7 +30,7 @@
     &.frame { border-width: 0; }
 
     .places-treeview {
-      @extend row.activatable;
+      @extend %row_activatable;
 
       -NemoPlacesTreeView-disk-full-bg-color: $panel_bg_color;
       -NemoPlacesTreeView-disk-full-fg-color: $warning_color;
@@ -55,7 +55,7 @@
 
   .nemo-inactive-pane .view:not(:selected) { background-color: $alt_base_color; }
 
-  .toolbar button { @extend %button_basic.flat; }
+  .toolbar button { @extend %flat_button; }
 
   .view .entry {
     border: 1px solid green;

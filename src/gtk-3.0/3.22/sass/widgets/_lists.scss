@@ -20,6 +20,7 @@ list {
 $row_transition: $longer_transition, background-color 0, color 0;
 
 row {
+  @at-root %row_activatable,
   &.activatable {
     transition: $row_transition,
                 background-size $ripple_duration $deceleration_curve,

@@ -44,7 +44,7 @@
   }
 
   button {
-    @extend row.activatable;
+    @extend %row_activatable;
 
     min-height: 32px;
     padding: 0 8px;
@@ -169,7 +169,7 @@ button.raven-trigger {
   button {
     border-radius: 0;
     color: $inverse_fg_color;
-    @extend %button_selected.flat;
+    @extend %button_selected_flat;
   }
 
   & .horizontal.pixelsaver { //budgie-pixel-saver applet
@@ -228,7 +228,7 @@ button.raven-trigger {
 
     @extend %flat_button;
 
-    @extend %button_selected.flat;
+    @extend %button_selected_flat;
 
     @extend %underscores;
 
@@ -253,7 +253,7 @@ button.raven-trigger {
   }
 
   .unpinned button.flat.launcher,
-  .pinned button.flat.launcher.running { @extend %underscores:checked; }
+  .pinned button.flat.launcher.running { @extend %underscores_checked; }
 
   menubar { // remove underline of menubar on panel
     border: none;
@@ -298,6 +298,7 @@ button.raven-trigger {
                                       0 0 0 0 / 0 0 0 0;
       }
 
+      @at-root %underscores_checked,
       &:checked {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
                                       currentColor 100%,
@@ -364,7 +365,7 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
   stackswitcher.linked > button {
     @extend %flat_button;
 
-    @extend %button_selected.flat;
+    @extend %button_selected_flat;
 
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $primary_color 0%,
@@ -443,7 +444,7 @@ $switcher_height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
 
     grid > label:first-child { min-height: $large_size; } // workaround to fix vertical-align
 
-    spinbutton:not(.vertical) { @extend %entry.flat; }
+    spinbutton:not(.vertical) { @extend %entry_flat; }
 
     button.combo { @extend %combo_flat; }
   }
@@ -536,7 +537,7 @@ calendar.raven-calendar {
   button.image-button {
     padding: $standard_padding;
 
-    @extend %button_selected.flat;
+    @extend %button_selected_flat;
   }
 }
 
@@ -549,7 +550,7 @@ calendar.raven-calendar {
 
   button {
       color: $inverse_fg_color;
-      @extend %button_selected.flat;
+      @extend %button_selected_flat;
   }
 
   > box {

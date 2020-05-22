@@ -203,7 +203,7 @@ na-tray-applet widget box widget {
 
 // desktop mode
 .caja-desktop.caja-canvas-item {
-  @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend %nautilus_desktop_nautilus_canvas_item;
 }
 
 .caja-desktop EelEditableLabel.entry {

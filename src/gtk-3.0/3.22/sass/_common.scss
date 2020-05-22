@@ -88,7 +88,7 @@ notebook:focus tab,
 }
 
 .view {
-  @extend row.activatable;
+  @extend %row_activatable;
 
   background-color: $base_color;
   color: $fg_color;
@@ -161,7 +161,7 @@ label {
   &:disabled {
     color: $disabled_fg_color;
 
-    selection { @extend %selected_items:disabled; }
+    selection { @extend %selected_items_disabled; }
 
     tab &,
     button & { color: inherit; }
