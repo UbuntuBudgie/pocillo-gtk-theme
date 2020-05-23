@@ -29,14 +29,24 @@ $scale_slider_size: $tiny_size;
 $scale_marks_size: 6px;
 $scrollbar_size: 8px;
 $switch_size: $small_size + 4;
+$toolbar_size: if($compact == 'false', 42px, 32px);
 
 // Padding
-$no_padding: 1px;
-$mini_padding: 2px;
+$no_padding: if($compact == 'false', 1px, 0);
+$mini_padding: if($compact == 'false', 2px, 1px);
+$tinier_padding: if($compact == 'false', 4px, 3px);
 $tiny_padding: if($compact == 'false', 6px, 4px);
 $small_padding: if($compact == 'false', 8px, 6px);
 $standard_padding: if($compact == 'false', 12px, 10px);
 $large_padding: if($compact == 'false', 16px, 12px);
+
+$no_padding_em: if($compact == 'false', 0.1em, 0);
+$mini_padding_em: if($compact == 'false', 0.15em, 0);
+$tinier_padding_em: if($compact == 'false', 0.3em, 0.2em);
+$tiny_padding_em: if($compact == 'false', 0.5em, 0.3em);
+$small_padding_em: if($compact == 'false', 0.6em, 0.3em);
+$standard_padding_em: if($compact == 'false', 1em, 0.8em);
+$large_padding_em: if($compact == 'false', 1.4em, 1em);
 
 // Widget paddings - Try to use Sparingly.
 $container_padding: 6px;

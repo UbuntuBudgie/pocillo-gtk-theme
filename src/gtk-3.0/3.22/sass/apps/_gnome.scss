@@ -19,18 +19,19 @@ terminal-window > box {
  * Control center *
  *****************/
 
-window.csd > box.horizontal {
-  box.vertical > scrolledwindow.view > viewport.frame > stack > list > row:selected {
-    background-color: $accent_color;
-    color: $inverse_fg_color;
-    
-    &:backdrop { background-color: backdrop($accent_color); }
+window.csd {
+  .titlebar > box > headerbar {
+    padding: $mini_padding_em $standard_padding_em;
   }
+  > box.horizontal > stack > box.vertical > widget > stack { 
+    overlay > box.vertical > grid.horizontal > stack > button.toggle {
+      @extend %flat_button;
+    }
 
-  widget > overlay > box.vertical > grid.horizontal > stack > button.toggle {
-    margin: $tiny_padding;
+    viewport > grid.horizontal box row.activatable button.circular.image-button {
+      @extend %flat_button;
+    }
   }
-
 }
 
 headerbar .sidebar {
