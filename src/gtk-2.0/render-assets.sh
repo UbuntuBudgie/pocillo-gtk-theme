@@ -1,7 +1,7 @@
 #! /bin/bash
 
-INKSCAPE="/usr/bin/inkscape"
-OPTIPNG="/usr/bin/optipng"
+INKSCAPE="$(which inkscape)"
+OPTIPNG="$(which optipng)"
 
 SRC_FILE="assets.svg"
 ASSETS_DIR="assets"
@@ -10,6 +10,15 @@ DARK_SRC_FILE="assets-dark.svg"
 DARK_ASSETS_DIR="assets-dark"
 
 INDEX="assets.txt"
+
+INKVER=`$INKSCAPE --version 2> /dev/null | cut -d' ' -f2 | cut -d'.' -f1`
+if [[ $INKVER == 0 ]];
+then
+	EXPORT_TYPE="--export-png"
+else
+	EXPORT_TYPE="--export-filename"
+fi
+
 
 for i in `cat $INDEX`
 do
@@ -21,7 +30,7 @@ else
     echo Rendering $ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
+              $EXPORT_TYPE=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
     && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
 fi
 
@@ -32,7 +41,7 @@ else
     echo Rendering $DARK_ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
-              --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
+              $EXPORT_TYPE=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
     && $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png 
 fi
 done
