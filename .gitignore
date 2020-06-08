@@ -1,3 +1,12 @@
 src/gtk-3.0/*/*.css
 src/gnome-shell/*/*.css
 src/gnome-shell/*/*/*/*.css
+
+# Used for snapcraft
+/snap/.snapcraft
+/parts
+/stage
+/prime
+
+*.snap
+*~
