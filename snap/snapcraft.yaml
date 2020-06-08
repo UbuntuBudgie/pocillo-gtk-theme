@@ -6,7 +6,9 @@ summary: Official Ubuntu Budgie desktop theme.
 description: |
   This theme is the official Ubuntu Budgie default theme.
 
-  GTK+ 3.22 based theme for the Budgie Desktop that has Material Design elements and styled using the Arc colour palette.
+  GTK+ 3.22 based theme for the Budgie Desktop that has
+  Material Design elements and styled using the Arc
+  colour palette.
 
 grade: stable
 confinement: strict
