@@ -17,16 +17,16 @@ architectures:
 
 slots:
   # Suspect not needed as gtk2 lives under the same path as 3 in a subdirectory
-  # gtk-2-themes:
-  #   interface: content
-  #   source:
-  #     read:
-  #       - $SNAP/share/gtk2/Pocillo
-  #       - $SNAP/share/gtk2/Pocillo-dark
-  #       - $SNAP/share/gtk2/Pocillo-dark-slim
-  #       - $SNAP/share/gtk2/Pocillo-light
-  #       - $SNAP/share/gtk2/Pocillo-light-slim
-  #       - $SNAP/share/gtk2/Pocillo-slim
+  gtk-2-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/themes/Pocillo
+        - $SNAP/share/themes/Pocillo-dark
+        - $SNAP/share/themes/Pocillo-dark-slim
+        - $SNAP/share/themes/Pocillo-light
+        - $SNAP/share/themes/Pocillo-light-slim
+        - $SNAP/share/themes/Pocillo-slim
   gtk-3-themes:
     interface: content
     source:
@@ -60,3 +60,12 @@ parts:
       - make
       - libglib2.0-dev-bin
       - libxml2-utils
+
+  utils:
+    plugin: dump
+    source: utils
+    prime:
+      - -*
+    build-packages:
+      - try: [gtk-update-icon-cache]
+      - else: [libgtk-3-bin]
