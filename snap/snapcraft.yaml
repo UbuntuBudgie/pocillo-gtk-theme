@@ -1,0 +1,60 @@
+# Working from: https://gitlab.com/gantonayde/mojave-themes/-/blob/master/snap/snapcraft.yaml
+name: gtk-theme-pocillo
+base: core18
+version: "0.7"
+summary: Official Ubuntu Budgie desktop theme.
+description: |
+  This theme is the official Ubuntu Budgie default theme.
+
+  GTK+ 3.22 based theme for the Budgie Desktop that has Material Design elements and styled using the Arc colour palette.
+
+grade: stable
+confinement: strict
+architectures:
+  - build-on: [amd64, i386]
+
+slots:
+  # Suspect not needed as gtk2 lives under the same path as 3 in a subdirectory
+  # gtk-2-themes:
+  #   interface: content
+  #   source:
+  #     read:
+  #       - $SNAP/share/gtk2/Pocillo
+  #       - $SNAP/share/gtk2/Pocillo-dark
+  #       - $SNAP/share/gtk2/Pocillo-dark-slim
+  #       - $SNAP/share/gtk2/Pocillo-light
+  #       - $SNAP/share/gtk2/Pocillo-light-slim
+  #       - $SNAP/share/gtk2/Pocillo-slim
+  gtk-3-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/themes/Pocillo
+        - $SNAP/share/themes/Pocillo-dark
+        - $SNAP/share/themes/Pocillo-dark-slim
+        - $SNAP/share/themes/Pocillo-light
+        - $SNAP/share/themes/Pocillo-light-slim
+        - $SNAP/share/themes/Pocillo-slim
+  icon-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/icons/Pocillo
+        - $SNAP/share/icons/Pocillo-Tela
+
+parts:
+  pocillo-gtk-theme:
+    after: [utils]
+    plugin: make
+    source: https://github.com/UbuntuBudgie/pocillo-gtk-theme.git
+    source-type: git
+    build-packages:
+      - inkscape
+      - optipng
+      - gtk2-engines-pixbuf
+      - gtk2-engines-murrine
+      - git
+      - sassc
+      - make
+      - libglib2.0-dev-bin
+      - libxml2-utils
