@@ -177,7 +177,7 @@ spinbutton {
 
     %spinbutton_entry,
     entry {
-      min-width: $entry_size * 2;
+      min-width: $entry_size;
       // reset all the other props since the spinbutton node is styled here
       margin: 0;
       border-image: none;
@@ -239,7 +239,7 @@ spinbutton {
 
     entry {
       min-height: $entry_size;
-      min-width: $entry_size * 2;
+      min-width: $entry_size;
       padding: $tiny_padding;
     }
 
