@@ -5,7 +5,7 @@
   .primary-toolbar {
     border-bottom: 1px solid $border_color;
 
-    background-color: transparent;
+    background-color: $$alt_titlebar_bg_color;
 
     // FIXME: workaround for wrong size allocation of Nemo
     entry {
