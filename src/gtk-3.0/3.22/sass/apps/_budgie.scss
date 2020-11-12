@@ -829,3 +829,26 @@ widget > box.workspace-switcher {
     &:disabled { @include button(flat-insensitive); }
   }
 }
+
+// settings-window
+window.background.budgie-settings-window.csd {
+  > box.horizontal > scrolledwindow > viewport.frame { // left-pane
+    &:dir(ltr) { border-right: 1px solid $divider_color; }
+    &:dir(rtl) { border-left: 1px solid $divider_color; }
+  }
+
+  box.settings-page.vertical { // right-pane
+    box.settings-frame {
+      padding-right: 2px;
+    }
+
+    // hide double-borders
+    buttonbox.inline-toolbar { border-style: none none solid; }
+
+    frame > box.vertical > list > row {
+      &:dir(ltr) { padding-right: 12px; }
+      &:dir(rtl) { padding-left: 12px; }
+    }
+  }
+}
+
