@@ -58,17 +58,19 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
  ***********/
 $firefox_border_color: rgba($black, 0.2);
 
-window.background:not(.csd) {
+#MozillaGtkWidget {
   > widget {
     // for the bookmark toolbar's separators
     > separator { color: $firefox_border_color; }
 
     // avoid black border
-    > scrollbar { background-clip: border-box; }
+    > scrollbar { //background-clip: border-box;
+    }
 
     // emphasize borders color
-    > scrollbar,
-    > frame > border { border-color: $firefox_border_color; }
+    > frame > border {
+      border-color: $grey; //$firefox_border_color;
+    }
 
     > entry,
     > button > button {
@@ -112,7 +114,7 @@ window.background:not(.csd) {
 text:selected { @extend %selected_items; }
 
 // for backwards compatibility
-window.background:not(.csd) {
+#MozillaGtkWidget {
   > widget {
     > menubar {
       color: $titlebar_secondary_fg_color;
