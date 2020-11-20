@@ -69,7 +69,7 @@ $firefox_border_color: rgba($black, 0.2);
 
     // emphasize borders color
     > frame > border {
-      border-color: $grey; //$firefox_border_color;
+      border-color: $panel_bg_color; //$firefox_border_color;
     }
 
     > entry,
