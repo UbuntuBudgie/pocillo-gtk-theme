@@ -11,6 +11,7 @@
   &.left:dir(rtl) {
     border-right: $border_size solid $border_color;
     border-left-style: none;
+    border-right-width: 0px;
   }
 
   @at-root %sidebar_right,
@@ -18,6 +19,7 @@
   &.right {
     border-left: $border_size solid $border_color;
     border-right-style: none;
+    border-left-width: 0px;
   }
 
   list { background-color: transparent; }
