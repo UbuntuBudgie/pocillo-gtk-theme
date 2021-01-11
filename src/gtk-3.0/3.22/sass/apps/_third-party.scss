@@ -8,6 +8,10 @@
     color: $almost_white;
   }
 
+  #page_mode { // the main box
+    background-color: $dark_neutral_gray;
+  }
+
   #progress_eventbox #progress_mode { //Progress dots at the bottom
     progressbar *{
       border-radius: $circular_radius;
