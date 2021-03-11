@@ -21,13 +21,19 @@ $light_fg_color:  rgba($white, 0.85);
 $button_fg_color: if($variant == 'light', rgba($brown_800, 0.75), rgba($white, 0.8)); // extra fg color for raised buttons
 
 $fg_color:                    if($variant == 'light', rgba($brown_800, 0.85), $white);
+//$Scrollbar_fg_color:          if($variant == 'light', rgba($grey_500, 0.95), $white);
+$Scrollbar_fg_color:          if($variant == 'light', rgba($grey_500, 0.95), rgba($grey_200, 0.75));
+//$Scrollbar_fg_color2:         if($variant == 'light', rgba($grey_600, 0.65), $white);
+$Scrollbar_fg_color2:         if($variant == 'light', rgba($grey_600, 0.65), rgba($grey_300, 0.85));
 $secondary_fg_color:          if($variant == 'light', rgba($brown_800, 0.54), rgba($white, 0.7));
 $hint_fg_color:               if($variant == 'light', rgba($brown_800, 0.38), rgba($white, 0.5));
 $disabled_fg_color:           if($variant == 'light', rgba($brown_800, 0.38), rgba($white, 0.5));
 $disabled_secondary_fg_color: if($variant == 'light', rgba($brown_800, 0.26), rgba($white, 0.3));
 $track_color:                 if($variant == 'light', rgba($brown_900, 0.26), rgba($white, 0.3));
 $divider_color:               if($variant == 'light', rgba($brown_700, 0.12), rgba($white, 0.12));
-$scrollbar_color:             if($variant == 'light', rgba($brown_700, 0.75), rgba($white, 0.7));
+//$scrollbar_color:             if($variant == 'light', rgba($brown_700, 0.75), rgba($white, 0.7));
+//$scrollbar_color:             if($variant == 'light', rgba($grey_400, 0.95), rgba($white, 0.7));
+$scrollbar_color:             if($variant == 'light', rgba($grey_400, 0.95), rgba($grey_50, 0.45));
 
 $titlebar_fg_color:                    if($titlebar == 'light', rgba($brown_800, 0.87), $white);
 $titlebar_secondary_fg_color:          if($titlebar == 'light', rgba($brown_800, 0.54), rgba($white, 0.6));
