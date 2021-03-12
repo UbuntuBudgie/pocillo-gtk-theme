@@ -30,9 +30,9 @@ scrollbar {
     background-clip: padding-box;
     background-color: $scrollbar_color;
 
-    &:hover { background-color: $Scrollbar_fg_color; }
+    &:hover { background-color: $scrollbar_fg_color; }
 
-    &:active { background-color: $Scrollbar_fg_color2; }
+    &:active { background-color: $scrollbar_active_fg_color; }
 
     &:disabled { background-color: $disabled_secondary_fg_color; }
   }
