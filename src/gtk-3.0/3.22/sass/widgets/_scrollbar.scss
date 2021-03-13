@@ -50,7 +50,7 @@ scrollbar {
   }
 
   &.overlay-indicator {
-    &:not(.dragging):not(.hovering) {
+    & {
       border-color: transparent;
       background-color: transparent;
 
