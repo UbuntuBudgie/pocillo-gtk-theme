@@ -87,8 +87,8 @@ scrollbar {
       }
     }
 
-    &.dragging,
-    &.hovering { background-color: rgba($base_color, $higher_opacity); }
+    //&.dragging,
+    //&.hovering { background-color: rgba($base_color, $higher_opacity); }
   }
 
   &.horizontal slider { min-width: $_slider_min_length; }
