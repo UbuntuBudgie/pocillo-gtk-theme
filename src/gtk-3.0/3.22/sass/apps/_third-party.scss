@@ -2,26 +2,36 @@
  * Ubiquity *
  ************/
 
-#live_installer > #wizard {
+#live_installer {
 
-  #page_mode #title_section label#page_title { //Page Title text
-    color: $almost_white;
+  #partition_container {
+    color: $bg_color;
   }
 
-  #page_mode { // the main box
-    background-color: $dark_neutral_gray;
+  #title_eventbox {
+    background-color: $bg_color;
+    color: $fg_color;
+    &:backdrop {
+      background-color: $darker_bg_color;
+      color: $secondary_fg_color;
+    }
   }
 
-  #progress_eventbox #progress_mode { //Progress dots at the bottom
-    progressbar *{
+  #dot_grid progressbar	{
+    border-radius: $circular_radius;
+    border: 1px solid $dark_neutral_gray;
+
+    .empty {
       border-radius: $circular_radius;
+      background-color: white;
     }
 
-    label { //Installation text
-      color: $almost_white;
+    .full progress {
+      border-radius: $circular_radius;
     }
   }
 }
+#dialog-action_area1 { padding-bottom: 5px; padding-right: 5px }
 
 /*********
  * Tilix *
