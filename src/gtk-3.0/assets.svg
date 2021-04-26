@@ -25,11 +25,11 @@
     </linearGradient>
 
     <linearGradient id="dark-theme-surface-z0">
-      <stop offset="1" stop-color="#121212"/>
+      <stop offset="1" stop-color="#20222a"/>
     </linearGradient>
 
     <linearGradient id="dark-theme-surface-z8">
-      <stop offset="1" stop-color="#2e2e2e"/>
+      <stop offset="1" stop-color="#24262e"/>
     </linearGradient>
 
     <linearGradient id="dark-theme-disabled-hint-on-surface">
