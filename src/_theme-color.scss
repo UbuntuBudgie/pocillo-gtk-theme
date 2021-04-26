@@ -89,7 +89,7 @@ $visited-on-dark: #c58af9;
 $visited: $visited-on-light;
 $on-visited: on($visited);
 
-$system: #212121;
+$system: #383c4a; // Materia #212121;
 $on-system: on($system);
 
 $tooltip: rgba(#616161, .9);
@@ -101,7 +101,7 @@ $on-scrim: on($scrim);
 $scrim-alt: rgba(black, .3);
 $on-scrim-alt: on($scrim-alt);
 
-$panel: #212121;
+$panel: #20222a; // Materia #212121;
 $on-panel: on($panel);
 
 // for Unity panel which doesn't allow translucent colors
@@ -115,9 +115,9 @@ $on-titlebar: on($titlebar);
 $titlebar-indicator: currentcolor;
 
 @if theme.$dark-theme {
-  $surface-z0: #121212;
-  $surface-z1: color.mix(white, $surface-z0, 5%);
-  $surface-z8: color.mix(white, $surface-z0, 12%);
+  $surface-z0: #20222a;// Materia #121212;
+  $surface-z1: color.mix(white, $surface-z0, 2%);// Materia color.mix(white, $surface-z0, 5%);
+  $surface-z8: color.mix(white, $surface-z0, 6%);// Materia color.mix(white, $surface-z0, 12%);
   $surface-switch-thumb: color.mix(white, $surface-z0, 60%);
   $on-surface: on($surface-z0);
 
