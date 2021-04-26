@@ -1,0 +1,234 @@
+/* Message List */
+// a.k.a. notifications in the menu
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+@use "../base/button";
+@use "calendar";
+
+// main list
+.message-list {
+  width: 31.5em;
+  padding: 0;
+
+  .message-list-placeholder {
+    spacing: 12px;
+  }
+}
+
+.message-list-sections {
+  spacing: 8px;
+  margin: 0 8px; // to account for scrollbar
+}
+
+.message-list-section,
+.message-list-section-list {
+  spacing: 8px;
+}
+
+.message-list-section-list {
+  &:ltr {
+    padding-left: 0;
+  }
+
+  &:rtl {
+    padding-right: 0;
+  }
+}
+
+@if gnome-shell.$version >= 3.36 {
+  // do-not-disturb + clear button
+  .message-list-controls {
+    margin: 8px 8px 0;
+    padding: 0;
+    spacing: 8px;
+  }
+} @else {
+  // clear button
+  .message-list-clear-button.button {
+    @extend %button;
+    margin: 8px 8px 0;
+  }
+}
+
+// message bubbles
+.message {
+  @include calendar.item;
+  min-height: theme.$menu-item-height * 2;
+
+  // icon container
+  .message-icon-bin {
+    padding: 12px 0 12px 12px;
+
+    &:rtl {
+      padding: 12px 12px 12px 0;
+    }
+
+    // icon size and color
+    > StIcon {
+      -st-icon-style: requested;
+      icon-size: 16px;
+      color: inherit;
+
+      &,
+      &:rtl {
+        margin: 0;
+      }
+    }
+
+    // fallback
+    > .fallback-app-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // content
+  .message-content {
+    min-height: theme.$menu-item-height * 2 - 8px * 2;
+    padding: 8px;
+    spacing: 0;
+    color: inherit;
+    font-size: 1em;
+  }
+
+  // title
+  .message-title {
+    min-height: theme.$small-size - 2px;
+    padding-top: 2px;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  // secondary container in title box
+  .message-secondary-bin {
+    padding: 0 8px;
+
+    // notification time stamp
+    > .event-time {
+      min-height: theme.$small-size - 2px;
+      padding-top: 2px;
+      color: theme-color.hint(theme-color.$on-surface);
+      font-size: 1em;
+      text-align: right;
+
+      // HACK: the label should be baseline-aligned with a 1em label,
+      //       fake this with some bottom padding
+      padding-bottom: 0;
+
+      &:ltr {
+        text-align: right;
+      }
+
+      &:rtl {
+        text-align: left;
+      }
+    }
+
+    > StIcon {
+      icon-size: 16px;
+    }
+  }
+
+  // close button
+  $message-close-button: if(gnome-shell.$version >= 3.36, ".message-close-button", ".message-content > StBoxLayout > StButton");
+
+  #{$message-close-button} {
+    transition-duration: theme.$state-duration;
+    icon-size: 16px;
+    padding: (theme.$small-size - 16px) / 2;
+    border-radius: theme.$small-size / 2;
+
+    &,
+    &:hover,
+    &:active {
+      color: theme-color.hint(theme-color.$on-surface);
+    }
+
+    &:focus {
+      background-color: theme-color.focus-overlay(theme-color.$on-surface);
+    }
+
+    &:hover {
+      background-color: theme-color.hover-overlay(theme-color.$on-surface);
+    }
+
+    &:active {
+      transition-duration: theme.$ripple-duration;
+      background-color: theme-color.pressed-overlay(theme-color.$on-surface);
+    }
+  }
+
+  // body
+  .message-body {
+    color: theme-color.hint(theme-color.$on-surface);
+  }
+}
+
+// URLs in messages
+.url-highlighter {
+  link-color: theme-color.$primary;
+}
+
+/* Media Controls */
+.message-media-control {
+  transition-duration: theme.$state-duration;
+  margin: 16px 0;
+  padding: 8px;
+  border-radius: 16px;
+
+  &,
+  &:focus,
+  &:hover,
+  &:active {
+    color: theme-color.hint(theme-color.$on-surface);
+  }
+
+  &:focus {
+    background-color: theme-color.focus-overlay(theme-color.$on-surface);
+  }
+
+  &:hover {
+    background-color: theme-color.hover-overlay(theme-color.$on-surface);
+  }
+
+  &:active {
+    background-color: theme-color.pressed-overlay(theme-color.$on-surface);
+    transition-duration: theme.$ripple-duration;
+  }
+
+  &:insensitive {
+    color: theme-color.disabled-hint(theme-color.$on-surface);
+  }
+
+  &:last-child:ltr {
+    margin-right: 16px;
+    padding-right: 8px;
+    border-radius: 16px;
+  }
+
+  &:last-child:rtl {
+    margin-left: 16px;
+    padding-left: 8px;
+    border-radius: 16px;
+  }
+}
+
+// album-art
+.media-message-cover-icon {
+  icon-size: 32px !important;
+  margin: 4px 0 !important;
+  border-radius: 0;
+
+  // when there is no artwork
+  &.fallback {
+    icon-size: 16px !important;
+    padding: 8px;
+    border: 0;
+    border-radius: theme.$corner-radius;
+    background-color: theme-color.fill(theme-color.$on-surface);
+    color: theme-color.disabled(theme-color.$on-surface) !important;
+  }
+}

@@ -1,0 +1,139 @@
+/* OVERVIEW */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+@use "../../typography";
+@use "../base/scrollbar";
+
+// Same as the ANIMATION_TIME in overview.js
+$transition-duration: 250ms;
+
+$color: theme-color.$system;
+$on-color: theme-color.$on-system;
+
+@if gnome-shell.$version < 40 {
+  $color: transparent;
+  $on-color: theme-color.$on-dark;
+}
+
+@if gnome-shell.$version >= 40 {
+  .controls-manager,
+  .secondary-monitor-workspaces {
+    spacing: 16px;
+  }
+
+  #overviewGroup {
+    background-color: $color;
+    color: $on-color;
+
+    StScrollBar {
+      @include scrollbar.color($on-color);
+    }
+  }
+} @else {
+  #overview {
+    spacing: 24px;
+    background-color: $color;
+    color: $on-color;
+
+    StScrollBar {
+      @include scrollbar.color($on-color);
+    }
+  }
+
+  .overview-controls {
+    padding-bottom: 32px;
+  }
+}
+
+@mixin panel {
+  transition-duration: $transition-duration;
+  border: 0;
+  background-color: theme-color.fill($on-color);
+  color: $on-color;
+}
+
+@mixin status-text {
+  @include typography.headline3;
+  color: theme-color.disabled($on-color);
+}
+
+@mixin item {
+  @include _item;
+
+  &:focus {
+    @include _item-focus;
+  }
+
+  &:hover,
+  &:selected {
+    @include _item-hover;
+  }
+
+  &:active,
+  &:checked {
+    @include _item-active;
+  }
+}
+
+@mixin icon {
+  .overview-icon {
+    @include _item;
+  }
+
+  &:focus {
+    .overview-icon {
+      @include _item-focus;
+    }
+  }
+
+  &:drop,
+  &:hover,
+  &:selected {
+    .overview-icon {
+      @include _item-hover;
+    }
+  }
+
+  &:active,
+  &:checked {
+    .overview-icon {
+      @include _item-active;
+    }
+  }
+}
+
+@mixin _item {
+  padding: 6px;
+  border: 0;
+  border-radius: theme.$corner-radius;
+  background-color: transparent;
+  color: inherit;
+  text-align: center;
+  transition-duration: theme.$state-duration;
+}
+
+@mixin _item-focus {
+  border-image: none;
+  background-image: none;
+  background-color: theme-color.focus-overlay($on-color);
+  color: inherit;
+  transition-duration: 0ms;
+}
+
+@mixin _item-hover {
+  border: 0;
+  border-image: none;
+  background-image: none;
+  background-color: theme-color.hover-overlay($on-color);
+  color: inherit;
+  transition-duration: 0ms;
+}
+
+@mixin _item-active {
+  box-shadow: none;
+  background-color: theme-color.pressed-overlay($on-color);
+  color: inherit;
+  transition-duration: theme.$ripple-duration;
+}

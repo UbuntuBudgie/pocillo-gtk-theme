@@ -1,0 +1,20 @@
+/* Tiled window previews */
+
+@use "../../../../theme-color";
+
+.tile-preview {
+  border: 1px solid theme-color.primary(theme-color.$on-dark);
+  background-color: rgba(theme-color.primary(theme-color.$on-dark), .3);
+}
+
+.tile-preview-left.on-primary {
+  border-radius: 0;
+}
+
+.tile-preview-right.on-primary {
+  border-radius: 0;
+}
+
+.tile-preview-left.tile-preview-right.on-primary {
+  border-radius: 0;
+}

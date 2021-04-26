@@ -1,0 +1,100 @@
+/* Dash */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "overview";
+
+$spacing: 6px;
+$margin: 12px;
+
+#dash {
+  font-size: 1em;
+
+  @if gnome-shell.$version >= 40 {
+    margin-top: 0;
+    padding: $margin $margin 0;
+
+    .overview-icon {
+      // Same as normal .overview-icon
+      padding: 6px;
+    }
+  } @else {
+    @include overview.panel;
+    padding: ($spacing / 2) 0;
+    border-left-width: 0;
+    border-radius: 0 theme.$corner-radius theme.$corner-radius 0;
+
+    &:rtl {
+      border-right-width: 0;
+      border-radius: theme.$corner-radius 0 0 theme.$corner-radius;
+    }
+  }
+
+  .placeholder {
+    height: 24px;
+    background-image: url("assets/dash-placeholder.svg");
+    background-size: contain;
+  }
+
+  .empty-dash-drop-target {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@if gnome-shell.$version >= 40 {
+  .dash-background {
+    margin-bottom: 0;
+    padding: $spacing ($spacing / 2);
+    border-radius: theme.$corner-radius theme.$corner-radius 0 0;
+    background-color: theme-color.fill(overview.$on-color);
+  }
+
+  // Dash Items
+  .dash-item-container .app-well-app,
+  .show-apps {
+    padding: $spacing ($spacing / 2);
+  }
+
+  .dash-separator {
+    width: 1px;
+    margin: $spacing ($spacing / 2);
+    background-color: theme-color.stroke(overview.$on-color);
+  }
+} @else {
+  // Dash Items
+  .dash-item-container > StWidget {
+    padding: ($spacing / 2) $spacing;
+  }
+}
+
+// OSD Tooltip
+.dash-label {
+  // min-height: 32px - 6px * 2;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: theme.$corner-radius;
+  box-shadow: shadow.$z4;
+  background-color: theme-color.$surface-z8;
+  color: theme-color.$on-surface;
+  text-align: center;
+
+  // distance from the dash edge
+  @if gnome-shell.$version >= 40 {
+    -y-offset: 8px;
+  } @else {
+    -x-offset: 8px;
+  }
+}
+
+// Show apps button
+.show-apps {
+  @include overview.icon;
+  color: theme-color.hint(overview.$on-color);
+
+  &:checked {
+    color: overview.$on-color;
+  }
+}

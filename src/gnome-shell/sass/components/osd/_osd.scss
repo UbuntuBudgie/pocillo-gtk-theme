@@ -1,0 +1,80 @@
+/* OSD */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "../../typography";
+
+@mixin panel {
+  padding: 12px;
+  border: none;
+  border-radius: theme.$corner-radius;
+  box-shadow: shadow.$z8;
+  background-color: theme-color.$surface-z8;
+  color: theme-color.$on-surface;
+}
+
+.osd-window {
+  @include panel;
+  text-align: center;
+  font-weight: bold;
+  spacing: 12px;
+  margin: 32px;
+  min-width: 64px;
+  min-height: 64px;
+
+  StIcon {
+    icon-size: 96px;
+  }
+
+  .osd-monitor-label {
+    @include typography.headline3;
+  }
+
+  @if gnome-shell.$version >= 3.30 {
+    .level {
+      height: 8px;
+      -barlevel-height: 8px;
+      -barlevel-background-color: theme-color.disabled-stroke(theme-color.$on-surface);
+      -barlevel-active-background-color: theme-color.$primary;
+      -barlevel-overdrive-color: theme-color.$error;
+      -barlevel-overdrive-separator-width: 2px;
+    }
+  } @else {
+    .level {
+      height: 8px;
+      border-radius: 0;
+      background-color: theme-color.disabled-stroke(theme-color.$on-surface);
+      color: theme-color.$on-surface;
+    }
+
+    .level-bar {
+      border-radius: 0;
+      background-color: theme-color.$primary;
+    }
+  }
+}
+
+.resize-popup {
+  @include panel;
+}
+
+/* Pad OSD */
+
+.pad-osd-window {
+  padding: 32px;
+  background-color: theme-color.$scrim;
+
+  .pad-osd-title-box {
+    spacing: 12px;
+  }
+
+  .pad-osd-title-menu-box {
+    spacing: 6px;
+  }
+}
+
+.combo-box-label {
+  width: 15em;
+}

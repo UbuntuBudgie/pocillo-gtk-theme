@@ -1,0 +1,9 @@
+@use "@current_source_dir@/../theme" with (
+  $dark-theme: true,
+  $light-topbar: false,
+  $compact: @compact@,
+  $toolkit: "gtk3"
+);
+@use "@current_source_dir@/sass/common";
+@use "@current_source_dir@/sass/apps";
+@use "@current_source_dir@/sass/public-colors";

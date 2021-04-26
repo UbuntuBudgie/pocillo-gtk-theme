@@ -1,0 +1,83 @@
+/**
+ * Nemo
+ */
+
+// Based on:
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-fallback-mandatory.css
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-fallback.css
+// The hard-coded CSS:
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-application.css
+
+@use "../../../theme";
+@use "../../../theme-color";
+@use "../common";
+
+.nemo-window {
+  .primary-toolbar {
+    border-bottom: 1px solid theme-color.divider(theme-color.$on-surface);
+
+    // FIXME: workaround for hard-coded border-width of GtkEventBox for entry
+    stack > box {
+      margin: -2px;
+    }
+
+    // instead of .path-bar button
+    button.text-button {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    // instead of .path-bar button.slider-button
+    button:not(.text-button):not(.image-button) {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+
+  scrolledwindow.frame {
+    border-style: none;
+    background-color: transparent;
+
+    .view:not(:selected) {
+      // background-color: transparent;
+    }
+  }
+
+  infobar {
+    // The ugly 6px spacing has been removed since 3.8.0
+    // margin-top: -6px;
+  }
+
+  // Inactive F3 pane shading
+  .nemo-inactive-pane .view:not(:selected) {
+    // background-color: $surface-z0;
+  }
+
+  // Rename entry styling in the icon view.
+  .nemo-window-pane widget.entry {
+    border-radius: theme.$corner-radius;
+    background-color: theme-color.entry-fill(theme-color.$on-surface);
+
+    &:selected {
+      background-color: theme-color.$selected-overlay;
+    }
+  }
+
+  .toolbar button {
+    @extend %button-flat-activatable;
+  }
+}
+
+// For Places Sidebar diskfull indicators
+.places-treeview {
+  -NemoPlacesTreeView-disk-full-bg-color: theme-color.opacify(theme-color.disabled-stroke(theme-color.$on-surface), theme-color.$surface-z0); // Can't use translucent colors
+  -NemoPlacesTreeView-disk-full-fg-color: theme-color.$primary;
+  -NemoPlacesTreeView-disk-full-bar-width: 2px;
+  -NemoPlacesTreeView-disk-full-bar-radius: 0;
+  -NemoPlacesTreeView-disk-full-bottom-padding: 1px; // There is already hard-coded 1px bottom-padding
+  -NemoPlacesTreeView-disk-full-max-length: 80px;
+}
+
+.nemo-desktop.nemo-canvas-item {
+  @extend %iconview-desktop;
+}

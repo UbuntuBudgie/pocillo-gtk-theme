@@ -1,0 +1,306 @@
+/* Login Dialog */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+@use "../../drawing";
+@use "../../typography";
+
+.login-dialog-banner-view {
+  padding-top: 24px;
+  max-width: 23em;
+}
+
+.login-dialog,
+.unlock-dialog {
+  //reset
+  border: 0;
+  background-color: transparent;
+
+  StEntry {
+    @include drawing.entry(normal, $fc: theme-color.stroke(theme-color.$on-system));
+    color: theme-color.$on-system;
+    selection-background-color: theme-color.stroke(theme-color.$on-system);
+    selected-color: theme-color.$on-system;
+
+    &:focus {
+      @include drawing.entry(focus, $fc: theme-color.$on-system);
+    }
+
+    &:insensitive {
+      @include drawing.entry(insensitive, $fc: theme-color.disabled-stroke(theme-color.$on-system));
+      color: theme-color.disabled(theme-color.$on-system);
+    }
+
+    StLabel.hint-text {
+      color: theme-color.hint(theme-color.$on-system);
+    }
+
+    StIcon.peek-password {
+      color: theme-color.hint(theme-color.$on-system);
+
+      &:hover {
+        color: theme-color.$on-system;
+      }
+    }
+  }
+
+  .modal-dialog-button-box {
+    spacing: 3px;
+  }
+
+  .modal-dialog-button {
+    @include drawing.button(flat-normal, $tc: theme-color.$on-system);
+
+    &:focus {
+      @include drawing.button(flat-focus, $tc: theme-color.$on-system);
+    }
+
+    &:hover {
+      @include drawing.button(flat-hover, $tc: theme-color.$on-system);
+    }
+
+    &:active {
+      @include drawing.button(flat-active, $tc: theme-color.$on-system);
+    }
+
+    &:insensitive {
+      @include drawing.button(flat-insensitive, $tc: theme-color.$on-system);
+    }
+
+    &:default {
+      min-width: 64px - 16px * 2;
+      padding: 0 16px;
+      @include drawing.button(normal, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+
+      &:focus {
+        @include drawing.button(focus, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+      }
+
+      &:hover {
+        @include drawing.button(hover, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+      }
+
+      &:active {
+        @include drawing.button(active, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+      }
+
+      &:insensitive {
+        @include drawing.button(insensitive, $c: theme-color.fill(theme-color.$on-system), $tc: theme-color.disabled(theme-color.$on-system));
+      }
+    }
+  }
+}
+
+.login-dialog-logo-bin {
+  padding: 24px 0;
+}
+
+.login-dialog-banner {
+  color: theme-color.hint(theme-color.$on-system);
+}
+
+.login-dialog-button-box {
+  spacing: 5px;
+
+  @if gnome-shell.$version >= 3.36 {
+    width: 23em;
+  }
+}
+
+@if gnome-shell.$version >= 3.36 {
+  .login-dialog-message {
+    text-align: center;
+  }
+}
+
+.caps-lock-warning-label,
+.login-dialog-message-warning {
+  color: theme-color.error(theme-color.$on-system);
+}
+
+.login-dialog-message-hint {
+  color: theme-color.hint(theme-color.$on-system);
+
+  @if gnome-shell.$version < 40 {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+}
+
+.login-dialog-user-selection-box {
+  padding: 100px 0;
+}
+
+.login-dialog-not-listed-button {
+  transition-duration: theme.$state-duration;
+  min-height: 32px;
+  padding: 0 8px;
+  margin-top: 1em;
+  border-radius: theme.$corner-radius;
+  color: theme-color.hint(theme-color.$on-system);
+  @include typography.button;
+
+  &:focus {
+    background-color: theme-color.focus-overlay(theme-color.$on-system);
+  }
+
+  &:hover {
+    background-color: theme-color.hover-overlay(theme-color.$on-system);
+  }
+
+  &:active {
+    transition-duration: theme.$ripple-duration;
+    background-color: theme-color.pressed-overlay(theme-color.$on-system);
+  }
+}
+
+.login-dialog-not-listed-label {
+}
+
+.login-dialog-user-list-view {
+  -st-vfade-offset: 1em;
+}
+
+.login-dialog-user-list {
+  spacing: 12px;
+  width: 23em;
+
+  &:expanded .login-dialog-user-list-item {
+    &:selected {
+      background-color: theme-color.focus-overlay(theme-color.$on-system);
+    }
+
+    &:logged-in {
+      border-right: 2px solid theme-color.$on-system;
+    }
+  }
+}
+
+.login-dialog-user-list-item {
+  transition-duration: theme.$state-duration;
+  padding: 6px;
+  border-radius: theme.$corner-radius;
+  color: inherit;
+
+  &:focus {
+    background-color: theme-color.focus-overlay(theme-color.$on-system);
+  }
+
+  &:hover {
+    background-color: theme-color.hover-overlay(theme-color.$on-system);
+  }
+
+  &:active {
+    transition-duration: theme.$ripple-duration;
+    background-color: theme-color.pressed-overlay(theme-color.$on-system);
+  }
+
+  &:ltr .user-widget {
+    padding-right: 1em;
+  }
+
+  &:rtl .user-widget {
+    padding-left: 1em;
+  }
+
+  .login-dialog-timed-login-indicator {
+    height: 2px;
+    margin-top: 6px;
+    background-color: theme-color.$on-system;
+  }
+}
+
+@if gnome-shell.$version >= 3.36 {
+  .login-dialog .user-icon StIcon {
+    background-color: theme-color.fill(theme-color.$on-system);
+  }
+
+  .user-widget-label {
+    color: inherit;
+  }
+
+  .user-widget.horizontal .user-widget-label {
+    padding-left: 16px;
+    @include typography.headline6;
+    text-align: left;
+
+    &:ltr {
+      padding-left: 14px;
+      text-align: left;
+    }
+
+    &:rtl {
+      padding-right: 14px;
+      text-align: right;
+    }
+  }
+
+  .user-widget.vertical .user-widget-label {
+    padding-top: 16px;
+    @include typography.headline5;
+    text-align: center;
+  }
+} @else {
+  .login-dialog-username,
+  .user-widget-label {
+    padding-left: 16px;
+    @include typography.headline6;
+    text-align: left;
+  }
+
+  .user-widget-label {
+    &:ltr {
+      padding-left: 14px;
+      text-align: left;
+    }
+
+    &:rtl {
+      padding-right: 14px;
+      text-align: right;
+    }
+  }
+}
+
+.login-dialog-prompt-layout {
+  width: 23em;
+  padding-top: 24px;
+  padding-bottom: 12px;
+  spacing: 8px;
+}
+
+.login-dialog-prompt-label {
+  color: theme-color.hint(theme-color.$on-system);
+  font-size: 1em;
+  padding-top: 1em;
+}
+
+.cancel-button,
+.switch-user-button,
+.login-dialog-session-list-button {
+  transition-duration: theme.$state-duration;
+  width: theme.$medium-size;
+  height: theme.$medium-size;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border-radius: theme.$medium-size / 2;
+  color: theme-color.hint(theme-color.$on-system);
+
+  &:focus {
+    background-color: theme-color.focus-overlay(theme-color.$on-system);
+  }
+
+  &:hover {
+    background-color: theme-color.hover-overlay(theme-color.$on-system);
+  }
+
+  &:active {
+    transition-duration: theme.$ripple-duration;
+    background-color: theme-color.pressed-overlay(theme-color.$on-system);
+  }
+
+  StIcon {
+    icon-size: 16px;
+  }
+}

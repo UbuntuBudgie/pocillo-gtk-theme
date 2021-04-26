@@ -1,0 +1,7 @@
+@use "@current_source_dir@/../theme" with (
+  $dark-theme: @dark_theme@,
+  $light-topbar: @light_topbar@,
+  $compact: @compact@,
+  $toolkit: "st"
+);
+@use "@current_source_dir@/sass/common";

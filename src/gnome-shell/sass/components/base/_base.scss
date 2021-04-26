@@ -1,0 +1,63 @@
+/* Copyright 2009, 2015 Red Hat, Inc.
+ *
+ * Portions adapted from Mx's data/style/default.css
+ *   Copyright 2009 Intel Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms and conditions of the GNU Lesser General Public License,
+ * version 2.1, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+@use "../../typography";
+
+// Stage
+stage {
+  color: theme-color.$on-surface;
+
+  @if gnome-shell.$version >= 3.36 {
+    font-size: 1em;
+  } @else {
+    @include typography.body2;
+    font-family: typography.$font-family;
+  }
+}
+
+// Links
+.shell-link {
+  transition-duration: theme.$state-duration;
+  border-radius: theme.$corner-radius;
+  color: theme-color.$primary;
+
+  &:hover {
+    background-color: theme-color.hover-overlay(theme-color.$primary);
+    color: theme-color.$primary;
+  }
+
+  &:active {
+    transition-duration: theme.$ripple-duration;
+    background-color: theme-color.pressed-overlay(theme-color.$primary);
+    color: theme-color.$primary;
+  }
+}
+
+// Outline for low res icons
+.lowres-icon {
+  icon-shadow: none;
+}
+
+// Dropshadow for large icons
+.icon-dropshadow {
+  icon-shadow: none;
+}

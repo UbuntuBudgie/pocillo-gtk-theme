@@ -1,0 +1,56 @@
+/* Workspace pager */
+
+@use "../../../../theme";
+@use "../../gnome-shell";
+@use "overview";
+
+// thumbnails in overview
+.workspace-thumbnails {
+  @if gnome-shell.$version >= 40 {
+    padding: 0;
+    spacing: 12px;
+
+    .workspace-thumbnail {
+      @include overview.panel;
+      border-radius: theme.$corner-radius;
+    }
+  } @else {
+    @include overview.panel;
+    visible-width: 32px; // amount visible before hover
+    padding: 12px;
+    spacing: 12px;
+    border-right-width: 0;
+    border-radius: theme.$corner-radius 0 0 theme.$corner-radius;
+
+    &:rtl {
+      border-left-width: 0;
+      border-radius: 0 theme.$corner-radius theme.$corner-radius 0;
+    }
+  }
+
+  // drag and drop indicator
+  .placeholder {
+    background-image: url("assets/dash-placeholder.svg");
+    background-size: contain;
+
+    @if gnome-shell.$version >= 40 {
+      width: 24px;
+    } @else {
+      height: 24px;
+    }
+  }
+}
+
+// selected indicator
+.workspace-thumbnail-indicator {
+  border: 0 solid overview.$on-color;
+  border-radius: 0;
+
+  @if gnome-shell.$version >= 40 {
+    padding: 6px;
+    border-bottom-width: 2px;
+  } @else {
+    padding: 6px 10px;
+    border-left-width: 2px;
+  }
+}

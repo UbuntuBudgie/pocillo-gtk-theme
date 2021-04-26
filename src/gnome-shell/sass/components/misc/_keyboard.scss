@@ -1,0 +1,201 @@
+/* On-screen Keyboard */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "../../drawing";
+@use "../../typography";
+
+// draw keys using button function
+#keyboard {
+  background-color: theme-color.$scrim-alt;
+  box-shadow: none;
+
+  .page-indicator {
+    padding: 4px;
+
+    .page-indicator-icon {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+// the container for individual keys
+@if gnome-shell.$version >= 3.28 {
+  .key-container {
+    padding: 4px;
+    spacing: 4px;
+  }
+} @else {
+  .keyboard-layout {
+    spacing: 10px;
+    padding: 10px;
+  }
+
+  .keyboard-row {
+    spacing: 15px;
+  }
+}
+
+// the keys
+.keyboard-key {
+  min-height: 1.2em;
+  min-width: 1.2em;
+  font-size: 2em;
+  font-weight: 500;
+  border: 0;
+  border-width: 0;
+  border-style: none;
+  border-radius: theme.$corner-radius;
+
+  &,
+  // non-character keys
+  &.default-key {
+    @include drawing.button(normal);
+
+    &:focus {
+      @include drawing.button(focus);
+    }
+
+    &:hover,
+    &:checked {
+      @include drawing.button(hover);
+    }
+
+    &:active {
+      @include drawing.button(active);
+    }
+  }
+
+  &:grayed { //FIXMEy
+    border-color: transparent;
+    background-color: theme-color.$scrim-alt;
+    color: theme-color.$on-scrim-alt;
+  }
+
+  // enter key is suggested-action
+  &.enter-key {
+    @include drawing.button(normal, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+
+    &:hover,
+    &:checked {
+      @include drawing.button(hover, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+    }
+
+    &:active {
+      @include drawing.button(active, $c: theme-color.$primary, $tc: theme-color.$on-primary);
+    }
+  }
+
+  @if gnome-shell.$version >= 3.36 {
+    &.shift-key-uppercase {
+      color: theme-color.$primary;
+    }
+
+    StIcon {
+      icon-size: 32px;
+    }
+  } @else {
+    // size of the icon asset
+    &.default-key {
+      background-size: 24px;
+    }
+
+    // key assets
+    &.enter-key {
+      background-image: url("assets/key-enter.svg");
+    }
+
+    &.shift-key-lowercase {
+      background-image: url("assets/key-shift.svg");
+    }
+
+    &.shift-key-uppercase {
+      background-image: url("assets/key-shift-uppercase.svg");
+    }
+
+    &.shift-key-uppercase:latched {
+      background-image: url("assets/key-shift-latched-uppercase.svg");
+    }
+
+    &.hide-key {
+      background-image: url("assets/key-hide.svg");
+    }
+
+    &.layout-key {
+      background-image: url("assets/key-layout.svg");
+    }
+  }
+}
+
+// long press on a key popup
+.keyboard-subkeys {
+  -boxpointer-gap: 5px;
+  -arrow-base: 0;
+  -arrow-rise: 0;
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-border-radius: 0;
+  -arrow-background-color: transparent;
+  padding: 5px;
+  border-radius: theme.$corner-radius;
+  box-shadow: shadow.$z4;
+  background-color: theme-color.$surface-z8;
+  color: theme-color.$on-surface;
+
+  .keyboard-key {
+    border-radius: theme.$corner-radius;
+
+    @include drawing.button(flat-normal);
+
+    &:focus {
+      @include drawing.button(flat-focus);
+    }
+
+    &:hover,
+    &:checked {
+      @include drawing.button(flat-hover);
+    }
+
+    &:active {
+      @include drawing.button(flat-active);
+    }
+  }
+}
+
+// emoji
+.emoji-page {
+  .keyboard-key {
+    border: 0;
+    @include drawing.button(flat-normal, $tc: theme-color.$on-scrim-alt);
+
+    &:focus {
+      @include drawing.button(flat-focus, $tc: theme-color.$on-scrim-alt);
+    }
+
+    &:hover {
+      @include drawing.button(flat-hover, $tc: theme-color.$on-scrim-alt);
+    }
+
+    &:active {
+      @include drawing.button(flat-active, $tc: theme-color.$on-scrim-alt);
+    }
+  }
+}
+
+.emoji-panel {
+  .keyboard-key:latched {
+    border-color: transparent;
+    background-color: theme-color.$primary;
+    color: theme-color.$on-primary;
+  }
+}
+
+// suggestions
+.word-suggestions {
+  @include typography.subtitle1;
+  spacing: 12px;
+  min-height: 20pt;
+}

@@ -1,0 +1,39 @@
+option(
+  'theme_name',
+  type: 'string',
+  value: 'Materia',
+  description: 'Base theme name',
+)
+
+option(
+  'colors',
+  type: 'array',
+  choices: ['default', 'light', 'dark'],
+  description: 'List of color variants to build',
+)
+
+option(
+  'sizes',
+  type: 'array',
+  choices: ['default', 'compact'],
+  description: 'List of size variants to build',
+)
+
+option(
+  'gnome_shell_version',
+  type: 'string',
+  description: 'Build GNOME Shell theme for specific version',
+)
+
+option(
+  'gtk4_version',
+  type: 'string',
+  description: 'Build GTK 4 theme for specific version',
+)
+
+option(
+  'flatpak',
+  type: 'boolean',
+  value: false,
+  description: 'Whether to build theme for flatpak package',
+)

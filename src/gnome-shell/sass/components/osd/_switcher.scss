@@ -1,0 +1,77 @@
+/* App Switcher */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../typography";
+@use "osd";
+
+.switcher-popup {
+  padding: 8px;
+  spacing: 16px;
+}
+
+// switcher onscreen panel
+.switcher-list {
+  @include osd.panel;
+
+  .switcher-list-item-container {
+    spacing: 8px;
+  }
+
+  .item-box {
+    transition-duration: theme.$state-duration;
+    padding: 8px;
+    border: 0;
+    border-radius: theme.$corner-radius;
+
+    &:outlined {
+      padding: 8px;
+      border: 0;
+      box-shadow: none;
+      background-color: theme-color.activated-overlay(theme-color.$on-surface);
+      color: inherit;
+    }
+
+    &:selected {
+      background-color: theme-color.$selected-overlay;
+      color: inherit;
+    }
+  }
+
+  // window thumbnails
+  .thumbnail-box {
+    padding: 2px;
+    spacing: 4px;
+  }
+
+  .thumbnail {
+    width: 256px;
+  }
+
+  .separator {
+    width: 1px;
+    background: theme-color.divider(theme-color.$on-surface);
+  }
+}
+
+.switcher-arrow {
+  transition-duration: theme.$state-duration;
+  border-color: transparent;
+  color: theme-color.hint(theme-color.$on-surface);
+
+  &:highlighted {
+    color: theme-color.$on-surface;
+  }
+}
+
+// Input Source Switcher
+.input-source-switcher-symbol {
+  width: 96px;
+  height: 96px;
+  @include typography.headline3;
+}
+
+// Window cycler highlight
+.cycler-highlight {
+  border: 4px solid theme-color.$primary;
+}

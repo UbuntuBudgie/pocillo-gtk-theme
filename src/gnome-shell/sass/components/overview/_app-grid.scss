@@ -1,0 +1,413 @@
+/* App Grid */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../color-palette";
+@use "../../gnome-shell";
+@use "../../drawing";
+@use "../../typography";
+@use "../base/button";
+@use "overview";
+
+// app icons
+.icon-grid {
+  @if gnome-shell.$version >= 40 {
+    row-spacing: 12px;
+    column-spacing: 12px;
+    max-row-spacing: 72px;
+    max-column-spacing: 72px;
+    page-padding-top: 24px;
+    page-padding-bottom: 24px;
+    page-padding-left: 12px;
+    page-padding-right: 12px;
+  } @else if gnome-shell.$version >= 3.38 {
+    row-spacing: 48px;
+    column-spacing: 48px;
+    max-row-spacing: 96px;
+    max-column-spacing: 96px;
+  } @else {
+    -shell-grid-horizontal-item-size: 136px;
+    -shell-grid-vertical-item-size: 136px;
+    spacing: 32px;
+
+    .overview-icon {
+      icon-size: 96px;
+    }
+  }
+}
+
+@if gnome-shell.$version < 3.38 {
+  .app-display {
+    // spacing: 20px;
+  }
+}
+
+/* App Icons */
+
+// Icon tiles in the app grid
+.app-well-app,
+%app-well-app {
+  @include overview.icon;
+
+  .overview-icon.overview-icon-with-label {
+    padding: 8px;
+    spacing: 0;
+
+    > StBoxLayout {
+      spacing: 4px;
+    }
+  }
+}
+
+/* App Folders */
+.app-well-app.app-folder {
+  @extend %app-well-app;
+  border-radius: theme.$corner-radius; // same as .overview-icon
+  background-color: transparent;
+}
+
+// expanded folder
+.app-folder-dialog {
+  border: 0;
+  border-radius: theme.$corner-radius;
+  background-color: theme-color.$surface-z8;
+  color: theme-color.$on-surface;
+
+  @if gnome-shell.$version >= 40 {
+    padding: 12px 0;
+  } @else if gnome-shell.$version >= 3.38 {
+    padding: 12px;
+  } @else {
+    spacing: 12px;
+  }
+
+  .folder-name-container {
+    padding: 24px 36px 0;
+    spacing: 12px;
+
+    .folder-name-label,
+    .folder-name-entry {
+      @include typography.headline6;
+    }
+
+    .folder-name-entry {
+      width: 300px;
+    }
+
+    // FIXME: this is to keep the label in sync with the entry
+    .folder-name-label {
+      padding: 0 8px;
+      color: inherit;
+    }
+
+    .edit-folder-button {
+      @extend %button;
+
+      width: theme.$medium-size;
+      height: theme.$medium-size;
+      min-width: 0;
+      min-height: 0;
+      padding: 0;
+      border-radius: theme.$medium-size / 2;
+
+      > StIcon {
+        icon-size: 16px;
+      }
+    }
+  }
+
+  .icon-grid {
+    row-spacing: 16px;
+    column-spacing: 32px;
+
+    @if gnome-shell.$version >= 40 {
+      page-padding-top: 0;
+      page-padding-bottom: 0;
+      page-padding-left: 0;
+      page-padding-right: 0;
+    }
+  }
+
+  .page-indicators {
+    margin-bottom: 16px;
+
+    @if gnome-shell.$version < 40 {
+      .page-indicator {
+        padding: 16px 12px;
+      }
+    }
+  }
+
+  .app-well-app {
+    &:focus {
+      .overview-icon {
+        background-color: theme-color.focus-overlay(theme-color.$on-surface);
+      }
+    }
+
+    &:drop,
+    &:hover,
+    &:selected {
+      .overview-icon {
+        background-color: theme-color.hover-overlay(theme-color.$on-surface);
+      }
+    }
+
+    &:active,
+    &:checked {
+      .overview-icon {
+        background-color: theme-color.pressed-overlay(theme-color.$on-surface);
+      }
+    }
+  }
+}
+
+.app-folder-dialog-container {
+  padding: 12px;
+
+  @if gnome-shell.$version >= 3.38 {
+    width: 620px;
+    height: 620px;
+  } @else {
+    width: 800px;
+    height: 600px;
+  }
+}
+
+@if gnome-shell.$version < 3.36 {
+  // expanded collection
+  .app-folder-popup {
+    -arrow-base: 24px;
+    -arrow-rise: 12px;
+    -arrow-border-radius: theme.$corner-radius;
+    -arrow-background-color: theme-color.fill(overview.$on-color);
+  }
+
+  .app-folder-popup-bin {
+    padding: 6px;
+  }
+}
+
+@if gnome-shell.$version >= 40 {
+  .app-well-app.app-folder > .overview-icon > StBoxLayout > StBin > StWidget {
+    border-radius: theme.$corner-radius;
+    background-color: theme-color.fill(overview.$on-color);
+  }
+} @else {
+  .app-folder-icon {
+    padding: 8px;
+    spacing-rows: 4px;
+    spacing-columns: 4px;
+    border-radius: theme.$corner-radius;
+    background-color: theme-color.fill(overview.$on-color);
+
+    // HACK: Force icon size to 32px
+    > StBin > StIcon {
+      padding: 2px;
+    }
+  }
+}
+
+// Running app indicator (also shown in dash)
+.app-well-app-running-dot {
+  height: 2px;
+  width: 32px;
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: overview.$on-color;
+}
+
+// Rename popup for app folders
+.rename-folder-popup {
+  .rename-folder-popup-item {
+    spacing: 6px;
+
+    &:ltr,
+    &:rtl {
+      padding: 0 12px;
+    }
+  }
+}
+
+// right-click app menu
+.app-menu,
+.app-well-menu {
+  max-width: 27.25em;
+}
+
+// App Grid pagination indicators
+.page-indicator {
+  @if gnome-shell.$version >= 40 {
+    padding: 8px 12px 0;
+  } @else {
+    padding: 16px 20px;
+  }
+
+  @if gnome-shell.$version >= 3.36 {
+    .page-indicator-icon {
+      width: 12px;
+      height: 12px;
+      border-radius: 12px; // the same as height&width
+      background-color: overview.$on-color;
+    }
+  } @else {
+    .page-indicator-icon {
+      width: 12px;
+      height: 12px;
+      border: 0;
+      border-radius: 12px;
+      background-image: none;
+      background-color: theme-color.disabled-hint(overview.$on-color);
+      transition-duration: theme.$state-duration;
+    }
+
+    &:hover .page-indicator-icon {
+      border-color: transparent;
+      background-image: none;
+      background-color: theme-color.disabled(overview.$on-color);
+    }
+
+    &:active .page-indicator-icon {
+      margin: 0;
+      border: 0;
+      background-image: none;
+      background-color: theme-color.hint(overview.$on-color);
+    }
+
+    &:checked .page-indicator-icon,
+    &:checked:active .page-indicator-icon {
+      background-image: none;
+      background-color: overview.$on-color;
+      transition-duration: 0ms;
+    }
+
+    &:checked:active {
+      background-image: none;
+      background-color: transparent;
+    }
+  }
+}
+
+@if gnome-shell.$version >= 40 {
+  .apps-scroll-view {
+    padding: 0;
+  }
+} @else if gnome-shell.$version >= 3.38 {
+  .all-apps {
+    // horizontal padding to make sure scrollbars or dash don't overlap content
+    padding: 0 88px 10px;
+  }
+} @else if gnome-shell.$version >= 3.34 {
+  .all-apps,
+  .frequent-apps > StBoxLayout {
+    // horizontal padding to make sure scrollbars or dash don't overlap content
+    padding: 0 88px 10px;
+  }
+} @else {
+  .search-display > StBoxLayout,
+  .all-apps,
+  .frequent-apps > StBoxLayout {
+    // horizontal padding to make sure scrollbars or dash don't overlap content
+    padding: 0 88px 10px;
+  }
+}
+
+@if gnome-shell.$version < 3.38 {
+  // Label when no frequent apps
+  .no-frequent-applications-label {
+    @include overview.status-text;
+  }
+}
+
+// shutdown and other actions in the grid
+.system-action-icon {
+  icon-size: 48px;
+  border-radius: theme.$circular-radius;
+  box-shadow: 0 4px 4px rgba(black, .2); // FIXME: this should really have a highlight
+  background-color: color-palette.$grey-900;
+  color: theme-color.on(color-palette.$grey-900);
+}
+
+@if gnome-shell.$version >= 40 {
+  .page-navigation-hint {
+    width: 300px;
+
+    &.dnd {
+      background: theme-color.dragged-overlay(overview.$on-color);
+    }
+
+    &.next:ltr,
+    &.previous:rtl {
+      background-gradient-start: theme-color.fill(overview.$on-color);
+      background-gradient-end: theme-color.fill(overview.$on-color);
+      background-gradient-direction: horizontal;
+      border-radius: theme.$corner-radius 0 0 theme.$corner-radius;
+    }
+
+    &.previous:ltr,
+    &.next:rtl {
+      background-gradient-start: theme-color.fill(overview.$on-color);
+      background-gradient-end: theme-color.fill(overview.$on-color);
+      background-gradient-direction: horizontal;
+      border-radius: 0 theme.$corner-radius theme.$corner-radius 0;
+    }
+  }
+
+  .page-navigation-arrow {
+    width: 24px;
+    height: 24px;
+    margin: 6px;
+  }
+}
+
+@if gnome-shell.$version < 3.38 {
+  /* Frequent | All toggle */
+
+  // container
+  .app-view-controls {
+    width: 320px;
+    padding-bottom: 32px;
+  }
+
+  // buttons
+  .app-view-control {
+    margin: 0;
+    padding: 0 8px;
+
+    &, &:focus, &:hover, &:active, &:checked {
+      @include drawing.button(flat-normal, $tc: overview.$on-color);
+    }
+
+    &:hover {
+      background-color: theme-color.hover-overlay(overview.$on-color);
+    }
+
+    &:active {
+      background-color: theme-color.pressed-overlay(overview.$on-color);
+      transition-duration: theme.$ripple-duration;
+    }
+
+    &:checked {
+      box-shadow: inset 0 2px 0 overview.$on-color;
+      background-color: rgba(black, .01);
+      color: overview.$on-color;
+    }
+
+    &:focus {
+      background-color: theme-color.focus-overlay(overview.$on-color);
+    }
+
+    &:first-child {
+      border-right-width: 0;
+      border-radius: theme.$corner-radius;
+    }
+
+    &:last-child {
+      border-radius: theme.$corner-radius;
+    }
+
+    &:checked {
+      border-radius: 0;
+    }
+  }
+}

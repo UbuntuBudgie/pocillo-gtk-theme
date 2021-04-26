@@ -1,0 +1,267 @@
+/* Top Bar */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+@use "../overview/overview";
+
+$color: theme-color.$panel;
+$on-color: theme-color.$on-panel;
+
+@if gnome-shell.$version >= 3.26 and gnome-shell.$version < 3.32 {
+  $color: theme-color.$scrim;
+  $on-color: theme-color.$on-scrim;
+}
+
+$button-hpadding: 12px;
+
+@if theme.$compact {
+  $button-hpadding: 8px;
+}
+
+#panel {
+  transition-duration: overview.$transition-duration;
+  height: theme.$menu-item-height;
+  background-color: $color;
+  font-weight: bold;
+  font-feature-settings: "tnum";
+
+  // spacing between activities, app menu and such
+  #panelLeft,
+  #panelCenter {
+    spacing: 0;
+  }
+
+  // the rounded outset corners
+  .panel-corner {
+    -panel-corner-radius: 0;
+    -panel-corner-background-color: transparent;
+    -panel-corner-border-width: 0;
+    -panel-corner-border-color: transparent;
+
+    @if gnome-shell.$version >= 40 {
+      -panel-corner-opacity: 0;
+      transition-duration: overview.$transition-duration;
+    } @else {
+      &:active, &:overview, &:focus {
+        -panel-corner-border-color: transparent;
+      }
+    }
+  }
+
+  // panel menus
+  .panel-button {
+    -natural-hpadding: $button-hpadding;
+    -minimum-hpadding: $button-hpadding / 2;
+    transition-duration: theme.$state-duration;
+    border: 0;
+    border-radius: 0;
+    color: theme-color.hint($on-color);
+    text-shadow: none;
+    font-weight: bold;
+
+    @if gnome-shell.$version >= 3.36 {
+      &.clock-display {
+        .clock {
+          transition-duration: theme.$state-duration;
+          border: 0;
+          border-radius: 0;
+        }
+      }
+    }
+
+    .system-status-icon,
+    .app-menu-icon > StIcon,
+    .popup-menu-arrow {
+      icon-shadow: none;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: $on-color;
+      text-shadow: none;
+
+      @if gnome-shell.$version >= 3.36 {
+        &.clock-display {
+          box-shadow: none;
+
+          .clock {
+            box-shadow: none;
+          }
+        }
+      }
+
+      .system-status-icon,
+      .app-menu-icon > StIcon,
+      .popup-menu-arrow {
+        icon-shadow: none;
+      }
+    }
+
+    &:active, &:overview, &:focus, &:checked {
+      box-shadow: inset 0 -2px $on-color;
+      // Trick due to St limitations. It needs a background to draw a box-shadow
+      background-color: rgba($color, .01);
+      color: $on-color;
+
+      @if gnome-shell.$version >= 3.36 {
+        // The clock display needs to have the background on .clock because
+        // we want to exclude the do-not-disturb indicator from the background
+        &.clock-display {
+          box-shadow: none;
+          background-color: transparent;
+
+          .clock {
+            box-shadow: inset 0 -2px $on-color;
+            background-color: rgba($color, .01);
+          }
+        }
+      }
+
+      > .system-status-icon {
+        icon-shadow: none;
+      }
+    }
+
+    // status area icons
+    .system-status-icon {
+      icon-size: 16px;
+      padding: 0 4px;
+
+      @if gnome-shell.$version >= 40 {
+        margin: 0 4px;
+      }
+    }
+
+    @if gnome-shell.$version >= 40 {
+      .panel-status-indicators-box .system-status-icon,
+      .panel-status-menu-box .system-status-icon {
+        margin: 0;
+      }
+    }
+
+    // app menu icon
+    .app-menu-icon {
+      -st-icon-style: symbolic;
+      // dimensions of the icon are hardcoded
+
+      @if gnome-shell.$version < 40 {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    }
+
+    @if gnome-shell.$version >= 40 {
+      &#panelActivities {
+        -natural-hpadding: $button-hpadding;
+      }
+    }
+  }
+
+  .panel-status-indicators-box,
+  .panel-status-menu-box {
+    spacing: 2px;
+  }
+
+  // spacing between power icon and (optional) percentage label
+  .power-status.panel-status-indicators-box {
+    spacing: 0;
+  }
+
+  // indicator for active
+  .screencast-indicator,
+  .remote-access-indicator {
+    color: theme-color.$warning;
+  }
+
+  // transparent panel on lock & login screens
+  @at-root %transparent-panel {
+    background-color: transparent;
+
+    .panel-corner {
+      @if gnome-shell.$version >= 40 {
+        -panel-corner-opacity: 0;
+      } @else {
+        -panel-corner-radius: 0;
+        -panel-corner-background-color: transparent;
+        -panel-corner-border-color: transparent;
+      }
+    }
+
+    .panel-button {
+      color: theme-color.hint(theme-color.$on-dark);
+
+      &:hover, &:active, &:overview, &:focus, &:checked {
+        color: theme-color.$on-dark;
+      }
+    }
+  }
+
+  &.unlock-screen,
+  &.login-screen,
+  &:overview {
+    @extend %transparent-panel;
+  }
+
+  @if gnome-shell.$version < 3.36 {
+    &.lock-screen {
+      @extend %transparent-panel;
+      background-color: theme-color.$scrim-alt;
+    }
+  }
+
+  @if gnome-shell.$version >= 3.26 and gnome-shell.$version < 3.32 {
+    &.solid {
+      transition-duration: overview.$transition-duration;
+      background-color: theme-color.$panel;
+
+      .panel-corner {
+        -panel-corner-background-color: transparent;
+      }
+
+      .panel-button {
+        color: theme-color.hint(theme-color.$on-panel);
+        text-shadow: none;
+
+        &:hover, &:active, &:overview, &:focus, &:checked {
+          color: theme-color.$on-panel;
+        }
+      }
+
+      .system-status-icon,
+      .app-menu-icon > StIcon,
+      .popup-menu-arrow {
+        icon-shadow: none;
+      }
+    }
+  }
+}
+
+// App Menu
+#appMenu {
+  spacing: 4px;
+
+  @if gnome-shell.$version < 3.34 {
+    spinner-image: url("process-working.svg");
+  }
+
+  .label-shadow {
+    color: transparent;
+  }
+
+  @if gnome-shell.$version >= 40 {
+    .panel-status-menu-box {
+      padding: 0;
+      spacing: 4px;
+    }
+  }
+}
+
+.clock-display-box {
+  spacing: 0;
+
+  .clock {
+    padding-left: $button-hpadding;
+    padding-right: $button-hpadding;
+  }
+}

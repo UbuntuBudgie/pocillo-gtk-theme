@@ -1,0 +1,171 @@
+/* Screen Shield */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "../../typography";
+@use "../base/scrollbar";
+
+@if gnome-shell.$version >= 3.36 {
+  .unlock-dialog-clock {
+    padding-bottom: 2.5em;
+    spacing: 24px;
+    color: theme-color.$on-dark;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .unlock-dialog-clock-time {
+    padding-top: 42px;
+    @include typography.headline1;
+    font-feature-settings: "tnum";
+  }
+
+  .unlock-dialog-clock-date {
+    @include typography.headline4;
+  }
+
+  .unlock-dialog-clock-hint {
+    padding-top: 48px;
+    color: theme-color.hint(theme-color.$on-dark);
+    font-weight: normal;
+  }
+
+  .unlock-dialog-notifications-container {
+    width: 23em;
+    margin: 12px 0;
+    spacing: 6px;
+    background-color: transparent;
+
+    .summary-notification-stack-scrollview {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .notification,
+    .unlock-dialog-notification-source {
+      padding: 8px;
+      border: 0;
+      border-radius: theme.$corner-radius;
+      background-color: theme-color.entry-fill(theme-color.$on-dark);
+      color: theme-color.$on-dark;
+
+      &.critical {
+        background-color: theme-color.entry-fill(theme-color.$on-dark);
+        color: theme-color.error(theme-color.$on-dark);
+      }
+    }
+  }
+
+  .unlock-dialog-notification-label {
+    padding: 0 0 0 12px;
+  }
+
+  .unlock-dialog-notification-count-text {
+    // min-height: $small-size;
+    margin-right: 12px;
+    padding: 2px 8px;
+    border-radius: 99px;
+    background-color: theme-color.fill(theme-color.$on-dark);
+    color: theme-color.$on-dark;
+    // font-weight: bold;
+  }
+
+  #lockDialogGroup {
+    background-color: theme-color.$system;
+    color: theme-color.$on-system;
+  }
+
+  #unlockDialogNotifications {
+    StScrollBar {
+      @include scrollbar.color(theme-color.$on-dark);
+    }
+  }
+} @else {
+  .screen-shield-arrows {
+    padding-bottom: 3em;
+  }
+
+  .screen-shield-arrows Gjs_Arrow {
+    width: 80px;
+    height: 48px;
+    color: theme-color.$on-dark;
+    -arrow-thickness: 12px;
+    -arrow-shadow: shadow.$z2;
+  }
+
+  .screen-shield-clock {
+    padding-bottom: 1.5em;
+    color: theme-color.$on-dark;
+    text-shadow: shadow.$z2;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .screen-shield-clock-time {
+    @include typography.headline1;
+    text-shadow: shadow.$z2;
+    font-feature-settings: "tnum";
+  }
+
+  .screen-shield-clock-date {
+    @include typography.headline4;
+  }
+
+  .screen-shield-notifications-container {
+    spacing: 6px;
+    width: 30em;
+    max-height: 500px;
+    background-color: transparent;
+
+    .summary-notification-stack-scrollview {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .notification,
+    .screen-shield-notification-source {
+      padding: 8px;
+      border: 0;
+      border-radius: theme.$corner-radius;
+      background-color: theme-color.$scrim-alt;
+      color: theme-color.$on-scrim-alt;
+    }
+
+    // compensate for space allocated to the scrollbar
+    .notification {
+      margin-right: 16px;
+    }
+  }
+
+  .screen-shield-notification-label {
+    min-height: theme.$small-size - 2px;
+    padding: 2px 0 0 16px;
+    font-weight: bold;
+  }
+
+  .screen-shield-notification-count-text {
+    min-height: theme.$small-size - 2px;
+    padding: 2px 0 0 16px;
+    color: theme-color.hint(theme-color.$on-scrim-alt);
+  }
+
+  #lockDialogGroup {
+    background-color: theme-color.$system;
+    background-repeat: repeat;
+    color: theme-color.$on-system;
+  }
+
+  #screenShieldNotifications {
+    StScrollBar {
+      @include scrollbar.color(theme-color.$on-dark);
+    }
+  }
+}
+
+// just the shadow, really
+.screen-shield-background {
+  background: black;
+  box-shadow: shadow.$z16;
+}

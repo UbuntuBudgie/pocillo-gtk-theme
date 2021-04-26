@@ -1,0 +1,49 @@
+//
+// Shell components stylesheets are placed in separate .scss files
+// in 'components' and imported into the main stylesheet in this file.
+// To create or update a component for the shell modify the list below.
+//
+
+// Primary components
+@use "base/base";
+@use "base/entry";
+@use "base/button";
+@use "base/check-box";
+@use "base/switch";
+@use "base/slider";
+@use "base/scrollbar";
+// Popovers
+@use "menu/menu";
+@use "menu/calendar";
+@use "menu/message-list";
+@use "menu/candidate-popup";
+// Notifications
+@use "notification/notification";
+@use "notification/hotplug";
+// Dialogs
+@use "dialog/dialog";
+@use "dialog/network-dialog";
+// OSDs
+@use "osd/osd";
+@use "osd/switcher";
+@use "osd/workspace-switcher";
+// Panel
+@use "panel/panel";
+@use "panel/ripple-box";
+// Overview
+@use "overview/overview";
+@use "overview/window-picker";
+@use "overview/search-entry";
+@use "overview/search-results";
+@use "overview/app-grid";
+@use "overview/dash";
+@use "overview/workspace-thumbnails";
+// A11y / misc
+@use "misc/misc";
+@use "misc/a11y";
+@use "misc/tile-preview";
+@use "misc/keyboard";
+@use "misc/looking-glass";
+// Lock / login screens
+@use "gdm/login-dialog";
+@use "gdm/screen-shield";

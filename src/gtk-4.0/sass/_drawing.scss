@@ -1,0 +1,252 @@
+// generic drawing of more complex things
+
+@use "sass:list";
+@use "../../theme";
+@use "../../theme-color";
+@use "../../shadow";
+
+//
+// Ripple keyframes
+//
+
+@keyframes ripple {
+  to {
+    background-size: 1000% 1000%;
+  }
+}
+
+@keyframes ripple-on-slider {
+  to {
+    background-size: auto, 1000% 1000%;
+  }
+}
+
+@keyframes ripple-on-headerbar {
+  from {
+    background-image: radial-gradient(circle, theme-color.$primary 0%, transparent 0%);
+  }
+
+  to {
+    background-image: radial-gradient(circle, theme-color.$primary 100%, transparent 100%);
+  }
+}
+
+
+@mixin entry($t, $fc: theme-color.$primary) {
+//
+// entry
+//
+// $t: entry type
+// $fc: focus color
+//
+
+  @if $t == normal {
+    transition: theme.$transition, border-image theme.$ripple-duration theme.$ease-out;
+    border-image:
+      radial-gradient(
+        circle closest-corner at center calc(100% - 1px),
+        $fc 0%,
+        transparent 0%
+      ) 2 / 0 0 0px;
+    box-shadow: inset 0 -1px if($fc == theme-color.$primary, theme-color.stroke(theme-color.$on-surface), $fc);
+    background-color: theme-color.entry-fill(theme-color.$on-surface);
+    color: theme-color.$on-surface;
+    caret-color: $fc;
+  }
+
+  @if $t == hover {
+    box-shadow: inset 0 -1px if($fc == theme-color.$primary, theme-color.stroke(theme-color.$on-surface), $fc);
+    background-color: theme-color.hover-overlay(theme-color.$on-surface, $on: theme-color.entry-fill(theme-color.$on-surface), $alt: true);
+  }
+
+  @if $t == focus {
+    box-shadow: inset 0 -1px if($fc == theme-color.$primary, theme-color.stroke(theme-color.$on-surface), $fc);
+    background-color: theme-color.focus-overlay(theme-color.$on-surface, $on: theme-color.entry-fill(theme-color.$on-surface));
+  }
+
+  @if $t == checked {
+    border-image:
+      radial-gradient(
+        circle closest-corner at center calc(100% - 1px),
+        $fc 100%,
+        transparent 100%
+      ) 2 / 0 0 2px;
+    box-shadow: inset 0 -1px if($fc == theme-color.$primary, theme-color.stroke(theme-color.$on-surface), $fc);
+    background-color: theme-color.focus-overlay(theme-color.$on-surface, $on: theme-color.entry-fill(theme-color.$on-surface));
+  }
+
+  @if $t == disabled {
+    box-shadow: inset 0 -1px theme-color.disabled-stroke(theme-color.$on-surface);
+    background-color: theme-color.entry-fill(theme-color.$on-surface);
+    color: theme-color.disabled(theme-color.$on-surface);
+  }
+
+  @if $t == raised-normal {
+    transition: theme.$transition;
+    border-image: none;
+    box-shadow: shadow.$z1;
+    background-color: if($fc == theme-color.$primary, theme-color.$surface-z8, $fc);
+    color: if($fc == theme-color.$primary, theme-color.$on-surface, theme-color.on($fc));
+    caret-color: if($fc == theme-color.$primary, $fc, theme-color.on($fc));
+  }
+
+  @if $t == raised-hover {
+    box-shadow: shadow.$z3;
+  }
+
+  @if $t == raised-focus {
+    border-image: none;
+    box-shadow: shadow.$z3;
+  }
+
+  @if $t == raised-disabled {
+    box-shadow: shadow.$z1;
+    background-color: theme-color.$surface-z1;
+    color: theme-color.disabled(theme-color.$on-surface);
+  }
+}
+
+
+$ripple-transition-property: all, border-image, background-size, background-image;
+$ripple-transition-duration: theme.$state-duration, theme.$ripple-duration, theme.$ripple-fade-out-duration, theme.$ripple-opacity-fade-out-duration;
+$ripple-active-transition-duration: theme.$state-duration, theme.$ripple-duration, 0ms, 0ms;
+
+%ripple {
+  transition-property: $ripple-transition-property;
+  transition-duration: $ripple-transition-duration;
+  transition-timing-function: theme.$ease-out;
+  background-image: radial-gradient(circle, transparent 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+
+  &:active {
+    transition-duration: $ripple-active-transition-duration;
+    animation: ripple theme.$ripple-duration theme.$ease-out forwards;
+    background-size: 0% 0%;
+  }
+}
+
+@mixin ink-color($color, $on: transparent, $button-style: "none", $hover-alt: false, $opacity-modifier: 0) {
+  @if $button-style == "raised" {
+    $hover-alt: true;
+  }
+
+  @if $button-style == "flat" {
+    box-shadow: none;
+  } @else if $button-style == "outlined" {
+    box-shadow: inset 0 0 0 1px theme-color.stroke(theme-color.$on-surface);
+  } @else if $button-style == "raised" {
+    box-shadow: shadow.$z2;
+  }
+
+  @if $button-style != "none" or $on != transparent {
+    background-color: $on;
+  }
+
+  &:drop(active),
+  &:hover {
+    @if $button-style == "flat" {
+      box-shadow: none;
+    } @else if $button-style == "outlined" {
+      box-shadow: inset 0 0 0 1px theme-color.stroke(theme-color.$on-surface);
+    } @else if $button-style == "raised" {
+      box-shadow: shadow.$z4;
+    }
+
+    background-color: theme-color.hover-overlay($color, $opacity-modifier: $opacity-modifier, $on: $on, $alt: $hover-alt);
+  }
+
+  &:focus {
+    @if $button-style == "flat" {
+      box-shadow: none;
+    } @else if $button-style == "outlined" {
+      box-shadow: inset 0 0 0 1px theme-color.stroke(theme-color.$on-surface);
+    } @else if $button-style == "raised" {
+      box-shadow: shadow.$z4;
+    }
+
+    background-color: theme-color.focus-overlay($color, $opacity-modifier: $opacity-modifier, $on: $on);
+  }
+
+  &:active {
+    @if $button-style == "flat" {
+      box-shadow: none;
+    } @else if $button-style == "outlined" {
+      box-shadow: inset 0 0 0 1px theme-color.stroke(theme-color.$on-surface);
+    } @else if $button-style == "raised" {
+      box-shadow: shadow.$z8;
+    }
+
+    background-image: radial-gradient(circle, theme-color.pressed-overlay($color, $opacity-modifier: $opacity-modifier) 10%, transparent 10%);
+  }
+}
+
+@mixin list-item {
+  &:drop(active):not(:active),
+  &:hover:not(:active) {
+    transition-property: $ripple-transition-property, background-color;
+    transition-duration: $ripple-transition-duration, 0ms;
+  }
+}
+
+
+@mixin overshoot($position) {
+  $valid-positions: top, bottom, left, right;
+
+  @if not list.index($valid-positions, $position) {
+    @error "#{$position} is not a valid position. Expected one of #{$valid-positions}.";
+  }
+
+  $background-size: 200% 75%;
+
+  @if $position == left or $position == right {
+    $background-size: 75% 200%;
+  }
+
+  background-image:
+    radial-gradient(
+      farthest-side at $position,
+      rgba(theme-color.$primary, .24) 99%, // For better antialiasing
+      rgba(theme-color.$primary, 0) 100% // Don't use transparent i.e. rgba(0, 0, 0, 0)
+    );
+  background-size: $background-size;
+  background-repeat: no-repeat;
+  background-position: $position;
+}
+
+
+@mixin undershoot($side) {
+  $valid-sides: top, bottom, left, right;
+
+  @if not list.index($valid-sides, $side) {
+    @error "#{$side} is not a valid side. Expected one of #{$valid-sides}.";
+  }
+
+  $_undershoot_color_dark: theme-color.stroke(theme-color.$on-surface);
+  $_undershoot_color_light: transparent;
+
+  $_gradient_dir: left;
+  $_dash_bg_size: 12px 1px;
+  $_gradient_repeat: repeat-x;
+  $_bg_pos: left $side;
+
+  @if $side == left or $side == right {
+    $_gradient_dir: top;
+    $_dash_bg_size: 1px 12px;
+    $_gradient_repeat: repeat-y;
+    $_bg_pos: $side top;
+  }
+
+  background-color: transparent; // shouldn't be needed, but better to be sure
+
+  background-image: linear-gradient(to $_gradient_dir, // this is the dashed line
+                                    $_undershoot_color_light 50%,
+                                    $_undershoot_color_dark 50%);
+
+  margin-#{$side}: 1px;
+  background-size: $_dash_bg_size;
+  background-repeat: $_gradient_repeat;
+  background-origin: content-box;
+  background-position: $_bg_pos;
+}

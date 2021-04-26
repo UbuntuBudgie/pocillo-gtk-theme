@@ -1,0 +1,92 @@
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../gnome-shell";
+
+// Rubberband for select-area screenshots
+.select-area-rubberband {
+  border: 1px solid theme-color.primary(theme-color.$on-dark);
+  background-color: rgba(theme-color.primary(theme-color.$on-dark), .3);
+}
+
+// User icon
+$user-icon: if(gnome-shell.$version >= 3.32, ".user-icon", ".framed-user-icon");
+
+#{$user-icon} {
+  border: 0;
+  border-radius: theme.$circular-radius;
+  background-size: contain;
+  color: inherit;
+
+  &:hover {
+    border-color: transparent;
+    color: inherit;
+  }
+}
+
+@mixin user-icon-size($size) {
+  icon-size: $size;
+
+  StIcon {
+    width: $size / 2;
+    height: $size / 2;
+    padding: $size / 4;
+  }
+}
+
+@if gnome-shell.$version >= 3.36 {
+  .user-icon {
+    StIcon {
+      background-color: theme-color.fill(theme-color.$on-surface);
+      border-radius: theme.$circular-radius;
+    }
+
+    @if gnome-shell.$version >= 40 {
+      @include user-icon-size(64px);
+
+      &.user-avatar {
+        border: 0;
+      }
+    }
+  }
+
+  .user-widget.vertical .user-icon {
+    @include user-icon-size(128px);
+  }
+
+  @if gnome-shell.$version < 40 {
+    .user-widget.horizontal .user-icon {
+      @include user-icon-size(64px);
+    }
+  }
+}
+
+// Lightbox
+.lightbox {
+  background-color: black;
+}
+
+// Flashspot
+.flashspot {
+  background-color: white;
+}
+
+// Hidden
+.hidden {
+  color: transparent;
+}
+
+// Caps-lock warning
+.caps-lock-warning-label {
+  text-align: center;
+  padding-bottom: 8px;
+  font-size: 1em;
+  color: theme-color.$warning;
+}
+
+@if gnome-shell.$version >= 40 {
+  /* Workspace animation */
+
+  .workspace-animation {
+    background-color: theme-color.$system;
+  }
+}

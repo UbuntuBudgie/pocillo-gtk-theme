@@ -1,0 +1,124 @@
+/* Notifications & Message Tray */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "../../typography";
+@use "../base/button";
+@use "../base/entry";
+
+// Banner notifications
+.notification-banner {
+  min-height: theme.$menu-item-height * 2;
+  width: 34em;
+  margin: 5px;
+  border: 0;
+  border-radius: theme.$corner-radius;
+  font-size: 1em;
+
+  &,
+  &:focus,
+  &:hover,
+  &:active {
+    box-shadow: shadow.$z4;
+    background-color: theme-color.$surface-z8;
+    color: theme-color.$on-surface;
+  }
+
+  @if gnome-shell.$version == 3.34 {
+    &,
+    &:focus,
+    &:active {
+      .message-title {
+        color: theme-color.$on-surface;
+      }
+
+      .message-content {
+        color: theme-color.hint(theme-color.$on-surface);
+      }
+    }
+
+    .message-icon-bin > StIcon {
+      color: inherit;
+    }
+
+    StEntry {
+      @extend %entry;
+    }
+  }
+
+  .notification-actions {
+    spacing: 0;
+    padding-top: 0;
+    border-top: 0;
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .notification-button {
+    @extend %bubble_button;
+  }
+}
+
+// counter
+.summary-source-counter {
+  -shell-counter-overlap-x: 3px;
+  -shell-counter-overlap-y: 3px;
+  height: 1.6em;
+  width: 1.6em;
+  border: 0;
+  border-radius: .8em;
+  box-shadow: shadow.$z4;
+  background-color: theme-color.$primary;
+  color: theme-color.$on-primary;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+// chat bubbles
+.chat-body {
+  spacing: 5px;
+}
+
+.chat-response {
+  margin: 5px;
+}
+
+.chat-log-message {
+  color: theme-color.$on-surface;
+}
+
+.chat-new-group {
+  padding-top: 1em;
+}
+
+.chat-received {
+  padding-left: 4px;
+
+  &:rtl {
+    padding-left: 0;
+    padding-right: 4px;
+  }
+}
+
+.chat-sent {
+  padding-left: 18pt;
+  color: theme-color.hint(theme-color.$on-surface);
+
+  &:rtl {
+    padding-left: 0;
+    padding-right: 18pt;
+  }
+}
+
+.chat-meta-message {
+  padding-left: 4px;
+  color: theme-color.hint(theme-color.$on-surface);
+  @include typography.caption;
+
+  &:rtl {
+    padding-left: 0;
+    padding-right: 4px;
+  }
+}

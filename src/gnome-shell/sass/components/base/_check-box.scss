@@ -1,0 +1,53 @@
+/* Check Boxes */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+
+.check-box {
+  StBoxLayout {
+    spacing: 8px;
+  }
+
+  StBin {
+    transition-duration: theme.$state-duration;
+    width: 24px;
+    height: 24px;
+    padding: (theme.$medium-size - 24px) / 2;
+    border-radius: theme.$medium-size / 2;
+  }
+
+  StBin,
+  &:focus StBin {
+    background-image: url("assets/checkbox-off.svg");
+  }
+
+  &:focus StBin {
+    background-color: theme-color.focus-overlay(theme-color.$on-surface);
+  }
+
+  &:hover StBin {
+    background-color: theme-color.hover-overlay(theme-color.$on-surface);
+  }
+
+  &:active StBin {
+    transition-duration: theme.$ripple-duration;
+    background-color: theme-color.pressed-overlay(theme-color.$on-surface);
+  }
+
+  &:checked StBin,
+  &:checked:focus StBin {
+    background-image: url("assets/checkbox.svg");
+  }
+
+  &:checked:focus StBin {
+    background-color: theme-color.focus-overlay(theme-color.$primary);
+  }
+
+  &:checked:hover StBin {
+    background-color: theme-color.hover-overlay(theme-color.$primary);
+  }
+
+  &:checked:active StBin {
+    background-color: theme-color.pressed-overlay(theme-color.$primary);
+  }
+}

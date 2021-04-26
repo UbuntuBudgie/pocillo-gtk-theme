@@ -1,0 +1,111 @@
+/* Window Picker */
+
+@use "../../../../theme";
+@use "../../../../theme-color";
+@use "../../../../shadow";
+@use "../../gnome-shell";
+@use "overview";
+
+// Window picker
+.window-picker {
+  // Space between window thumbnails
+  @if gnome-shell.$version >= 3.38 {
+    spacing: 8px;
+  } @else {
+    -horizontal-spacing: 16px;
+    -vertical-spacing: 16px;
+  }
+
+  @if gnome-shell.$version < 40 {
+    // Padding for container around window thumbnails
+    padding: 0 16px 32px;
+
+    &.external-monitor {
+      padding: 16px;
+    }
+  }
+}
+
+@if gnome-shell.$version < 40 {
+  // Borders on window thumbnails
+  .window-clone-border {
+    border: 4px solid theme-color.stroke(overview.$on-color);
+    border-radius: theme.$corner-radius;
+    // For window decorations with round corners we can't match
+    // the exact shape when the window is scaled. So apply a shadow
+    // to fix that case
+    box-shadow: inset 0 0 0 1px theme-color.stroke(overview.$on-color);
+  }
+}
+
+// Window titles
+.window-caption {
+  padding: 4px 8px;
+  border-radius: theme.$corner-radius;
+  background-color: theme-color.$scrim;
+  color: theme-color.$on-scrim;
+
+  @if gnome-shell.$version < 40 {
+    spacing: 0;
+    border: 0;
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+// Close button
+.window-close {
+  transition-duration: theme.$state-duration;
+  height: theme.$medium-size;
+  width: theme.$medium-size;
+  padding: 0;
+  border: 0;
+  border-radius: theme.$medium-size / 2;
+  box-shadow: shadow.$z2;
+  background-color: theme-color.$error;
+  color: theme-color.$on-error;
+
+  background-image: url("assets/window-close.svg");
+  background-size: 24px;
+
+  @if gnome-shell.$version < 3.38 {
+    -shell-close-overlap: theme.$medium-size / 2;
+  }
+
+  &:hover {
+    box-shadow: shadow.$z4;
+    border-color: transparent;
+    background-color: theme-color.hover-overlay(theme-color.$on-error, $on: theme-color.$error);
+    color: theme-color.$on-error;
+
+    @if gnome-shell.$version < 3.32 {
+      background-image: url("assets/window-close.svg");
+    }
+  }
+
+  &:active {
+    transition-duration: theme.$ripple-duration;
+    box-shadow: shadow.$z8;
+    border-color: transparent;
+    background-color: theme-color.pressed-overlay(theme-color.$on-error, $on: theme-color.$error);
+    color: theme-color.$on-error;
+
+    @if gnome-shell.$version < 3.32 {
+      background-image: url("assets/window-close.svg");
+    }
+  }
+
+  StIcon {
+    icon-size: 24px;
+    color: transparent;
+  }
+}
+
+@if gnome-shell.$version >= 40 {
+  .workspace-background {
+    // keep in sync with BACKGROUND_CORNER_RADIUS_PIXELS in workspace.js
+    border-radius: 30px;
+    background-color: black;
+    box-shadow: shadow.$z4; // use z4 for the huge card
+  }
+}
