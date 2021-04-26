@@ -288,8 +288,9 @@ button.raven-trigger {
   font-weight: 500;
 
   &.transparent {
-    background-color: theme-color.$scrim;
-    color: theme-color.hint(theme-color.$on-scrim);
+    //Materia background-color: theme-color.$scrim;
+    //Materia color: theme-color.hint(theme-color.$on-scrim);
+    background-color: rgba(black, 0.3); // Pocillo we use a semi transparent dynamic panel
   }
 
   button {
