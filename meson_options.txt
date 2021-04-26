@@ -1,7 +1,7 @@
 option(
   'theme_name',
   type: 'string',
-  value: 'Materia',
+  value: 'NewPocillo',
   description: 'Base theme name',
 )
 
@@ -15,7 +15,7 @@ option(
 option(
   'sizes',
   type: 'array',
-  choices: ['default', 'compact'],
+  choices: ['default', 'slim'],
   description: 'List of size variants to build',
 )
 
