@@ -34,7 +34,9 @@ $on-dark: #fff;
   @if color.saturation($color) > 50% or color.alpha($color) < 1 {
     @return $contrast-color;
   } @else {
-    @return rgba($contrast-color, .87);
+    // Materia@return rgba($contrast-color, .87);
+    // For pocillo we'll use a mix since it behaves better in the dark theme
+    @return color.mix(black, $contrast-color, 4%);
   }
 }
 
