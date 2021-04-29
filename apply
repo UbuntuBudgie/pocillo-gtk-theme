@@ -8,4 +8,4 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
 
 sleep 3
 
-gsettings set org.gnome.desktop.interface gtk-theme 'NewPocillo-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'NewPocillo'
