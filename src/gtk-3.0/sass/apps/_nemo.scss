@@ -49,8 +49,12 @@
   }
 
   // Inactive F3 pane shading
-  .nemo-inactive-pane .view:not(:selected) {
+  //.nemo-inactive-pane .view:not(:selected) {
     // background-color: $surface-z0;
+  //}
+
+  .nemo-inactive-pane .view {
+    background-color: theme-color.$surface-z0;
   }
 
   // Rename entry styling in the icon view.
