@@ -1,6 +1,6 @@
 project(
-  'materia-theme',
-  version: '20210322',
+  'pocillo-theme',
+  version: '20210429',
   license: 'GPLv2+',
   meson_version: '>= 0.47.0',
   default_options: ['prefix=/usr'],
