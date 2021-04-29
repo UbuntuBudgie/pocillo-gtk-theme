@@ -13,7 +13,7 @@ frame > border,
 }
 
 @at-root %frame_flat,
-frame.flat > border { @extend %frame_flat; } // for backporting
+frame.flat > border { @extend %frame_flat !optional; } // for backporting
 
 actionbar > revealer > box {
   padding: $container_padding;
