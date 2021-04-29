@@ -2417,7 +2417,8 @@ scrollbar {
       transition-property: background-color, min-height, min-width;
     }
 
-    &:not(.dragging):not(.hovering) {
+    //&:not(.dragging):not(.hovering) { Materia
+    & {
       border-color: transparent;
       background-color: transparent;
 
@@ -2437,10 +2438,10 @@ scrollbar {
       }
     }
 
-    &.dragging,
-    &.hovering {
-      background-color: theme-color.$surface-z8;
-    }
+    //&.dragging, Materia
+    //&.hovering {
+    //  background-color: theme-color.$surface-z8;
+    //}
   }
 }
 
