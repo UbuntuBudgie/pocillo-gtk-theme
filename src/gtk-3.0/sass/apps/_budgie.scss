@@ -438,7 +438,11 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
 
   // Shadows
   .#{$pos} .shadow-block {
-    // background-image: linear-gradient(to $b_pos, divider($on-surface), transparent);
+    // background-image: linear-gradient(to $b_pos, divider($on-surface), transparent); Materia
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    background-image: linear-gradient(to $b_pos, rgba(black, 0.23), rgba(black, 0.08), transparent);
   }
 }
 
