@@ -663,7 +663,7 @@ button.flat {
   @extend %button-flat-activatable;
 
   &.text-button {
-    min-width: 64px - 8px * 2;
+    //min-width: 64px - 8px * 2; Materia
     padding-left: 8px;
     padding-right: 8px;
   }
