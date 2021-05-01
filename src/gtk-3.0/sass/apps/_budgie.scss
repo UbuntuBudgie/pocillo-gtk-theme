@@ -647,6 +647,20 @@ calendar.raven-calendar {
 // Notifications
 .budgie-notification-window {
   background-color: transparent;
+  color: theme-color.$inverse-surface-z1;
+  button {
+    color: theme-color.$inverse-surface-z1;
+  }
+  > box {
+    background-color: theme-color.$inverse-surface-z1;
+    color: theme-color.$inverse-surface-z8;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.28);
+
+    > grid {
+      background-color: theme-color.$inverse-surface-z1;
+      color: theme-color.$inverse-surface-z8;
+    }
+  }
 }
 
 .budgie-notification {

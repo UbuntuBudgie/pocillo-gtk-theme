@@ -60,6 +60,8 @@ $on-dark: #fff;
 // Main colors
 //
 
+$inverse-surface-z1: #2e313a; // specific to budgie
+$inverse-surface-z8: #fff; // specific to budgie
 $surface-z0: #f9f9f9;
 $surface-z1: #fff;
 $surface-z8: #fff;
@@ -155,6 +157,10 @@ $titlebar-indicator: currentcolor;
   $on-titlebar: on($titlebar);
 
   $titlebar-indicator: $primary;
+
+  $inverse-surface-z1: $surface-z1; // specific to budgie
+  $inverse-surface-z8: black; // specific to budgie
+
 }
 
 //
