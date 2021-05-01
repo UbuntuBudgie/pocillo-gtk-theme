@@ -332,7 +332,7 @@ button.raven-trigger {
 
   // used to indicate unread notifications
   .alert {
-    color: theme-color.error(theme-color.$on-panel);
+    color: theme-color.primary(theme-color.$on-panel);//theme-color.error(theme-color.$on-panel); Materia
   }
 
   // End Section needs to be fancy
