@@ -432,7 +432,7 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
 
   // Raven borders
   .#{$pos} frame.raven-frame > border {
-    margin-#{$b_pos}: 32px;
+    margin-#{$b_pos}: 2px; // 32px Materia
     // border-#{$b_pos}: 1px solid divider($on-surface);
   }
 
