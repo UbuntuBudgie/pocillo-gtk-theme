@@ -62,9 +62,9 @@ $on-dark: #fff;
 
 $inverse-surface-z1: #2e313a; // specific to budgie
 $inverse-surface-z8: #fff; // specific to budgie
-$surface-z0: #f9f9f9;
-$surface-z1: #fff;
-$surface-z8: #fff;
+$surface-z0: #f5f6f7; //#f9f9f9; Materia
+$surface-z1: #f5f6f7; //#fff; Materia
+$surface-z8: #f5f6f7; //#fff; Materia
 $surface-switch-thumb: #fff;
 $on-surface: on($surface-z0);
 
@@ -160,6 +160,9 @@ $titlebar-indicator: currentcolor;
 
   $inverse-surface-z1: $surface-z1; // specific to budgie
   $inverse-surface-z8: black; // specific to budgie
+  $surface-z0: #f9f9f9; //Materia
+  $surface-z1: #fff; //Materia
+  $surface-z8: #fff; //Materia
 
 }
 
