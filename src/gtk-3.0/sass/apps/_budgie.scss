@@ -669,7 +669,8 @@ calendar.raven-calendar {
   }
 
   .notification-body {
-    color: theme-color.hint(theme-color.$on-surface);
+    //color: theme-color.hint(theme-color.$on-surface);
+    color: theme-color.$inverse-surface-z8;
   }
 }
 
