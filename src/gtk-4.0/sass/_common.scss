@@ -30,8 +30,8 @@ image:disabled {
 }
 
 .view {
-  // background-color: $surface-z1;
-  // color: $on-surface;
+  background-color: theme-color.$surface-z1;
+  color: theme-color.$on-surface;
 
   > .cell:hover {
     background-color: theme-color.hover-overlay(theme-color.$on-surface, $alt: true);
