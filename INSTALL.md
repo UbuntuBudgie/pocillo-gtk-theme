@@ -7,7 +7,9 @@ Materia requires the following build and runtime dependencies:
 #### Build dependencies
 
 - `meson` >= 0.47.0
-- `dart-sass` >= 1.23.0 (or `npm` if the former is not found)
+- `dart-sass` >= 1.23.0 or
+- `ruby-sass` or 
+- `npm` if dart-sass if not found
 
 #### Runtime dependencies
 
