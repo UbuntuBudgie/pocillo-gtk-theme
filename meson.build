@@ -24,13 +24,10 @@ if sass.found()
   sass_full_version = run_command(sass, '--version',
                                   version:'>= 1.23.0').stdout()
   sass_is_ruby_sass = sass_full_version.contains('Ruby Sass')
-  if sass_is_ruby_sass
-    sass_opts = ['--sourcemap=none']
-  endif
-
+  sass_has_module_system = sass_full_version.version_compare('>= 1.23.0')
 endif
 
-if not sass.found() or not sass_is_ruby_sass
+if not sass.found() or sass_is_ruby_sass or not sass_has_module_system
   message('dart-sass >= 1.23.0 not found, installing it locally via npm')
   npm = find_program('npm')
   run_command(npm, 'install')

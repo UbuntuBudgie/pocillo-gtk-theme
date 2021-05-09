@@ -8,7 +8,6 @@ Pocillo requires the following build and runtime dependencies:
 
 - `meson` >= 0.47.0
 - `dart-sass` >= 1.23.0 or
-- `ruby-sass` or 
 - `npm` if dart-sass if not found
 
 #### Runtime dependencies
