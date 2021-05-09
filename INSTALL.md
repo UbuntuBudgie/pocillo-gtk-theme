@@ -45,7 +45,7 @@ Option | Default Value | Description
 --- | --- | ---
 `prefix` | `/usr` | Installation prefix
 `colors` | `default,light,dark` | List of color variants to build
-`sizes` | `default,compact` | List of size variants to build
+`sizes` | `default,slim` | List of size variants to build
 `gtk4_version` | n/a (auto) | Build GTK 4 theme for specific version
 
 Build options can be set at the configuration time, for example:
