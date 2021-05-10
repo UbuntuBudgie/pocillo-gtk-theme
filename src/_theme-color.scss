@@ -62,6 +62,7 @@ $on-dark: #fff;
 
 $inverse-surface-z1: #2e313a; // specific to budgie
 $inverse-surface-z8: #fff; // specific to budgie
+$sidebar-surface-z1: #eceff3; // specific to budgie
 $surface-z0: #f5f6f7; //#f9f9f9; Materia
 $surface-z1: #f5f6f7; //#fff; Materia
 $surface-z8: #f5f6f7; //#fff; Materia
@@ -119,6 +120,7 @@ $on-titlebar: on($titlebar);
 $titlebar-indicator: currentcolor;
 
 @if theme.$dark-theme {
+  $sidebar-surface-z1: #2e313a; // specific to budgie
   $surface-z0: #20222a;// Materia #121212;
   $surface-z1: #2e313a;// Materia color.mix(white, $surface-z0, 5%);
   $surface-z8: #383c4a;// Materia color.mix(white, $surface-z0, 12%);

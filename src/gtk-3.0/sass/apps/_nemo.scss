@@ -74,6 +74,7 @@
 
 // For Places Sidebar diskfull indicators
 .places-treeview {
+  background-color: theme-color.$sidebar-surface-z1; // budgie specific
   -NemoPlacesTreeView-disk-full-bg-color: theme-color.opacify(theme-color.disabled-stroke(theme-color.$on-surface), theme-color.$surface-z0); // Can't use translucent colors
   -NemoPlacesTreeView-disk-full-fg-color: theme-color.$primary;
   -NemoPlacesTreeView-disk-full-bar-width: 2px;

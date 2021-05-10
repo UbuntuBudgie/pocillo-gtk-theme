@@ -3539,20 +3539,21 @@ filechooserbutton:drop(active) {
 
 .sidebar {
   border-style: none;
+  background-color: theme-color.$sidebar-surface-z1;// Materia this is not defined
 
   &:not(separator) {
     @at-root %sidebar_left,
     &:dir(ltr),
     &.left,
     &.left:dir(rtl) {
-      border-right: 1px solid theme-color.divider(theme-color.$on-surface);
+      border-right: 0px solid theme-color.divider(theme-color.$on-surface); // Materia is 1px
       border-left-style: none;
     }
 
     @at-root %sidebar_right,
     &:dir(rtl),
     &.right {
-      border-left: 1px solid theme-color.divider(theme-color.$on-surface);
+      border-left: 0px solid theme-color.divider(theme-color.$on-surface); // Materia is 1px
       border-right-style: none;
     }
   }
