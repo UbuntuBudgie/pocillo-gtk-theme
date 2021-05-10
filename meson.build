@@ -57,13 +57,15 @@ foreach color: get_option('colors')
 endforeach
 
 foreach theme: themes
-  install_data(
-    [
-      'COPYING',
-      'INSTALL_GDM_THEME.md',
-    ],
-    install_dir: theme['dir'],
-  )
+  if get_option('documentation')
+    install_data(
+      [
+        'COPYING',
+        'INSTALL_GDM_THEME.md',
+      ],
+      install_dir: theme['dir'],
+    )
+  endif
 endforeach
 
 if not get_option('flatpak')

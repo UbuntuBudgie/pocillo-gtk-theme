@@ -37,3 +37,10 @@ option(
   value: false,
   description: 'Whether to build theme for flatpak package',
 )
+
+option(
+  'documentation',
+  type: 'boolean',
+  value: true,
+  description: 'Whether to build with license and other doc info',
+)
