@@ -66,12 +66,16 @@ button.flat.tilix-small-button {
 }
 
 /**
- * Ubitquity
+ * Ubiquity
  */
 
 #live_installer .menubar progressbar trough {
   border-radius: 4px; // Adjust to hard-coded progress border-radius
   background-color: theme-color.disabled-stroke(theme-color.$on-titlebar);
+}
+
+#live_installer #partition_container {
+  color: black;
 }
 
 /**
