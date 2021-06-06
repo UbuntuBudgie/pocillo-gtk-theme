@@ -1,15 +1,13 @@
 # Pocillo GTK Theme
 
-**Work in progress**
-
 Pocillo is a [Material Design](https://material.io) theme for the Budgie Desktop.
 
 It supports GTK 2, GTK 3, GTK 4, Budgie, LightDM, Chrome theming.
 
 ## Previews
 
-![widget-factory](images/widget-factory.png?raw=true)  To Be Updated
-![widget-factory-dark](images/widget-factory-dark.png?raw=true) To Be Updated
+![widget-factory](images/widget-factory.png?raw=true)
+![widget-factory-dark](images/widget-factory-dark.png?raw=true)
 
 ## Features
 
@@ -56,12 +54,6 @@ To improve the appearance of Chrome, you can install the Chrome extensions as fo
 
 1. Open the `/usr/share/themes/Pocillo<-variant>/chrome` folder in your file manager.
 2. Drag and drop the `.crx` files into the Chrome's Extensions page (`chrome://extensions`).
-
-## Customization
-
-Pocillo can be customized with GUI application, [**oomox theme designer**](https://github.com/themix-project/oomox).
-
-Pocillo also allows you to change the color scheme relatively easily in other ways. See [`HACKING.md`](HACKING.md#how-to-change-the-color-scheme) for details.
 
 ## Contributing
 
