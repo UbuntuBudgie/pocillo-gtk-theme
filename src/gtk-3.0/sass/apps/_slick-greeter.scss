@@ -1,0 +1,39 @@
+@use "../../../theme";
+@use "../../../theme-color";
+@use "../../../shadow";
+@use "../common";
+@use "../drawing";
+
+
+.lightdm menu {
+    border: none;
+    border-radius: 0px;
+    padding: 1px;
+}
+
+.lightdm button,
+.lightdm button:hover,
+.lightdm button:active,
+.lightdm button:active:focus,
+.lightdm entry,
+.lightdm entry:hover,
+.lightdm entry:active,
+.lightdm entry:active:focus {
+    background-image: none;
+    border-image: none;
+}
+
+.lightdm button:focus,
+.lightdm entry:focus {
+    border-color: theme-color.gtkalpha(white, 0.9);
+    border-width: 0px;
+    border-style: none;
+    background-color: rgba(255,255,255,0.1);//opacify(theme-color.$inverse-surface-z1, 0.95);
+    
+    color: white;
+}
+
+.lightdm entry:selected {
+    background-color: theme-color.gtkalpha(white, 0.2);
+    border-bottom: 0px transparent;
+}
