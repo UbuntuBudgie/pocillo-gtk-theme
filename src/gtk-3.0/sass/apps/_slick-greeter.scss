@@ -11,10 +11,6 @@
     padding: 1px;
 }
 
-.lightdm button,
-.lightdm button:hover,
-.lightdm button:active,
-.lightdm button:active:focus,
 .lightdm entry,
 .lightdm entry:hover,
 .lightdm entry:active,
@@ -23,12 +19,11 @@
     border-image: none;
 }
 
-.lightdm button:focus,
 .lightdm entry:focus {
     border-color: theme-color.gtkalpha(white, 0.9);
     border-width: 0px;
     border-style: none;
-    background-color: rgba(255,255,255,0.1);//opacify(theme-color.$inverse-surface-z1, 0.95);
+    background-color: rgba(255,255,255,0.05);//opacify(theme-color.$inverse-surface-z1, 0.95);
     
     color: white;
 }
