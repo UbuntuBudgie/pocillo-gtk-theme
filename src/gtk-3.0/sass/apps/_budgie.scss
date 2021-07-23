@@ -17,13 +17,19 @@
   background-color: transparent;
 }
 
-.budgie-settings-window buttonbox.inline-toolbar {
-  border-style: none none solid;
+.budgie-settings-window {
+  buttonbox.inline-toolbar {
+    border-style: none none solid;
+    padding: 0px;
 
-  button {
-    border-radius: theme.$corner-radius;
+    button {
+      border-radius: theme.$corner-radius;
 
-    @extend %button-flat-basic;
+      @extend %button-flat-basic;
+    }
+  }
+  .settings-frame {
+    padding: 2px;
   }
 }
 
