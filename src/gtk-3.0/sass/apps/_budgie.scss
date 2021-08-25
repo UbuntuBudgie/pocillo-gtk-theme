@@ -30,6 +30,11 @@
   }
   .settings-frame {
     padding: 2px;
+    grid {
+      checkbutton {
+        padding-left: 8px;
+      }
+    }
   }
 }
 
