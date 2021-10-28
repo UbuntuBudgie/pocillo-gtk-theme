@@ -34,9 +34,7 @@ $on-dark: #fff;
   @if color.saturation($color) > 50% or color.alpha($color) < 1 {
     @return $contrast-color;
   } @else {
-    // Materia@return rgba($contrast-color, .87);
-    // For pocillo we'll use a mix since it behaves better in the dark theme
-    @return color.mix(black, $contrast-color, 4%);
+    @return rgba($contrast-color, .87);
   }
 }
 
@@ -125,7 +123,7 @@ $titlebar-indicator: currentcolor;
   $surface-z1: #2e313a;// Materia color.mix(white, $surface-z0, 5%);
   $surface-z8: #383c4a;// Materia color.mix(white, $surface-z0, 12%);
   $surface-switch-thumb: color.mix(white, $surface-z0, 60%);
-  $on-surface: on($surface-z0);
+  $on-surface: color.mix(white, $surface-z0, 70%);; //Materia on($surface-z0);
 
   $primary: $primary-on-dark;
   $on-primary: on($primary);
