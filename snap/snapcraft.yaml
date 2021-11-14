@@ -1,0 +1,60 @@
+name: gtk-theme-pocillo
+architectures:
+  - all
+version: '0.13.8'
+summary: Pocillo GTK theme for GTK Snaps
+description: |
+  A snap that exports the Pocillo GTK theme.
+
+base: core18
+grade: stable
+confinement: strict
+
+slots:
+  gtk-2-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/gtk2/Pocillo
+        - $SNAP/share/gtk2/Pocillo-slim
+        - $SNAP/share/gtk2/Pocillo-dark
+        - $SNAP/share/gtk2/Pocillo-dark-slim
+        - $SNAP/share/gtk2/Pocillo-light
+        - $SNAP/share/gtk2/Pocillo-light-slim
+  gtk-3-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/themes/Pocillo
+        - $SNAP/share/themes/Pocillo-slim
+        - $SNAP/share/themes/Pocillo-dark
+        - $SNAP/share/themes/Pocillo-dark-slim
+        - $SNAP/share/themes/Pocillo-light
+        - $SNAP/share/themes/Pocillo-light-slim
+
+parts:
+     
+  # Pocillo gtk theme
+  pocillo-gtk-theme:
+    after: [utils]
+    plugin: dump
+    source: http://de.archive.ubuntu.com/ubuntu/pool/universe/b/budgie-artwork/ubuntu-budgie-themes_$SNAPCRAFT_PROJECT_VERSION_all.deb
+    override-build: |
+        snapcraftctl build
+        mkdir -p $SNAPCRAFT_PART_INSTALL/share/themes
+        mv $SNAPCRAFT_PART_INSTALL/usr/share/themes/Pocillo* $SNAPCRAFT_PART_INSTALL/share/themes/
+        $SNAPCRAFT_STAGE/split-gtk-theme.sh $SNAPCRAFT_PART_INSTALL
+    stage:
+      - share/gtk2/*/gtk-2.0
+      - share/themes/*/gtk-3*
+#      - share/themes/*/gtk-4*
+
+
+  utils:
+    plugin: dump
+    source: utils
+    prime:
+      - -*
+    build-packages:
+      - try: [gtk-update-icon-cache]
+      - else: [libgtk-3-bin]
