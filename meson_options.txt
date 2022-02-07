@@ -1,7 +1,7 @@
 option(
   'theme_name',
   type: 'string',
-  value: 'NewPocillo',
+  value: 'Pocillo',
   description: 'Base theme name',
 )
 
