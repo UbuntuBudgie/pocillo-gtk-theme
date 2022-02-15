@@ -662,7 +662,7 @@ calendar.raven-calendar {
   button {
     color: theme-color.$inverse-surface-z1;
   }
-  > box {
+  > box,stack {
     background-color: theme-color.$inverse-surface-z1;
     color: theme-color.$inverse-surface-z8;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.28);
