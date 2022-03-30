@@ -45,8 +45,8 @@ foreach color: get_option('colors')
     scss_compact = size == 'slim' ? 'true' : 'false'
 
     themes += {
-      'name': theme_base_name + color_suffix + size_suffix,
-      'dir': theme_base_dir + color_suffix + size_suffix,
+      'name': theme_base_name + size_suffix + color_suffix,
+      'dir': theme_base_dir + size_suffix + color_suffix,
       'color': color_suffix,
       'size': size_suffix,
       'scss_dark_theme': scss_dark_theme,
