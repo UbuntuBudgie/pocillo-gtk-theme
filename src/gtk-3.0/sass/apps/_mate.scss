@@ -641,3 +641,24 @@ MsdOsdWindow.background.osd {
   &.msd-osd-window-solid {
   }
 }
+
+// mate-calc
+window.background > box.vertical > box.vertical box.vertical > grid.horizontal button {
+  box-shadow: none;
+  margin: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-left-color: theme-color.$scrim-alt;
+  border-right-color: theme-color.$scrim-alt;
+  border-top-color: theme-color.$scrim-alt;
+  border-bottom-color: theme-color.$scrim-alt;
+}
