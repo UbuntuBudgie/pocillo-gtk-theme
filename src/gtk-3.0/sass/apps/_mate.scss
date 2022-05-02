@@ -662,3 +662,11 @@ window.background > box.vertical > box.vertical box.vertical > grid.horizontal b
   border-top-color: theme-color.$scrim-alt;
   border-bottom-color: theme-color.$scrim-alt;
 }
+
+#mate-system-monitor header > button {
+  background-color: theme-color.$surface-z0;
+
+  label {
+    font-weight: bold;
+  }
+ }
