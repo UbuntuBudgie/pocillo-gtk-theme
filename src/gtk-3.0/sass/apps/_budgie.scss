@@ -828,85 +828,22 @@ calendar.raven-calendar {
   }
 }
 
-@mixin menu_reset_style($label,$insensitive) {
-  padding: 2px 2px;
-  border: none;
-
-  &:hover {
-      background-color: theme-color.$selected-overlay;//$selected_bg_color;
-      color: theme-color.$surface-z0;//$fg_color;
-  }
-
-  &:#{$insensitive} {
-      //color: rgba(207, 218, 231, 0.2);
-      color: theme-color.disabled(theme-color.$surface-z0);
-  }
-
-  #{$label} {
-      background: none;
-      color: theme-color.$surface-z0;//$fg_color;
-  }
-}
-
-%reset_style,
- menubar {
-     menuitem {
-         @include menu_reset_style(label,disabled);
-     }
-}
-
 .budgie-menu-footer {
-  //border-top: 1px solid transparentize(white, 0.9);
   border-top: 1px solid theme-color.divider(theme-color.$on-surface);
   padding-top: theme.$container-padding;
   padding-bottom: theme.$container-padding;
-
-  .image-button {
-      @extend %reset_style;
-
-      //transition-property: background-color;
-      //transition: 170ms ease-out;
-      //padding: 4px;
-      //min-height: 24px;
-      //min-width: 24px;
-      //border-radius: 100%;
-
-      //&:hover { background-color: transparentize(white, 0.9); }
-      //&:active { background-color: transparentize(white, 0.8); }
-  }
-
-  .user-icon-button {
-      @extend %reset_style;
-
-      //transition-property: background-color, color;
-      //transition: 170ms ease-out;
-      //padding: 4px 8px 4px 6px;
-      //border-radius: 3px;
-
-      //&:hover { background-color: transparentize(white, 0.9); }
-      //&:active { background-color: transparentize(white, 0.8); }
-  }
 }
 
-.left-overlay-menu, .right-overlay-menu {
-  @extend %reset_style;
+.right-overlay-menu {
+  background-color: theme-color.$surface-z0;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 8px;
+}
 
+.left-overlay-menu {
   background-color: theme-color.$surface-z8;
   border-radius: 6px;
   margin-bottom: 6px;
   padding: 8px;
-
-  button {
-      @extend %reset_style;
-
-      //transition-property: background-color, color;
-      //transition: 170ms ease-out;
-      //padding: 4px 8px 4px 2px;
-      //margin: 2px 0;
-      //background-color: transparent;
-      //border-radius: 3px;
-
-      //&:hover { background-color: transparentize(white, 0.9); }
-      //&:active { background-color: transparentize(white, 0.8); }
-  }
 }
