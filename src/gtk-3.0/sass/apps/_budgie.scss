@@ -397,6 +397,19 @@ button.raven-trigger {
   }
 }
 
+// theme dock-mode to look closer to Plank
+$dock-positions: bottom, top, left, right;
+@each $position in $dock-positions {
+  .#{$position} {
+    .budgie-panel {
+      &.dock-mode {
+        border-radius: 10px 10px 10px 10px;
+        margin-#{$position}: 5px;
+      }
+    }
+  }
+}
+
 $underscores-list:
   (top,    center calc(1px),        2 0 0 0 / 2px 0 0 0),
   (bottom, center calc(100% - 1px), 0 0 2 0 / 0 0 2px 0),
