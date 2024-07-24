@@ -397,6 +397,19 @@ button.raven-trigger {
   }
 }
 
+// theme dock-mode to look closer to Plank
+$dock-positions: bottom, top, left, right;
+@each $position in $dock-positions {
+  .#{$position} {
+    .budgie-panel {
+      &.dock-mode {
+        border-radius: 10px 10px 10px 10px;
+        margin-#{$position}: 5px;
+      }
+    }
+  }
+}
+
 $underscores-list:
   (top,    center calc(1px),        2 0 0 0 / 2px 0 0 0),
   (bottom, center calc(100% - 1px), 0 0 2 0 / 0 0 2px 0),
@@ -657,16 +670,16 @@ calendar.raven-calendar {
 
 // Notifications
 .budgie-notification-window {
-  background-color: theme-color.$inverse-surface-z1;
-  color: theme-color.$inverse-surface-z8;
+  background-color: transparent;
 
-  border-radius: theme.$corner-radius;
-
-  box, stack {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+  .drop-shadow {
+    background-color: theme-color.$inverse-surface-z1;
+    color: theme-color.$inverse-surface-z8;
+    border-radius: theme.$corner-radius;
+    padding: theme.$container-padding;
+    margin: 0;
   }
+
   button {
     color: theme-color.$inverse-surface-z8;
   }
@@ -675,11 +688,6 @@ calendar.raven-calendar {
 .budgie-notification {
   .notification-title {
     font-size: 120%;
-  }
-
-  .notification-body {
-    //color: theme-color.hint(theme-color.$on-surface);
-    color: theme-color.$inverse-surface-z8;
   }
 }
 

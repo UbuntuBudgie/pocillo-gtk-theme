@@ -1,5 +1,7 @@
 # Pocillo GTK Theme
 
+[![](https://opencollective.com/ubuntubudgie/tiers/backer.svg?avatarHeight=96)](https://opencollective.com/ubuntubudgie)
+
 Pocillo is a [Material Design](https://material.io) theme for the Budgie Desktop.
 
 It supports GTK 2, GTK 3, GTK 4, Budgie, LightDM, Chrome theming.
