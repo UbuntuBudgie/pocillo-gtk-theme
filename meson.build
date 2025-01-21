@@ -21,8 +21,7 @@ sass = find_program('sass', required: false)
 sass_opts = ['--no-source-map']
 
 if sass.found()
-  sass_full_version = run_command(sass, '--version',
-                                  version:'>= 1.23.0').stdout()
+  sass_full_version = run_command(sass, '--version').stdout()
   sass_is_ruby_sass = sass_full_version.contains('Ruby Sass')
   sass_has_module_system = sass_full_version.version_compare('>= 1.23.0')
 endif
