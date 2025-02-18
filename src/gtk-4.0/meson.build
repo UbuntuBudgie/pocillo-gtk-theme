@@ -32,13 +32,8 @@ foreach theme: themes
   gtk4_dir = join_paths(theme['dir'], 'gtk-4.0')
 
   gtk4_variants = [
-    'gtk',
+    'gtk', 'gtk-dark'
   ]
-
-  # Only non-dark themes need a dark variant.
-  if theme['color'] != '-dark'
-    gtk4_variants += 'gtk-dark'
-  endif
 
   install_subdir(
     '../gtk-3.0/assets',
