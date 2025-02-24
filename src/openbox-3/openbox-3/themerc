@@ -10,8 +10,8 @@ window.active.button.unpressed.image.color: #bcbdbf
 window.inactive.button.unpressed.image.color: #bcbdbf
 menu.items.bg.color: #383c4a
 menu.items.text.color: #bcbdbf
-menu.items.active.bg.color: #383c4a
-menu.items.active.text.color: #bcbdbf
+menu.items.active.bg.color: #bcbdbf
+menu.items.active.text.color: #383c4a
 osd.bg.color: #34363d
 osd.border.color: #bcbdbf
 osd.label.text.color: #bcbdbf
@@ -19,5 +19,3 @@ window.button.hover.bg.corner-radius: 50
 window.button.width: 22
 window.button.height: 22
 window.button.spacing: 6
-
-
