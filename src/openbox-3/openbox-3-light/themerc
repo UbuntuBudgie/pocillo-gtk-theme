@@ -14,10 +14,8 @@ menu.items.active.bg.color: #383c4a
 menu.items.active.text.color: #bcbdbf
 osd.bg.color: #f0f0f0
 osd.border.color: #bcbdbf
-osd.label.text.color: #383c4a
+osd.label.text.color: #000000
 window.button.hover.bg.corner-radius: 50
 window.button.width: 22
 window.button.height: 22
 window.button.spacing: 6
-
-
