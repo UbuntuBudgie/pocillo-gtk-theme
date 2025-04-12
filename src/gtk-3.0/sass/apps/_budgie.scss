@@ -59,7 +59,11 @@
   list {
     // background-color: transparent;
   }
-
+  
+  scrolledwindow.sidebar:not(.categories) label {
+  padding: 4px 6px;
+    }
+  
   row {
     padding: 0;
 
@@ -301,7 +305,7 @@ button.raven-trigger {
   &.transparent {
     //Materia background-color: theme-color.$scrim;
     //Materia color: theme-color.hint(theme-color.$on-scrim);
-    background-color: rgba(black, 0.6); // Pocillo we use a semi transparent dynamic panel
+    background-color: rgba(#20222a, 0.5); // Pocillo we use a semi transparent dynamic panel
   }
 
   button {
