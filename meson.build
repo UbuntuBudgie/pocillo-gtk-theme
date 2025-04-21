@@ -1,6 +1,6 @@
 project(
   'pocillo-theme',
-  version: '20250224',
+  version: '20250421',
   license: 'GPLv2+',
   meson_version: '>= 0.55.0',
   default_options: ['prefix=/usr'],
