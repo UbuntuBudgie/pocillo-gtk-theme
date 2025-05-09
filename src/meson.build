@@ -16,7 +16,7 @@ foreach theme: themes
 endforeach
 
 subdir('chrome')
-#subdir('cinnamon')
+subdir('cinnamon')
 #subdir('gnome-shell')
 subdir('gtk-2.0')
 subdir('gtk-3.0')
