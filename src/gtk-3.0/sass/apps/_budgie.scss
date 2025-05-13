@@ -381,9 +381,8 @@ button.raven-trigger {
 
   // Icon Tasklist
   button.flat.launcher {
+    border-radius: 10px 10px 10px 10px;
     padding: 0;
-
-    @extend %underscores;
 
     // for indicator colors
     &:not(:checked) {
