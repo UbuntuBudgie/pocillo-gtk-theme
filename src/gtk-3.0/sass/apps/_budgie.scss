@@ -299,7 +299,7 @@ button.raven-trigger {
 .budgie-panel {
   transition: background-color theme.$state-duration theme.$ease-out;
   background-color: theme-color.$panel;
-  color: theme-color.hint(theme-color.$on-panel);
+  color: #FFFFFF;
   font-weight: 500;
 
   &.transparent {
@@ -313,7 +313,7 @@ button.raven-trigger {
     min-width: 16px;
     padding: 0;
     border-radius: 0;
-    color: theme-color.hint(theme-color.$on-panel);
+    color: #FFFFFF;
     @include drawing.ink-color(theme-color.$on-panel, $button-style: "flat");
 
     &:disabled {
