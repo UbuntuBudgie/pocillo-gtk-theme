@@ -44,3 +44,11 @@ option(
   value: true,
   description: 'Whether to build with license and other doc info',
 )
+
+option(
+  'labwc_icons',
+  type: 'combo',
+  choices: ['default', 'papirus'],
+  value: 'default',
+  description: 'Titlebar icons for labwc',
+)
