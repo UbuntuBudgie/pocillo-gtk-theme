@@ -21,7 +21,7 @@ endforeach
 #subdir('gtk-2.0')
 subdir('gtk-3.0')
 subdir('gtk-4.0')
-subdir('openbox-3')
+subdir('labwc')
 #subdir('metacity-1')
 #subdir('plank')
 #subdir('unity')
