@@ -1,10 +1,11 @@
 $dark-theme: false !default;
 $darkest-theme: false !default;
+$frappe-theme: false !default;
 $light-topbar: false !default;
 $compact: false !default;
 $toolkit: "none" !default;
 
-$asset-suffix: if($dark-theme, "-dark", "");
+$asset-suffix: if($dark-theme or $darkest-theme or $frappe-theme, "-dark", "");
 
 //
 // Sizes

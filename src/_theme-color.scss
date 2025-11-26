@@ -179,6 +179,47 @@ $titlebar-indicator: currentcolor;
   $on-panel-solid: on($panel-solid);
 }
 
+@if theme.$frappe-theme {
+  $sidebar-surface-z1: #292C3C;
+  $surface-z0: #303446;
+  $surface-z1: #414559;
+  $surface-z8: #292C3C;
+  $surface-switch-thumb: #8CAAEE;
+  $on-surface: #C6D0F5;
+
+  $primary: #8CAAEE;
+  $on-primary: #292C3C;
+
+  $error: #E78284;
+  $on-error: #292C3C;
+
+  $warning: #EF9F76;
+  $on-warning: #292C3C;
+
+  $success: #A6D189;
+  $on-success: #292C3C;
+
+  $visited: #CA9EE6;
+  $on-visited: #292C3C;
+
+  $titlebar: #232634;
+  $titlebar-backdrop: #292C3C;
+  $on-titlebar: #C6D0F5;
+
+  $panel: #232634;
+  $on-panel: #C6D0F5;
+  
+  $panel-solid: #232634;
+  $on-panel-solid: #C6D0F5;
+
+  $tooltip: #292C3C;
+  $on-tooltip: #C6D0F5;
+
+  $disabled: #626880;
+  $link: #8CAAEE;
+  $link-visited: #98B2EF;
+}
+
 @if theme.$light-topbar {
   $panel: $scrim;
   $on-panel: on($panel);

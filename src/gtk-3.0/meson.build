@@ -42,6 +42,7 @@ foreach theme: themes
   gtk3_scss_conf = configuration_data()
   gtk3_scss_conf.set('dark_theme', theme['scss_dark_theme'])
   gtk3_scss_conf.set('darkest_theme', theme['scss_darkest_theme'])
+  gtk3_scss_conf.set('frappe_theme', theme['scss_frappe_theme'])
   gtk3_scss_conf.set('light_topbar', theme['scss_light_topbar'])
   gtk3_scss_conf.set('compact', theme['scss_compact'])
   gtk3_scss_conf.set('current_source_dir', meson.current_source_dir())

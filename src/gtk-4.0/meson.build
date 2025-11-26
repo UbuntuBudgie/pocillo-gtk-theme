@@ -52,6 +52,7 @@ foreach theme: themes
   gtk4_scss_conf = configuration_data()
   gtk4_scss_conf.set('dark_theme', theme['scss_dark_theme'])
   gtk4_scss_conf.set('darkest_theme', theme['scss_darkest_theme'])
+  gtk4_scss_conf.set('frappe_theme', theme['scss_frappe_theme'])
   gtk4_scss_conf.set('light_topbar', theme['scss_light_topbar'])
   gtk4_scss_conf.set('compact', theme['scss_compact'])
   gtk4_scss_conf.set('version', gtk4_version)

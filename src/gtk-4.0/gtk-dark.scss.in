@@ -1,6 +1,7 @@
 @use "@current_source_dir@/../theme" with (
   $dark-theme: @dark_theme@,
   $darkest-theme: @darkest_theme@,
+  $frappe-theme: @frappe_theme@,
   $light-topbar: false,
   $compact: @compact@,
   $toolkit: "gtk4"

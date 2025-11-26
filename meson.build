@@ -41,6 +41,7 @@ foreach color: get_option('colors')
 
     scss_dark_theme = color == 'dark' ? 'true' : 'false'
     scss_darkest_theme = color == 'darkest' ? 'true' : 'false'
+    scss_frappe_theme = color == 'frappe' ? 'true' : 'false'
     scss_light_topbar = color == 'light' ? 'true' : 'false'
     scss_compact = size == 'slim' ? 'true' : 'false'
 
@@ -51,6 +52,7 @@ foreach color: get_option('colors')
       'size': size_suffix,
       'scss_dark_theme': scss_dark_theme,
       'scss_darkest_theme': scss_darkest_theme,
+      'scss_frappe_theme': scss_frappe_theme,
       'scss_light_topbar': scss_light_topbar,
       'scss_compact': scss_compact,
     }
