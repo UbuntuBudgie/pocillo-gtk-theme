@@ -3,11 +3,11 @@ window.titlebar.padding.width: 6
 window.active.title.bg.color: #232634
 window.inactive.title.bg.color: #292C3C
 window.active.label.text.color: #C6D0F5
-window.inactive.label.text.color: #C6D0F5
+window.inactive.label.text.color: #f4b8e4
 window.active.border.color: #232634
 window.inactive.border.color: #292C3C
-window.active.button.unpressed.image.color: #8CAAEE
-window.inactive.button.unpressed.image.color: #8CAAEE
+window.active.button.unpressed.image.color: #C6D0F5
+window.inactive.button.unpressed.image.color: #f4b8e4
 menu.items.bg.color: #292C3C
 menu.items.text.color: #C6D0F5
 menu.items.active.bg.color: #8CAAEE

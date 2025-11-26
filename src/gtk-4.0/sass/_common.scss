@@ -4256,3 +4256,23 @@ popover.entry-completion > contents {
     }
   }
 }
+
+@if theme.$darkest-theme {
+  .titlebar:backdrop {
+    color: #5294e2;
+  }
+  
+  .titlebar:backdrop button:not(.suggested-action):not(.destructive-action) {
+    color: #5294e2;
+  }
+}
+
+@if theme.$frappe-theme {
+  .titlebar:backdrop {
+    color: #f4b8e4;
+  }
+  
+  .titlebar:backdrop button:not(.suggested-action):not(.destructive-action) {
+    color: #f4b8e4;
+  }
+}

@@ -3,11 +3,11 @@ window.titlebar.padding.width: 6
 window.active.title.bg.color: #000000
 window.inactive.title.bg.color: #0a0a0a
 window.active.label.text.color: #ffffff
-window.inactive.label.text.color: #ffffff
+window.inactive.label.text.color: #5294e2
 window.active.border.color: #000000
 window.inactive.border.color: #0a0a0a
 window.active.button.unpressed.image.color: #ffffff
-window.inactive.button.unpressed.image.color: #bcbdbf
+window.inactive.button.unpressed.image.color: #5294e2
 menu.items.bg.color: #0a0a0a
 menu.items.text.color: #ffffff
 menu.items.active.bg.color: #5294e2
