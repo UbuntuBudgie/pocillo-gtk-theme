@@ -8,7 +8,7 @@ option(
 option(
   'colors',
   type: 'array',
-  choices: ['default', 'light', 'dark'],
+  choices: ['default', 'light', 'dark', 'darkest'],
   description: 'List of color variants to build',
 )
 

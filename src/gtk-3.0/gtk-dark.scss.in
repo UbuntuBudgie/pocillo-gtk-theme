@@ -1,5 +1,6 @@
 @use "@current_source_dir@/../theme" with (
-  $dark-theme: true,
+  $dark-theme: @dark_theme@,
+  $darkest-theme: @darkest_theme@,
   $light-topbar: false,
   $compact: @compact@,
   $toolkit: "gtk3"

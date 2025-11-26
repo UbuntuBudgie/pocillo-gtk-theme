@@ -40,6 +40,7 @@ foreach color: get_option('colors')
     size_suffix = size == 'default' ? '' : '-@0@'.format(size)
 
     scss_dark_theme = color == 'dark' ? 'true' : 'false'
+    scss_darkest_theme = color == 'darkest' ? 'true' : 'false'
     scss_light_topbar = color == 'light' ? 'true' : 'false'
     scss_compact = size == 'slim' ? 'true' : 'false'
 
@@ -49,6 +50,7 @@ foreach color: get_option('colors')
       'color': color_suffix,
       'size': size_suffix,
       'scss_dark_theme': scss_dark_theme,
+      'scss_darkest_theme': scss_darkest_theme,
       'scss_light_topbar': scss_light_topbar,
       'scss_compact': scss_compact,
     }
