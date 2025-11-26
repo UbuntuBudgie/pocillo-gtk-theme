@@ -146,14 +146,14 @@ $titlebar-indicator: currentcolor;
 }
 
 @if theme.$darkest-theme {
-  $sidebar-surface-z1: #1e1e1e;
+  $sidebar-surface-z1: #0a0a0a;
   $surface-z0: #0a0a0a;
-  $surface-z1: #252525;
-  $surface-z8: #323232;
+  $surface-z1: #0a0a0a;
+  $surface-z8: #0a0a0a;
   $surface-switch-thumb: color.mix(white, $surface-z0, 75%);
-  $on-surface: color.mix(white, $surface-z0, 95%);
+  $on-surface: color.mix(white, $surface-z0, 100%);
 
-  $primary: #1e88e5;
+  $primary: #5294e2;
   $on-primary: on($primary);
 
   $error: #e53935;
