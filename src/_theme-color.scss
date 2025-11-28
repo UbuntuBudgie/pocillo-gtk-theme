@@ -146,6 +146,7 @@ $titlebar-indicator: currentcolor;
 }
 
 @if theme.$darkest-theme {
+  $inverse-surface-z1: #020202;
   $sidebar-surface-z1: #0a0a0a;
   $surface-z0: #0a0a0a;
   $surface-z1: #0a0a0a;
@@ -180,6 +181,7 @@ $titlebar-indicator: currentcolor;
 }
 
 @if theme.$frappe-theme {
+  $inverse-surface-z1: #292C3C;
   $sidebar-surface-z1: #292C3C;
   $surface-z0: #303446;
   $surface-z1: #414559;
