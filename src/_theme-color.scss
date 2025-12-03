@@ -67,8 +67,8 @@ $surface-z8: #f5f6f7; //#fff; Materia
 $surface-switch-thumb: #fff;
 $on-surface: on($surface-z0);
 
-$primary-on-light: #2767aa;//#1967d2; Materia
-$primary-on-dark: #5294e2;//#8ab4f8 Materia;
+$primary-on-light: #5294e2;//#1967d2; Materia
+$primary-on-dark: #8CAAEE;//#8ab4f8 Materia;
 $primary: $primary-on-light;
 $on-primary: on($primary);
 
@@ -154,7 +154,7 @@ $titlebar-indicator: currentcolor;
   $surface-switch-thumb: color.mix(white, $surface-z0, 75%);
   $on-surface: color.mix(white, $surface-z0, 100%);
 
-  $primary: #1e66f5;
+  $primary: #5294e2;
   $on-primary: on($primary);
 
   $error: #e53935;
