@@ -4261,7 +4261,11 @@ popover.entry-completion > contents {
   .titlebar:backdrop {
     color: #5294e2;
   }
-  
+
+  .titlebar button:not(.suggested-action):not(.destructive-action) {
+    color: #ffffff;
+  }
+
   .titlebar:backdrop button:not(.suggested-action):not(.destructive-action) {
     color: #5294e2;
   }
@@ -4271,7 +4275,11 @@ popover.entry-completion > contents {
   .titlebar:backdrop {
     color: #f4b8e4;
   }
-  
+
+  .titlebar button:not(.suggested-action):not(.destructive-action) {
+    color: #C6D0F5;
+  }
+
   .titlebar:backdrop button:not(.suggested-action):not(.destructive-action) {
     color: #f4b8e4;
   }
