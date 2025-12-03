@@ -8,15 +8,15 @@ else
   RENDER_SVG="$(command -v rendersvg)" || true
 fi
 INKSCAPE="$(command -v inkscape)" || true
-OPTIPNG="$(command -v optipng)" || true
+OPTISVG="$(command -v optisvg)" || true
 
 if [[ -n "${INKSCAPE}" ]]; then
   if "$INKSCAPE" --help | grep -e "--export-filename" > /dev/null; then
     EXPORT_FILE_OPTION="--export-filename"
   elif "$INKSCAPE" --help | grep -e "--export-file" > /dev/null; then
     EXPORT_FILE_OPTION="--export-file"
-  elif "$INKSCAPE" --help | grep -e "--export-png" > /dev/null; then
-    EXPORT_FILE_OPTION="--export-png"
+  elif "$INKSCAPE" --help | grep -e "--export-svg" > /dev/null; then
+    EXPORT_FILE_OPTION="--export-svg"
   fi
 fi
 
@@ -25,36 +25,36 @@ ASSETS_DIR="assets"
 
 i="$1"
 
-echo "Rendering '$ASSETS_DIR/$i.png'"
+echo "Rendering '$ASSETS_DIR/$i.svg'"
 
 if [[ -n "${RENDER_SVG}" ]]; then
   "$RENDER_SVG" --export-id "$i" \
-                "$SRC_FILE" "$ASSETS_DIR/$i.png"
+                "$SRC_FILE" "$ASSETS_DIR/$i.svg"
 else
   "$INKSCAPE" --export-id="$i" \
               --export-id-only \
-              "$EXPORT_FILE_OPTION=$ASSETS_DIR/$i.png" "$SRC_FILE" >/dev/null
+              "$EXPORT_FILE_OPTION=$ASSETS_DIR/$i.svg" "$SRC_FILE" >/dev/null
 fi
 
-if [[ -n "${OPTIPNG}" ]]; then
-  "$OPTIPNG" -o7 --quiet "$ASSETS_DIR/$i.png"
+if [[ -n "${OPTISVG}" ]]; then
+  "$OPTISVG" -o7 --quiet "$ASSETS_DIR/$i.svg"
 fi
 
-echo "Rendering '$ASSETS_DIR/$i@2.png'"
+echo "Rendering '$ASSETS_DIR/$i@2.svg'"
 
 if [[ -n "${RENDER_SVG}" ]]; then
   # @TODO: remove --zoom when it will be fixed/implemented in resvg
   "$RENDER_SVG" --export-id "$i" \
                 --dpi 192 \
                 --zoom 2 \
-                "$SRC_FILE" "$ASSETS_DIR/$i@2.png"
+                "$SRC_FILE" "$ASSETS_DIR/$i@2.svg"
 else
   "$INKSCAPE" --export-id="$i" \
               --export-id-only \
               --export-dpi=192 \
-              "$EXPORT_FILE_OPTION=$ASSETS_DIR/$i@2.png" "$SRC_FILE" >/dev/null
+              "$EXPORT_FILE_OPTION=$ASSETS_DIR/$i@2.svg" "$SRC_FILE" >/dev/null
 fi
 
-if [[ -n "${OPTIPNG}" ]]; then
-  "$OPTIPNG" -o7 --quiet "$ASSETS_DIR/$i@2.png"
+if [[ -n "${OPTISVG}" ]]; then
+  "$OPTISVG" -o7 --quiet "$ASSETS_DIR/$i@2.svg"
 fi

@@ -48,12 +48,12 @@ Option | Default Value | Description
 `colors` | `default,dark,darkest,frappe,light` | List of color variants to build
 `sizes` | `default,slim` | List of size variants to build
 `gtk4_version` | n/a (auto) | Build GTK 4 theme for specific version
-`labwc_icons` | `default` | Use the Pocillo/Qogir or Papirus icons in the Labwc titlebar
+`labwc_icons` | `papirus` | Use the Papirus or Qogir icons in the Labwc titlebar
 
 Build options can be set at the configuration time, for example:
 
 ```sh
-meson _build -Dprefix="$HOME/.local" -Dcolors=default,dark,frappe -Dsizes=slim -Dlabwc_icons=papirus
+meson _build -Dprefix="$HOME/.local" -Dcolors=default,darkest,frappe -Dsizes=slim -Dlabwc_icons=qogir
 ```
 
 > Note: If you are a package maintainer, you should always set `gtk4_version` in your package script based on the `gtk4` package versions in your distribution. Otherwise, the corresponding themes may be built for wrong version.

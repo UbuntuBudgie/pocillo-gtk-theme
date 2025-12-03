@@ -2540,8 +2540,8 @@ switch {
  * Check and Radio items
  */
 
-// draw regular check and radio items using our PNG assets
-// all assets are rendered from assets.svg. never add pngs directly
+// draw regular check and radio items using our SVG assets
+// all assets are rendered from assets.svg. never add svg files directly
 
 // selection-mode
 .view.content-view.check:not(list),
@@ -2563,7 +2563,7 @@ switch {
     &#{$class} {
       $_url: 'assets/selectionmode-checkbox#{$suffix}#{theme.$asset-suffix}';
 
-      -gtk-icon-source: -gtk-scaled(url("#{$_url}.png"), url("#{$_url}@2.png"));
+      -gtk-icon-source: -gtk-scaled(url("#{$_url}.svg"), url("#{$_url}@2.svg"));
     }
   }
 }
@@ -2809,7 +2809,7 @@ scale {
         &#{$class} {
           $_url: 'assets/scale-slider#{$suffix}#{theme.$asset-suffix}';
 
-          background-image: -gtk-scaled(url('#{$_url}.png'), url('#{$_url}@2.png')),
+          background-image: -gtk-scaled(url('#{$_url}.svg'), url('#{$_url}@2.svg')),
                             radial-gradient(circle, transparent 10%, transparent 10%);
         }
       }
@@ -2829,7 +2829,7 @@ scale {
                     background-size 0ms,
                     background-image 0ms;
         animation: ripple-on-slider theme.$ripple-duration theme.$ease-out forwards;
-        background-image: -gtk-scaled(url('#{$_url}.png'), url('#{$_url}@2.png')),
+        background-image: -gtk-scaled(url('#{$_url}.svg'), url('#{$_url}@2.svg')),
                           radial-gradient(circle, theme-color.pressed-overlay(theme-color.$primary) 10%, transparent 10%);
         background-size: auto, 0% 0%;
       }
@@ -2896,7 +2896,7 @@ scale {
             $_scale_asset: 'assets/scale#{$dir_infix}#{$marks_infix}-slider#{$state_infix}#{theme.$asset-suffix}';
 
             background-image:
-              -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png')),
+              -gtk-scaled(url('#{$_scale_asset}.svg'), url('#{$_scale_asset}@2.svg')),
               radial-gradient(circle, transparent 10%, transparent 10%);
           }
         }
@@ -2905,7 +2905,7 @@ scale {
           $_scale_asset: 'assets/scale#{$dir_infix}#{$marks_infix}-slider#{theme.$asset-suffix}';
 
           background-image:
-            -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png')),
+            -gtk-scaled(url('#{$_scale_asset}.svg'), url('#{$_scale_asset}@2.svg')),
             radial-gradient(circle, theme-color.pressed-overlay(theme-color.$primary) 10%, transparent 10%);
         }
       }

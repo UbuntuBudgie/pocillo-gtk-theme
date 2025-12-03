@@ -3,10 +3,10 @@ labwc_icons = get_option('labwc_icons')
 foreach theme: themes
   labwc_dir = join_paths(theme['dir'], 'labwc')
 
-  if labwc_icons == 'papirus'
-    labwc_theme_dir = 'labwc-papirus' + theme['color']
+  if labwc_icons == 'qogir'
+    labwc_theme_dir = 'labwc-qogir' + theme['color']
   else
-    labwc_theme_dir = 'labwc' + theme['color']
+    labwc_theme_dir = 'labwc-papirus' + theme['color']
   endif
 
   install_subdir(

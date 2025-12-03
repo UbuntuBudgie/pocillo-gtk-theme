@@ -48,7 +48,7 @@ option(
 option(
   'labwc_icons',
   type: 'combo',
-  choices: ['default', 'papirus'],
-  value: 'default',
+  choices: ['papirus', 'qogir'],
+  value: 'papirus',
   description: 'Titlebar icons for labwc',
 )

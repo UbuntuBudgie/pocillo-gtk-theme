@@ -150,11 +150,11 @@ $titlebar-indicator: currentcolor;
   $sidebar-surface-z1: #0a0a0a;
   $surface-z0: #0a0a0a;
   $surface-z1: #0a0a0a;
-  $surface-z8: #0a0a0a;
+  $surface-z8: #020202;
   $surface-switch-thumb: color.mix(white, $surface-z0, 75%);
   $on-surface: color.mix(white, $surface-z0, 100%);
 
-  $primary: #5294e2;
+  $primary: #1e66f5;
   $on-primary: on($primary);
 
   $error: #e53935;
@@ -164,10 +164,8 @@ $titlebar-indicator: currentcolor;
   $on-warning: on($warning);
 
   $success: #43a047;
-  $on-success: on($success);
 
   $visited: #8e24aa;
-  $on-visited: on($visited);
 
   $titlebar: #000000;
   $titlebar-backdrop: #0a0a0a;
@@ -175,9 +173,6 @@ $titlebar-indicator: currentcolor;
 
   $panel: #020202;
   $on-panel: on($panel);
-  
-  $panel-solid: #020202;
-  $on-panel-solid: on($panel-solid);
 }
 
 @if theme.$frappe-theme {
@@ -199,10 +194,8 @@ $titlebar-indicator: currentcolor;
   $on-warning: #292C3C;
 
   $success: #A6D189;
-  $on-success: #292C3C;
 
   $visited: #CA9EE6;
-  $on-visited: #292C3C;
 
   $titlebar: #232634;
   $titlebar-backdrop: #292C3C;
@@ -210,16 +203,9 @@ $titlebar-indicator: currentcolor;
 
   $panel: #232634;
   $on-panel: #C6D0F5;
-  
-  $panel-solid: #232634;
-  $on-panel-solid: #C6D0F5;
 
   $tooltip: #292C3C;
   $on-tooltip: #C6D0F5;
-
-  $disabled: #626880;
-  $link: #8CAAEE;
-  $link-visited: #98B2EF;
 }
 
 @if theme.$light-topbar {
@@ -361,3 +347,4 @@ $selected-overlay: selected-overlay($on-surface);
     @error "Invalid type: '#{$state}'";
   }
 }
+
