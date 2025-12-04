@@ -48,7 +48,7 @@ Option | Default Value | Description
 `colors` | `default,dark,darkest,frappe,light` | List of color variants to build
 `sizes` | `default,slim` | List of size variants to build
 `gtk4_version` | n/a (auto) | Build GTK 4 theme for specific version
-`labwc_icons` | `papirus` | Use the Papirus or Qogir icons in the Labwc titlebar
+`labwc_icons` | `qogir` | Use the Papirus or Qogir icons in the Labwc titlebar
 
 Build options can be set at the configuration time, for example:
 
