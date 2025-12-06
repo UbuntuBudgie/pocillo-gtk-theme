@@ -4259,7 +4259,7 @@ popover.entry-completion > contents {
 
 @if theme.$darkest-theme {
   .titlebar:backdrop {
-    color: #5294e2;
+    color: #8CAAEE;
   }
 
   .titlebar button:not(.suggested-action):not(.destructive-action) {
@@ -4267,7 +4267,7 @@ popover.entry-completion > contents {
   }
 
   .titlebar:backdrop button:not(.suggested-action):not(.destructive-action) {
-    color: #5294e2;
+    color: #8CAAEE;
   }
 }
 

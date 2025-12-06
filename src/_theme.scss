@@ -5,7 +5,7 @@ $light-topbar: false !default;
 $compact: false !default;
 $toolkit: "none" !default;
 
-$asset-suffix: if($dark-theme or $frappe-theme, "-dark", "");
+$asset-suffix: if($dark-theme or $darkest-theme or $frappe-theme, "-dark", "");
 
 //
 // Sizes
