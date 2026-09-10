@@ -38,88 +38,98 @@
   }
 }
 
+// Style both Budgie Menu main layout and popovers the same
+.budgie-menu,
 .budgie-popover {
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(black, .1) rgba(black, .2) rgba(black, .3);
-  border-radius: theme.$corner-radius + 1px;
-  box-shadow: shadow.$z4;
-  background-clip: padding-box;
-  background-color: theme-color.$surface-z8;
-
-  .container {
-    padding: 2px;
-  }
-
-  border {
-    border: none;
-    background-color: transparent;
-  }
-
-  list {
-    // background-color: transparent;
-  }
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(black, .1) rgba(black, .2) rgba(black, .3);
+    border-radius: theme.$corner-radius + 1px;
+    box-shadow: shadow.$z4;
+    background-clip: padding-box;
+    background-color: theme-color.$surface-z8;
   
-  scrolledwindow.sidebar:not(.categories) label {
-  padding: 4px 6px;
-    }
-  
-  row {
-    padding: 0;
-
-    &:hover {
-      box-shadow: none;
-    }
-  }
-
-  button.flat:not(.image-button) {
-    min-height: theme.$menu-item-dense-height;
-    padding: 0 8px;
-    color: theme-color.$on-surface;
-    font-weight: normal;
-
-    &:disabled {
-      color: theme-color.disabled(theme-color.$on-surface);
-    }
-  }
-
-  &.budgie-menu {
     .container {
-      padding: 0;
+      padding: 2px;
     }
-
-    // .sidebar,
-    scrollbar,
-    entry.search {
+  
+    border {
+      border: none;
       background-color: transparent;
     }
-
-    entry.search {
-      border-bottom: 1px solid theme-color.divider(theme-color.$on-surface);
-      border-image: none;
-      border-radius: 0;
-      box-shadow: none;
-      font-size: 120%;
-    }
-
-    button.flat:not(.image-button) {
-      min-height: 32px;
-      padding: 0 8px;
-      border-radius: 0;
-
-      @include drawing.list-item;
-
-      &:checked {
-        background-color: theme-color.$selected-overlay;
+   
+    scrolledwindow.sidebar:not(.categories) label {
+    padding: 4px 6px;
       }
+    
+    row {
+      padding: 0;
+  
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  
+    button.flat:not(.image-button) {
+      min-height: theme.$menu-item-dense-height;
+      padding: 0 8px;
+      color: theme-color.$on-surface;
+      font-weight: normal;
+  
+      &:disabled {
+        color: theme-color.disabled(theme-color.$on-surface);
+      }
+    }
+}
 
-      // remove pointless indicator
-      &:checked:disabled {
+// budgie-menu-window is effectively a transparent container that houses the main content and arrow
+.budgie-menu-window {
+    background-color: transparent;
+
+    // The main content of budgie menu is the budgie-menu class
+    .budgie-menu {
+      .container {
+        padding: 0;
+      }
+  
+      // .sidebar,
+      scrollbar,
+      entry.search {
         background-color: transparent;
       }
+  
+      entry.search {
+        border-bottom: 1px solid theme-color.divider(theme-color.$on-surface);
+        border-image: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 120%;
+      }
+  
+      button.flat:not(.image-button) {
+        min-height: 32px;
+        padding: 0 8px;
+        border-radius: 0;
+  
+        @include drawing.list-item;
+  
+        &:checked {
+          background-color: theme-color.$selected-overlay;
+        }
+  
+        // remove pointless indicator
+        &:checked:disabled {
+          background-color: transparent;
+        }
+      }
     }
-  }
 
+    .budgie-menu-arrow {
+        color: theme-color.$surface-z8;
+    }
+}
+
+.budgie-popover {
   &.user-menu {
     .container {
       padding: 8px;
